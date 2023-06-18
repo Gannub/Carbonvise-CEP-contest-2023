@@ -47,28 +47,40 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-
-
+    #crispyforms
+    'crispy_forms',
+    "crispy_tailwind",
+    "crispy_bootstrap4",
+    #my apps
     'profiles',
+    'market',
 ]
 
-AUTHENTICATION_BACKENDS = [
-    
+AUTHENTICATION_BACKENDS = [ 
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    
 ]
-
+#auth
 SITE_ID = 1
 AUTH_USER_MODEL = "profiles.User"
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
+
+ACCOUNT_FORMS = {
+    'signup': 'profiles.forms.CustomUserCreationForm',
+}
+
+#crispyforms
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,7 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
-
+#locale
 USE_I18N = True
 
 USE_TZ = True

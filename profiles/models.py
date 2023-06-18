@@ -8,4 +8,5 @@ class User(AbstractUser):
     pass
 
 class Profile(models.Model):
+    #about dealer reminder
     pass
