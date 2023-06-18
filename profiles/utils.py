@@ -19,6 +19,6 @@ def check_slug_unique(instance, new_slug=None):
         slug = random_string_generator(chars=10)
         #recursive
         return check_slug_unique(instance, new_slug=slug)
-    print(slug)
+    # print(slug)
     return slug
             

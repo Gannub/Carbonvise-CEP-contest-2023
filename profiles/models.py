@@ -4,7 +4,7 @@ from profiles.utils import check_slug_unique
 from django.db.models.signals import pre_save, post_save
 from django.contrib.auth import get_user_model
 
-# from market.models import Market
+from market.models import Market
     
 User = get_user_model()
 #seperate calls to avoid circular import.
@@ -16,7 +16,10 @@ class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     about_dealer = models.TextField(null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
-    
+
+    #hopefully i fixed the circular import
+    deals = models.ManyToManyField(Market)
+     
     def __str__(self):
         return f'{self.user.username}'
     
