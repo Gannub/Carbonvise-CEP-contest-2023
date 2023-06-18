@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     #my apps
     'profiles',
     'market',
+    'users',
 ]
 
 AUTHENTICATION_BACKENDS = [ 
@@ -62,9 +63,10 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-#auth
+
+#allauth
 SITE_ID = 1
-AUTH_USER_MODEL = "profiles.User"
+AUTH_USER_MODEL = "users.User"
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'index'

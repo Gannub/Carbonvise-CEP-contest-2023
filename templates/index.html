@@ -5,15 +5,23 @@
 	<section class="hero-section set-bg" data-setbg="{% static 'img/forest.jpg' %}">
 		<div class="container">
 			<div class="hero-text text-white">
+				{% if user.is_authenticated %}
+				<h2>Unlocking a Sustainable Future<br> Empowering Change through Carbon Credits.</h2>
+				<!-- <h2 class="">Welcome, {{user}} </h2> -->
+				{% else %}
 				<h2>Unlocking a Sustainable Future<br> Empowering Change through Carbon Credits.</h2>
 				<p></p>
+				{% endif %}
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
 					<form class="intro-newslatter">
+						{% if user.is_authenticated %}
+						{% else %}	
 						<input type="text" placeholder="Name">
 						<input type="text" class="last-s" placeholder="E-mail">
 						<button class="site-btn">Sign Up Now</button>
+						{% endif %}
 					</form>
 				</div>
 			</div>
