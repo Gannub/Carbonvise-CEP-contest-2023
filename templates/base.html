@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Carbonvise</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="WebUni Education Template">
+	<meta name="keywords" content="webuni, education, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'img/favicon.ico'}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<!-- <div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="site-logo">
+						<img class="site-logo-resp" src="{% static 'img/carbonvise.png' %}" alt="">
+					</div>
+					<div class="nav-switch">
+						<i class="fa fa-bars"></i>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9">
+                    <div class="sign-log">
+                        {% if user.is_authenticated %}
+
+                            <a href="" class="site-btn header-btn">{{user}}</a> 
+                        {% else %}
+                        
+                       
+                            <a href="{% url 'account_login' %}" class="site-btn header-btn">Login</a>
+                            <a href="{% url 'account_signup' %}" class="site-btn header-btn">Sign up</a> 
+                        
+                        {% endif %} 
+					</div>
+                    <nav class="main-menu">
+						<ul>
+							<li><a href="">Marketplace</a></li>
+							<li><a href="">Blogs</a></li>
+                            <li><a href="">Carbon Offset</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{% url 'index' %} "><strong>CARBONVISE</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Blogs</a>
+                    </li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Leaderboards</a>
+					</li>
+                  </ul>
+                  <span class="navbar-text ">
+                    {% if user.is_authenticated %}
+                
+                        <a class="nav-link mr-auto" href="{% url 'account_logout' %}">{{user}}</a>
+                        
+                    {% else %}
+                    
+                
+                        <a href="{% url 'account_login' %}" class="">Login&emsp;&emsp;</a>
+                        <a href="{% url 'account_signup' %}" class="">Sign up</a> 
+                    
+                    {% endif %} 
+                    
+                  </span>
+                </div>
+              </nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+{% block content %}    
+
+{% endblock %}
+
+
+
+	<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				<h4>Become Neutral to carbon now.</h4>
+				<p>Take actions on global warmings and climate change as soon as possible!.</p>
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">What is carbon neutrality? </a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+	<!-- footer section -->
+	<footer class="footer-section spad pb-0">
+		<div class="footer-top">
+			<div class="footer-warp">
+				<div class="row">
+					<div class="widget-item">
+						<h4>Contact Info</h4>
+						<ul class="contact-list">
+							<li>
+                                Chestnut Team. <br>
+                                254 Phaya Thai Rd, Wang Mai, Pathum Wan, Bangkok 10330
+                                 </li>
+							<li>Tel goes here</li>
+							<li>Chestnut@gmail.com</li>
+						</ul>
+					</div>
+					<div class="widget-item">
+						<h4>Chestnut Team</h4>
+						<ul>
+							<li><a href="https://www.cp.eng.chula.ac.th/cedt"target='_blank'>Computer Engineering & Digital Technology Chula</a></li>
+							<li><a href="https://www.cp.eng.chula.ac.th/future/bachelor"target='_blank'>Computer Engineering Chula</a></li>
+
+						</ul>
+					</div>
+
+					<div class="widget-item">
+						<h4>Free Donuts</h4>
+						<form class="footer-newslatter">
+							<input type="email" placeholder="E-mail">
+							<button class="site-btn">Subscribe</button>
+							<p></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="footer-warp">
+				<ul class="footer-menu">
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Support Chestnut Team</a></li>
+					<li><a href="#">Privacy</a></li>
+				</ul>
+				
+			</div>
+		</div>
+	</footer> 
+	<!-- footer section end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/mixitup.min.js' %}"></script>
+	<script src="{% static 'js/circle-progress.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</html>
