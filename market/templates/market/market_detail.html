@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+	<section class="single-carbon spad pb-0">
+		<div class="container">
+            <img src="{% static 'img/forest2.jpg' %}" alt="" class="carbon-preview">
+			<div class="carbon-meta-area">
+				<div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+						<div class="carbon-note">Featured Deal</div>
+						<h3>{{market.name}}</h3>
+						<div class="carbon-metas">
+							<div class="carbon-meta">
+								<div class="carbon-author">
+									<div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+									<h6>Dealer</h6>
+									<p>{{market.dealer}} <span></span></p>
+								</div>
+							</div>
+							<div class="carbon-meta">
+								<div class="cm-info">
+									<h6>Category</h6>
+									<p>{{market.get_category_name}}</p>
+								</div>
+							</div>
+							<div class="carbon-meta">
+								<div class="cm-info">
+									<h6>Buyers</h6>
+									<p>{{market.number_of_buyer}}/1000</p>
+								</div>
+							</div>
+							<div class="carbon-meta">
+								<div class="cm-info">
+									<h6>Reviews</h6>
+									<p>2 Reviews <span class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star is-fade"></i>
+									</span></p>
+								</div>
+							</div>
+						</div>
+						<a href="#" class="site-btn price-btn">Price: ${{market.price_per_unit}}</a>
+						<a href="#" class="site-btn buy-btn">Buy Chestnuts</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 carbon-list">
+					<div class="cl-item">
+						<h4 class="my-5">Description</h4>
+						<p>{{market.long_description}}</p>
+					</div>
+					<!-- <div class="cl-item">
+						<h4>Certification</h4>
+						<p>Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum.</p>
+					</div> -->
+					<div class="cl-item">
+						<h4>About The Dealer</h4>
+						<p>Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+    
+    
+    </section>
+    	<section class="related-carbons spad">
+		<div class="carbon-warp">
+			<h2 class="rc-title">{{market.get_category_name}} Deals</h2>
+			<div class="rc-slider owl-carousel">
+				<!-- the carousel still has the deal above.(fix later) -->
+                {% for deal in deal_list %}
+                    <a href="{% url 'market:market_detail' deal.slug %}">
+                        <div class="carbon-item">
+                            <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
+                                <div class="price">฿{{deal.price_per_unit}}/chestnut</div>
+                            </div>
+                            <div class="carbon-info">
+                                <div class="carbon-text">
+                                    <h5>{{deal.name}}</h5>
+                                    <p>{{deal.short_description}}</p>
+                                    <div class="students">{{deal.number_of_buyer}}/1000</div>
+                                </div>
+                                <div class="carbon-author">
+                                    <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+                                    <p>{{deal.dealer}}, <span>{{deal.get_category_name}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

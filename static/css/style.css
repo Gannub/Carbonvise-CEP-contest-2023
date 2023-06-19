@@ -1,6 +1,6 @@
 
 body {
-	padding-top: 190px;
+	padding-top: 180px;
   height: 100%;
 	font-family: 'Raleway', sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -392,13 +392,13 @@ ol {
 	margin-bottom: 30px;
 }
 
-.course-search-form {
+.carbon-search-form {
 	background: #fff;
 	padding: 44px 38px;
 }
 
-.course-search-form input[type=text],
-.course-search-form input[type=email] {
+.carbon-search-form input[type=text],
+.carbon-search-form input[type=email] {
 	height: 56px;
 	width: 36.6%;
 	padding: 0 30px;
@@ -409,12 +409,12 @@ ol {
 	background: #edf4f6;
 }
 
-.course-search-form input[type=text]:focus,
-.course-search-form input[type=email]:focus {
+.carbon-search-form input[type=text]:focus,
+.carbon-search-form input[type=email]:focus {
 	border-bottom: 2px solid #0b1800;
 }
 
-.course-search-form .site-btn {
+.carbon-search-form .site-btn {
 	min-width: 198px;
 	padding: 16px 10px;
 }
@@ -448,35 +448,35 @@ ol {
 	padding: 20px 60px 10px;
 }
 
-.search-section.ss-other-page .course-search-form {
+.search-section.ss-other-page .carbon-search-form {
 	background-color: transparent;
 	padding: 0;
 }
 
-.search-section.ss-other-page .course-search-form input[type=text]:focus,
-.search-section.ss-other-page .course-search-form input[type=email]:focus {
+.search-section.ss-other-page .carbon-search-form input[type=text]:focus,
+.search-section.ss-other-page .carbon-search-form input[type=email]:focus {
 	border-bottom: none;
 }
 
 /*------------------
-  Course section
+  carbon section
 ---------------------*/
 
-.course-warp {
+.carbon-warp {
 	max-width: 1559px;
 	padding: 0 15px;
 	margin: 0 auto -30px;
 }
 
-.course-item {
+.carbon-item {
 	margin-bottom: 30px;
 }
 
-.course-item .course-thumb {
+.carbon-item .carbon-thumb {
 	height: 270px;
 }
 
-.course-item .course-thumb .price {
+.carbon-item .carbon-thumb .price {
 	font-size: 14px;
 	color: #fff;
 	font-weight: 600;
@@ -486,63 +486,63 @@ ol {
 	margin: 14px;
 }
 
-.course-item .course-info {
+.carbon-item .carbon-info {
 	background: #edf4f6;
 }
 
-.course-item .course-info .course-text {
+.carbon-item .carbon-info .carbon-text {
 	padding: 45px 33px 25px;
 }
 
-.course-item .course-info .course-text h5 {
+.carbon-item .carbon-info .carbon-text h5 {
 	margin-bottom: 5px;
 }
 
-.course-item .course-info .course-text .students {
+.carbon-item .carbon-info .carbon-text .students {
 	font-size: 18px;
 	font-weight: 600;
 	color: #0b1800;
 }
 
-.course-item .course-info .course-author {
+.carbon-item .carbon-info .carbon-author {
 	border-top: 1px solid #d4dee1;
 	padding: 14px 33px;
 	overflow: hidden;
 }
 
-.course-item .course-info .course-author .ca-pic {
+.carbon-item .carbon-info .carbon-author .ca-pic {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
 	float: left;
 }
 
-.course-item .course-info .course-author p {
+.carbon-item .carbon-info .carbon-author p {
 	padding-left: 60px;
 	margin-bottom: 0;
 	padding-top: 7px;
 	font-weight: 600;
 }
 
-.course-item .course-info .course-author p span {
+.carbon-item .carbon-info .carbon-author p span {
 	color: #0b1800;
 }
 
-.course-item.featured-course {
+.carbon-item.featured-carbon {
 	position: relative;
 	margin-bottom: 97px;
 }
 
-.course-item.featured-course:last-child {
+.carbon-item.featured-carbon:last-child {
 	margin-bottom: 30px;
 }
 
-.course-item.featured-course:nth-child(2n) .course-thumb {
+.carbon-item.featured-carbon:nth-child(2n) .carbon-thumb {
 	left: auto;
 	right: 0;
 }
 
-.course-item.featured-course .course-thumb {
+.carbon-item.featured-carbon .carbon-thumb {
 	position: absolute;
 	width: 50%;
 	height: 100%;
@@ -550,7 +550,7 @@ ol {
 	top: 0;
 }
 
-.course-item.featured-course .fet-note {
+.carbon-item.featured-carbon .fet-note {
 	display: inline-block;
 	background: #0b1800;
 	color: #fff;
@@ -560,27 +560,27 @@ ol {
 	margin-bottom: 20px;
 }
 
-.course-item.featured-course .course-info .course-text {
+.carbon-item.featured-carbon .carbon-info .carbon-text {
 	padding: 70px 33px 25px;
 }
 
-.course-item.featured-course .course-info .course-text h5 {
+.carbon-item.featured-carbon .carbon-info .carbon-text h5 {
 	margin-bottom: 20px;
 }
 
-.course-item.featured-course .course-info .course-author {
+.carbon-item.featured-carbon .carbon-info .carbon-author {
 	border-top: none;
 	padding: 14px 33px 60px;
 }
 
-.course-filter {
+.carbon-filter {
 	list-style: none;
 	text-align: center;
 	padding-top: 50px;
 	margin-bottom: 60px;
 }
 
-.course-filter li {
+.carbon-filter li {
 	display: inline-block;
 	font-size: 18px;
 	font-weight: 600;
@@ -594,7 +594,7 @@ ol {
 	transition: all 0.3s;
 }
 
-.course-filter li.mixitup-control-active {
+.carbon-filter li.mixitup-control-active {
 	color: #0b1800;
 	border-bottom: 4px solid #0b1800;
 }
@@ -690,7 +690,7 @@ ol {
 	padding: 17px 10px;
 }
 
-.featured-courses {
+.featured-carbons {
 	padding-top: 67px;
 }
 
@@ -874,15 +874,15 @@ ol {
 }
 
 /*------------------
-  Single course
+  Single deal
 ---------------------*/
 
-.course-meta-area {
+.carbon-meta-area {
 	background: #edf4f6;
 	padding: 35px 0;
 }
 
-.course-meta-area .course-note {
+.carbon-meta-area .carbon-note {
 	display: inline-block;
 	background: #0b1800;
 	color: #fff;
@@ -892,113 +892,113 @@ ol {
 	margin-bottom: 20px;
 }
 
-.course-metas {
+.carbon-metas {
 	padding-top: 50px;
 	margin-bottom: 45px;
 	display: table;
 }
 
-.course-meta {
+.carbon-meta {
 	display: table-cell;
 	height: 100%;
 	border-right: 2px solid #c5ced0;
 	padding: 5px 50px;
 }
 
-.course-meta:nth-child(1) {
+.carbon-meta:nth-child(1) {
 	padding-left: 0;
 }
 
-.course-meta:nth-child(4) {
+.carbon-meta:nth-child(4) {
 	padding-right: 0;
 	border-right: none;
 }
 
-.course-meta p {
+.carbon-meta p {
 	margin-bottom: 0;
 }
 
-.course-meta .course-author .ca-pic {
+.carbon-meta .carbon-author .ca-pic {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
 	float: left;
 }
 
-.course-meta .course-author h6 {
+.carbon-meta .carbon-author h6 {
 	padding-left: 60px;
 }
 
-.course-meta .course-author p {
+.carbon-meta .carbon-author p {
 	padding-left: 60px;
 	margin-bottom: 0;
 	padding-top: 4px;
 	font-weight: 600;
 }
 
-.course-meta .course-author p span {
+.carbon-meta .carbon-author p span {
 	color: #0b1800;
 }
 
-.course-meta .cm-info h6 {
+.carbon-meta .cm-info h6 {
 	margin-bottom: 3px;
 }
 
-.course-meta .cm-info p {
+.carbon-meta .cm-info p {
 	font-weight: 600;
 }
 
-.course-meta .rating {
+.carbon-meta .rating {
 	padding-left: 15px;
 	font-size: 12px;
 }
 
-.course-meta-area .site-btn {
+.carbon-meta-area .site-btn {
 	min-width: auto;
 	font-size: 14px;
 }
 
-.course-meta-area .price-btn {
+.carbon-meta-area .price-btn {
 	padding: 20px 30px;
 	background: #474747;
 	margin-right: 10px;
 }
 
-.course-meta-area .buy-btn {
+.carbon-meta-area .buy-btn {
 	padding: 20px 40px;
 }
 
-.course-preview {
+.carbon-preview {
 	padding-top: 37px;
 	margin-bottom: 55px;
 }
 
-.course-list .cl-item {
+.carbon-list .cl-item {
 	margin-bottom: 55px;
 }
 
-.course-list .cl-item h4 {
+.carbon-list .cl-item h4 {
 	margin-bottom: 46px;
 }
 
-.course-list .cl-item p {
+.carbon-list .cl-item p {
 	margin-bottom: 0;
 }
 
-.realated-courses {
+.related-carbons {
 	background: #edf4f6;
 }
 
-.realated-courses .rc-title {
+.related-carbons .rc-title {
 	font-size: 34px;
 	margin-bottom: 85px;
 }
 
-.realated-courses .course-item .course-info {
+.related-carbons .carbon-item .carbon-info {
 	background: #fff;
 }
 
-.realated-courses .owl-next {
+.related-carbons .owl-next {
 	position: absolute;
 	right: -80px;
 	top: 50%;
@@ -1450,7 +1450,7 @@ ol {
 }
 
 @media (max-width: 1705px) {
-	.realated-courses .owl-next {
+	.related-carbons .owl-next {
 		position: relative;
 		margin: 0 auto;
 		left: 0;
@@ -1472,26 +1472,26 @@ ol {
 	.intro-newslatter .site-btn {
 		min-width: 160px;
 	}
-	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.carbon-search-form input[type=text],
+	.carbon-search-form input[type=email] {
 		width: 34.6%;
 	}
-	.course-search-form .site-btn {
+	.carbon-search-form .site-btn {
 		min-width: 173px;
 	}
-	.course-item .course-thumb {
+	.carbon-item .carbon-thumb {
 		height: 220px;
 	}
-	.course-item .course-info .course-text {
+	.carbon-item .carbon-info .carbon-text {
 		padding: 45px 15px 25px;
 	}
-	.course-item .course-info .course-author {
+	.carbon-item .carbon-info .carbon-author {
 		padding: 14px 15px;
 	}
 	.signup-warp {
 		padding: 0 35px;
 	}
-	.course-meta {
+	.carbon-meta {
 		padding: 5px 20px;
 	}
 }
@@ -1526,47 +1526,47 @@ ol {
 	.signup-section .signup-bg {
 		display: none;
 	}
-	.course-search-form {
+	.carbon-search-form {
 		text-align: center;
 	}
-	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.carbon-search-form input[type=text],
+	.carbon-search-form input[type=email] {
 		width: 48.1%;
 		margin-bottom: 20px;
 	}
-	.course-search-form input[type=text].last-m,
-	.course-search-form input[type=email].last-m {
+	.carbon-search-form input[type=text].last-m,
+	.carbon-search-form input[type=email].last-m {
 		margin-right: 0;
 	}
 	.search-section.ss-other-page .search-warp {
 		padding: 60px 30px 30px;
 	}
-	.search-section.ss-other-page .course-search-form input[type=text],
-	.search-section.ss-other-page .course-search-form input[type=email] {
+	.search-section.ss-other-page .carbon-search-form input[type=text],
+	.search-section.ss-other-page .carbon-search-form input[type=email] {
 		width: 48.5%;
 	}
-	.course-item .course-thumb {
+	.carbon-item .carbon-thumb {
 		height: 215px;
 	}
 	.widget-item {
 		width: 33.3333%;
 		margin-bottom: 50px;
 	}
-	.course-item.featured-course .course-thumb {
+	.carbon-item.featured-carbon .carbon-thumb {
 		position: relative;
 		width: 100%;
 		height: 350px;
 	}
-	.course-meta-area {
+	.carbon-meta-area {
 		padding: 35px 20px;
 	}
-	.course-meta {
+	.carbon-meta {
 		display: inline-block;
 		padding: 5px 30px;
 		width: calc(50% - 3px);
 		margin-bottom: 15px;
 	}
-	.course-meta:nth-child(2) {
+	.carbon-meta:nth-child(2) {
 		border-right: none;
 	}
 }
@@ -1641,8 +1641,8 @@ ol {
 	.search-warp {
 		padding: 40px 30px 30px;
 	}
-	.course-search-form input[type=text],
-	.course-search-form input[type=email] {
+	.carbon-search-form input[type=text],
+	.carbon-search-form input[type=email] {
 		width: 100%;
 		margin-bottom: 20px;
 		margin-right: 0;
@@ -1663,15 +1663,15 @@ ol {
 	.search-section.ss-other-page .section-title h2 {
 		background: #0b1800;
 	}
-	.course-item.featured-course .course-thumb {
+	.carbon-item.featured-carbon .carbon-thumb {
 		position: relative;
 		width: 100%;
 		height: 350px;
 	}
-	.course-meta-area {
+	.carbon-meta-area {
 		padding: 35px 20px;
 	}
-	.course-meta {
+	.carbon-meta {
 		display: inline-block;
 		padding: 5px 0;
 		width: 100%;
@@ -1698,7 +1698,7 @@ ol {
 		width: 100%;
 		margin-right: 0;
 	}
-	.course-search-form .site-btn {
+	.carbon-search-form .site-btn {
 		min-width: auto;
 		padding: 16px 20px;
 	}
@@ -1709,14 +1709,14 @@ ol {
 	.contact-form {
 		padding: 30px;
 	}
-	.course-filter li {
+	.carbon-filter li {
 		font-size: 14px;
 	}
 	.widget-item {
 		width: 100%;
 		margin-bottom: 50px;
 	}
-	.course-meta-area .price-btn {
+	.carbon-meta-area .price-btn {
 		margin-bottom: 20px;
 	}
 }
@@ -1735,7 +1735,7 @@ ol {
 	.search-warp {
 		padding: 40px 20px 30px;
 	}
-	.course-search-form {
+	.carbon-search-form {
 		padding: 44px 20px;
 	}
 	.contact-form-warp {

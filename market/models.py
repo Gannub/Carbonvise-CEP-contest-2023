@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
-
+from market.utils import check_slug_unique
+from django.db.models.signals import pre_save, post_save
 User = get_user_model()
 
 
@@ -27,8 +27,7 @@ class Market(models.Model):
     number_of_buyer = models.PositiveIntegerField(null=True, blank=True)
     deal_rating = models.DecimalField(decimal_places=1, max_digits=5, null=True, blank=True)
     
-    
-
+    slug = models.SlugField(unique=True,null=True,blank=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -37,4 +36,14 @@ class Market(models.Model):
         pass
 
     def get_category_name(self):
-        pass
+
+        for cat in CATEGORY:
+            if self.category == cat[0]:
+                return cat[1]
+        
+
+def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
+        if not instance.slug:
+            instance.slug = check_slug_unique(instance)
+
+pre_save.connect(pre_save_slug_field, sender=Market)

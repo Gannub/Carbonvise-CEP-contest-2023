@@ -13,8 +13,8 @@ $(window).on('load', function() {
 	/*------------------
 		Gallery item
 	--------------------*/
-	if($('.course-items-area').length > 0 ) {
-		var containerEl = document.querySelector('.course-items-area');
+	if($('.carbon-items-area').length > 0 ) {
+		var containerEl = document.querySelector('.carbon-items-area');
 		var mixer = mixitup(containerEl);
 	}
 
@@ -41,7 +41,7 @@ $(window).on('load', function() {
 
 
 	/*------------------
-		Realated courses
+		
 	--------------------*/
     $('.rc-slider').owlCarousel({
 		autoplay:true,
