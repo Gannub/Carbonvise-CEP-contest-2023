@@ -6,7 +6,13 @@
 
 	<section class="single-carbon spad pb-0">
 		<div class="container">
-            <img src="{% static 'img/forest2.jpg' %}" alt="" class="carbon-preview">
+            <img class="rounded mx-auto d-block my-5" src="
+            {% if market.image %}
+                {{market.image.url}}
+            {% else %}
+                {% static 'img/carbonvise.png' %}
+            {% endif %}" 
+            alt="" class="carbon-preview">
 			<div class="carbon-meta-area">
 				<div class="row">
                     <div class="col-lg-10 offset-lg-1">
@@ -15,7 +21,12 @@
 						<div class="carbon-metas">
 							<div class="carbon-meta">
 								<div class="carbon-author">
-									<div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+									<div class="ca-pic set-bg" data-setbg="
+                                {% if market.dealer.profile.image %}
+                                    {{market.dealer.profile.image.url}}
+                                {% else %}
+                                    {% static 'img/carbonvise.png' %}
+                                {% endif %}"></div>
 									<h6>Dealer</h6>
 									<p>{{market.dealer}} <span></span></p>
 								</div>
@@ -80,7 +91,11 @@
                 {% for deal in deal_list %}
                     <a href="{% url 'market:market_detail' deal.slug %}">
                         <div class="carbon-item">
-                            <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
+                            <div class="carbon-thumb set-bg" data-setbg="{% if deal.image %}
+							{{deal.image.url}}
+						{% else %}
+							{% static 'img/carbonvise.png' %}
+						{% endif %}">
                                 <div class="price">฿{{deal.price_per_unit}}/chestnut</div>
                             </div>
                             <div class="carbon-info">
@@ -90,7 +105,12 @@
                                     <div class="students">{{deal.number_of_buyer}}/1000</div>
                                 </div>
                                 <div class="carbon-author">
-                                    <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+                                    <div class="ca-pic set-bg" data-setbg="
+								{% if deal.dealer.profile.image %}
+                                    {{deal.dealer.profile.image.url}}
+                                {% else %}
+                                    {% static 'img/carbonvise.png' %}
+                                {% endif %}"></div>
                                     <p>{{deal.dealer}}, <span>{{deal.get_category_name}}</span></p>
                                 </div>
                             </div>

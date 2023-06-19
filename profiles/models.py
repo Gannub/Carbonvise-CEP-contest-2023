@@ -10,12 +10,15 @@ User = get_user_model()
 #seperate calls to avoid circular import.
 # class User(AbstractUser):
 #     pass
+def upload_path(instance, filename):
+    return f'profiles/{instance}/{filename}'
 
 class Profile(models.Model):
     #remind about dealer 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     about_dealer = models.TextField(null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
+    image = models.ImageField(null=True,blank=True, upload_to = upload_path) 
 
     #hopefully i fixed the circular import
     deals = models.ManyToManyField(Market)

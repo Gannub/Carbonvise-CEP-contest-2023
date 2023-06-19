@@ -13,14 +13,17 @@ CATEGORY = (
     ('forest','Forest'),
 )
 ##
+def upload_path(instance, filename):
+    return f'market/{instance}/{filename}'
 
 class Market(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,unique=True)
     dealer = models.ForeignKey(User, on_delete=models.CASCADE)
     short_description = models.CharField(max_length=150, null=True, blank=True)
     long_description = models.TextField(null=True, blank=True)
     price_per_unit = models.PositiveIntegerField()
     category = models.CharField(max_length=100, choices=CATEGORY)
+    image = models.ImageField(null=True,blank=True, upload_to = upload_path) 
     
     #Number of buyers is necessary, it will be used to calculate the RCC later.
     #but I'm leaving it null=True just in case.
