@@ -23,8 +23,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('error403', TemplateView.as_view(template_name='error403.html'), name='error403'),
+    #market app
     path('market/', include('market.urls',namespace='market')), 
     #allauth
     path('accounts/', include('allauth.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

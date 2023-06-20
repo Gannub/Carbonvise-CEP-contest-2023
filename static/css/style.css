@@ -1,11 +1,24 @@
 
+.container.market-create{
+	max-width: 867px;
+	/* margin-left: 100px; */
+}
+.container.carbon-market-list{
+	max-width: 1400px;
+}
+
+
+
+
 body {
 	padding-top: 180px;
-  height: 100%;
+  	height: 100%;
 	font-family: 'Raleway', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	/* font-smoothing: antialiased; */
 }
+
+
 
 h1,
 h2,
@@ -243,9 +256,6 @@ ol {
 	}
 }
 
-.container{
-  /* padding-top: 65px; */
-}
 
 .header-section {
 	position: absolute;
