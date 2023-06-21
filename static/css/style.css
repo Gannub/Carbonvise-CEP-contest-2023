@@ -7,8 +7,22 @@
 	max-width: 1400px;
 }
 
+.prof_image{
+	max-width: 500px;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+.profile_image_act{  
+	width: 270px;
+	height: 270px;
+	border-radius: 50%;
+	border: 5px solid #031509;
 
-
+}
+.profile-bg{
+	background-color: #70867b;
+	border-radius: 20px;
+}
 
 body {
 	padding-top: 180px;
@@ -32,7 +46,7 @@ h6 {
 }
 
 h1 {
-	font-size: 70px;
+	font-size: 60px;
 }
 
 h2 {

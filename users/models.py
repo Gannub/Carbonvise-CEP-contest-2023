@@ -4,4 +4,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    is_dealer = models.BooleanField(default=False)
+
+    def make_dealer(self):
+        self.is_dealer =True
+        self.save()

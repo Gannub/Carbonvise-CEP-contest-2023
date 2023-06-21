@@ -8,3 +8,9 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         exclude = []
         fields = ['first_name','last_name','username','email',]
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        exclude = []
+        fields = ['first_name','last_name','username','email',]

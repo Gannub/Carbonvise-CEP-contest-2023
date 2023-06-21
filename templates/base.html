@@ -90,11 +90,11 @@
                   <span class="navbar-text ">
                     {% if user.is_authenticated %}
                 
-                        <a class="nav-item " href="{% url 'account_logout' %}">{{user}}</a>
+                        <a class="nav-item " href="{% url 'profiles:profile_detail' user.profile.slug %}">{{user}}</a>
                         
                     {% else %}
                     
-                
+					<!-- {% url 'account_logout' %} -->
                         <a href="{% url 'account_login' %}" class="">Login&emsp;&emsp;</a>
                         <a href="{% url 'account_signup' %}" class="">Sign up</a> 
                     

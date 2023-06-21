@@ -2,7 +2,7 @@ from typing import Any, Dict
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from market.mixins import DealOwnerMixin
+from market.mixins import DealOwnerMixin, IsDealerMixin
 from market.models import Market
 from market.forms import MarketForm
 from django.urls import reverse_lazy
@@ -29,7 +29,7 @@ class MarketDetailView(DetailView):
         ctx['deal_list'] = Market.objects.filter(category=ctx['market'].category)
         return ctx
    
-class MarketCreateView(LoginRequiredMixin, CreateView):
+class MarketCreateView(IsDealerMixin, CreateView):
     model = Market
     form_class = MarketForm
 

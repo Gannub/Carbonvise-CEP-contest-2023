@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from carbonvise import views,settings
+# from carbonvise.views import BecomeADealerTemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,8 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('error403', TemplateView.as_view(template_name='error403.html'), name='error403'),
+    path('become_a_dealer', views.BecomeADealerTemplateView.as_view(), name='become_a_dealer'),
     #market app
-    path('market/', include('market.urls',namespace='market')), 
+    path('market/', include('market.urls',namespace='market')),
+    path('profile/', include('profiles.urls',namespace='profiles')),  
     #allauth
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
