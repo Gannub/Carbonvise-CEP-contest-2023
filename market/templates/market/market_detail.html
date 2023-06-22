@@ -63,7 +63,7 @@
 						<a href="{% url 'market:market_delete' market.slug %}" class="site-btn buy-btn">Delete deal</a>	
 						{% else %}
 						<a href="#" class="site-btn price-btn">Price: ${{market.price_per_unit}}</a>
-						<a href="#" class="site-btn buy-btn">Buy Chestnuts</a>
+						<button data-slug='{{market.slug}}' data-action='add' class="site-btn buy-btn update-cart">Add to cart</button>
 						{% endif %}
 					</div>
 				</div>

@@ -30,6 +30,7 @@ urlpatterns = [
     #market app
     path('market/', include('market.urls',namespace='market')),
     path('profile/', include('profiles.urls',namespace='profiles')),  
+    path('cart/', include('carts.urls',namespace='cart')),
     #allauth
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
