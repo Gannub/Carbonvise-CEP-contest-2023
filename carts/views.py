@@ -7,9 +7,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 # Create your views here.
 #i am using a function based.
-def cart(request):
+def cart_view(request):
+    
     if request.user.is_authenticated:
-        customer = request.user
+        
+        customer = request.user.profile
+        # print(customer.cart.)
         cart,created = Cart.objects.get_or_create(customer=customer, deal_complete=False)
         ## child object (lowercase)_set
         deals = cart.cartitem_set.all()
@@ -19,7 +22,7 @@ def cart(request):
         cart = {'cart_item_total':0, 'cart_total':0} 
         return redirect('account_login')
     
-    ctx = {'deals':deals, 'cart':cart}
+    ctx = {'deals':deals, 'cart':cart }
     return render (request,'carts/carts.html',ctx)
 
 
@@ -29,7 +32,7 @@ def UpdateCart(request):
     action = data['action']
     print(deal_slug,action)
 
-    customer = request.user
+    customer = request.user.profile
     deal = Market.objects.get(slug=deal_slug)
     cart,created = Cart.objects.get_or_create(customer=customer, deal_complete=False)
     cart_item ,created = CartItem.objects.get_or_create(in_cart=cart, deal=deal)

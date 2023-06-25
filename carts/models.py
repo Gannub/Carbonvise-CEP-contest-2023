@@ -9,7 +9,7 @@ User = get_user_model()
 
 # Create your models here.
 class Cart(models.Model):
-    customer = models.ForeignKey(User,on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.OneToOneField(Profile,on_delete=models.SET_NULL, null=True, blank=True)
     date_dealed = models.DateTimeField(auto_now_add=True)
     deal_complete = models.BooleanField(default=False, null=True, blank=False)
     slug = models.SlugField(unique=True,null=True,blank=True)
