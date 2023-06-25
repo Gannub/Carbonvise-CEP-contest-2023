@@ -8,4 +8,4 @@ from profiles.models import Profile
 #Fatal: Add the Profile owner mixins here!!!! (later)
 class ProfileDetailView(DetailView):
     model = Profile
-    
+    #make separate profile page 

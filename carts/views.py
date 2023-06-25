@@ -2,7 +2,8 @@ from django.shortcuts import render
 from carts.models import Cart,CartItem
 from market.models import Market
 import json
-
+from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 # Create your views here.
 #i am using a function based.
@@ -13,8 +14,10 @@ def cart(request):
         ## child object (lowercase)_set
         deals = cart.cartitem_set.all()
     else:
+       
         deals=[]
-        cart = {'cart_item_total':0, 'cart_total':0}
+        cart = {'cart_item_total':0, 'cart_total':0} 
+        return redirect('account_login')
     
     ctx = {'deals':deals, 'cart':cart}
     return render (request,'carts/carts.html',ctx)
