@@ -4,14 +4,10 @@
 	<!-- Hero section -->
 	<section class="hero-section set-bg" data-setbg="{% static 'img/forest.jpg' %}">
 		<div class="container">
+	
 			<div class="hero-text text-white">
-				{% if user.is_authenticated %}
+				
 				<h2>Unlocking a Sustainable Future<br> Empowering Changes through Carbon Credits</h2>
-				<!-- <h2 class="">Welcome, {{user}} </h2> -->
-				{% else %}
-				<h2>Unlocking a Sustainable Future<br> Empowering Changes through Carbon Credits</h2>
-				<p></p>
-				{% endif %}
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
@@ -29,7 +25,7 @@
 	</section>
 	<!-- Hero section end -->
 
-
+	
 	<!-- categories section -->
 	<section class="categories-section spad">
 		<div class="container">
@@ -157,4 +153,9 @@
 		</div>
 	</section>
 	<!-- signup section end -->
+	<div class="container">
+		<div id="map-canvas"></div>
+		<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6332.478370682145!2d100.53338985065469!3d13.739896827570131!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f2aae33623f%3A0x421e0643a63c2093!2z4LiI4Li44Lis4Liy4Lil4LiH4LiB4Lij4LiT4LmM4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii!5e0!3m2!1sth!2sth!4v1687720196839!5m2!1sth!2sth" width="600" height="600" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+	</div>
+	
 {% endblock %} 

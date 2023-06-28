@@ -29,7 +29,7 @@ class Cart(models.Model):
         return total
     
 class CartItem(models.Model):
-    deal = models.ForeignKey(Market, on_delete=models.SET_NULL, null=True, blank=True)
+    deal = models.ForeignKey(Market, on_delete=models.CASCADE, null=True, blank=True)
     in_cart = models.ForeignKey(Cart, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(default=0,null=True,blank=True)
     date_added = models.DateTimeField(auto_now_add=True)

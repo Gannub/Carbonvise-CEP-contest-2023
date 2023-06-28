@@ -27,22 +27,24 @@
 			<br>
 			<div class="box-element">
 				<div class="cart-row">
-					<div style="flex:2"></div>
-					<div style="flex:2"><strong>Deal</strong></div>
+					<div style="flex:1"><strong>Time</strong></div>
+					<div style="flex:1"><strong></strong></div>
+					<div style="flex:1"><strong>Deal</strong></div>
 					<div style="flex:1"><strong>Price</strong></div>
 					<div style="flex:1"><strong>Quantity</strong></div>
 					<div style="flex:1"><strong>Total</strong></div>
 				</div>
 				{% for deal in deals reversed %}
 				<div class="cart-row">
-                    
+                    <div style="flex:1"><p>{{deal.date_added}}</p></div>
 
-					<div style="flex:2"><img class="row-image" src="{% if deal.deal.image %}
+					<div style="flex:1"><img class="row-image" src="{% if deal.deal.image %}
                         {{deal.deal.image.url}}
                     {% else %}
                         {% static 'img/carbonvise.png' %}
                     {% endif %}" "></div>
-					<div style="flex:2"><p>{{deal.deal.name}}</p></div>
+					
+					<div style="flex:1"><p>{{deal.deal.name}}</p></div>
 					<div style="flex:1"><p>฿{{deal.deal.price_per_unit}}</p></div>
 					<div style="flex:1">
 						<p class="quantity">{{deal.quantity}}</p>

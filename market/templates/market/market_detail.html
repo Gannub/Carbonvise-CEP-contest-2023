@@ -21,16 +21,18 @@
 						
 						<div class="carbon-metas">
 							<div class="carbon-meta">
-								<div class="carbon-author">
-									<div class="ca-pic set-bg" data-setbg="
-                                {% if market.dealer.profile.image %}
-                                    {{market.dealer.profile.image.url}}
-                                {% else %}
-                                    {% static 'img/carbonvise.png' %}
-                                {% endif %}"></div>
-									<h6>Dealer</h6>
-									<p>{{market.dealer}} <span></span></p>
-								</div>
+								<a href="{% url 'profiles:profile_page' market.dealer.profile.slug %}">
+									<div class="carbon-author">
+										<div class="ca-pic set-bg" data-setbg="
+									{% if market.dealer.profile.image %}
+										{{market.dealer.profile.image.url}}
+									{% else %}
+										{% static 'img/carbonvise.png' %}
+									{% endif %}"></div>
+										<h6>Dealer</h6>
+										<p>{{market.dealer}} <span></span></p>
+									</div>
+								</a>
 							</div>
 							<div class="carbon-meta">
 								<div class="cm-info">
