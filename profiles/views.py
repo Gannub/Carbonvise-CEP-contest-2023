@@ -15,8 +15,6 @@ from django.shortcuts import redirect
 
 
 def profile_page(request, slug):
-
-
     if request.user.is_authenticated:
         profile = Profile.objects.get(slug=slug)
 

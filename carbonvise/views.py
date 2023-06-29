@@ -15,6 +15,6 @@ class BecomeADealerTemplateView(LoginRequiredMixin, TemplateView):
 
         user = User.objects.get(username=self.request.user)
         
-        user.make_dealer()
+        # user.make_dealer()
         print(ctx)
         return ctx

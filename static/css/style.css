@@ -1,5 +1,4 @@
 
-
 .iframe {
 
 
@@ -8,7 +7,20 @@
 
 }
 
+.nav-link{
+	position: relative;
+}
 
+/* .nav-link:hover{
+	text-decoration: underline;
+	border-bottom: 10px;
+
+
+} */
+
+.nav-cart{
+	margin-right: 10px;
+}
 
 
 
@@ -218,16 +230,15 @@ textarea:focus {
 ::placeholder {
 	font-style: italic;
 }
-
+a{
+	text-decoration: none;
+}
 a:hover {
 	color: #005127;
+	/* scale: 1.5; */
 }
 
-a:hover,
-a:focus {
-	text-decoration: none;
-	outline: none;
-}
+
 
 ul,
 ol {
