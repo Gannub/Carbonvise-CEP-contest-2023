@@ -30,25 +30,27 @@
                                         {% endif %}
                                     </div> 
                                 </div>
-                                <ul class="list-unstyled mb-1-9">
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Province:</span> Bangkok</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Experience:</span> 10 Years</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Email:</span> {{req_profile.email}}</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Contacts:</span>None</li>
-                                    <li class="display-28"><span class="display-26 text-white me-2 font-weight-600">Phone:</span> 191</li>
-                                </ul>
-
+                                <div class="my-3">
+                                    <ul class="list-unstyled mb-1-9">
+                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Province:</span> {{req_profile.get_province_name}}</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Experience:</span> 10 Years</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Email:</span> {{req_profile.email}}</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Contacts:</span>None</li>
+                                        <li class="display-28"><span class="display-26 text-white me-2 font-weight-600">Phone:</span> 191</li>
+                                        <div class="my-5">About me :<br> {{req_profile.about_me}}</div>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                             <div class="my-3">  {% if req_profile.user == user %}
-                                
+                                                    <a href="{% url 'profiles:dealer_signup' user.profile.slug  %}" class="site-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
                                                     {% if req_profile.user.is_dealer %}
                                                     
-                                                    <a href="{% url 'market:market_create' %}" class="site-btn">Create deal</a>
+                                                    <a href="{% url 'market:market_create' %}" class="site-btn me-3">Create deal</a>
                                                     {% else %}
-                                                    <a href="{% url 'become_a_dealer' %}" class="site-btn">Become a dealer</a>
+                                                    
                                                     {% endif %} 
-                                                    <a href="{% url 'account_logout' %}" class="site-btn">Logout</a>
+                                                    <a href="{% url 'account_logout' %}" class="site-btn ">ออกจากระบบ</a>
                                                 {% else %} 
                                                 {% endif %}
                                

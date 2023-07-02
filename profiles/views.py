@@ -3,8 +3,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from profiles.models import Profile
 # Create your views here.
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
-
+from profiles.forms import DealerCreationForm
 
 #Fatal: Add the Profile owner mixins here!!!! (later)
 # class ProfileDetailView(DetailView):
@@ -16,11 +17,44 @@ from django.shortcuts import redirect
 
 def profile_page(request, slug):
     if request.user.is_authenticated:
-        profile = Profile.objects.get(slug=slug)
+        profile_slug = Profile.objects.get(slug=slug)
 
     else:
         return redirect('account_login')
     
-    ctx = {'req_profile':profile, }
+    ctx = {'req_profile':profile_slug, }
 
     return render (request,'profiles/profile_detail.html',ctx)
+
+# def dealersignup_page(request):
+#     req_slug = request.user.profile.slug
+#     req_profile = get_object_or_404(Profile,slug=req_slug)
+    
+#     if request.method == 'POST':
+
+#         form = DealerCreationForm(request.POST, instance=req_profile)
+
+#         if form.is_valid():
+            
+#             dealer_form = form.save(commit=False)
+            
+#             print(dealer_form.image,'test')
+
+#             dealer_form.save() #add to the database
+#             return redirect('index')
+
+#     else: 
+#         form = DealerCreationForm(instance=req_profile)
+#     print("im here")
+    
+#     return render (request,'profiles/sign_up_dealer.html', {'form':form})
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+
+    form_class = DealerCreationForm
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+
+    form_class = DealerCreationForm
