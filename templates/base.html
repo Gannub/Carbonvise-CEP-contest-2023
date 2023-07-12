@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	   
 	
-
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
 	
@@ -64,18 +63,21 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					  <li class="nav-item">
-						<a class="nav-link"  href="{% url 'index' %}">หน้าหลัก</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="{% url 'market:market_list' %}">ตลาดคาร์บอน</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#">บล็อก</a>
-					  </li>
-					  <li class="nav-item">
-						  <a class="nav-link" href="#">อันดับรายจังหวัด</a>
-					  </li>
+						<li class="nav-item">
+							<a class="nav-link"  href="{% url 'index' %}">หน้าหลัก</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'market:market_list' %}">ตลาดคาร์บอน</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">บล็อก</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">อันดับรายจังหวัด</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'user_list' %}">ผู้ใช้ทั้งหมด</a>
+						</li>
 					</ul>
 					<span class="navbar-text">
 						<span class="nav-cart me-4">

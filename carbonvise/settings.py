@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'market',
     'users',
     'carts',
+    'dealer',
 ]
 
 AUTHENTICATION_BACKENDS = [ 

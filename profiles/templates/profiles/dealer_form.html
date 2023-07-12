@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+	
+	<section class="">
+		<div class="container alley">
+			<div class="">
+                    <h1>สมัครเป็นดีลเลอร์</h1> 
+					<form action="" method="POST" enctype="multipart/form-data">
+                        <div class="my-3">
+                            <!-- <img src="{% if user.profile.image %}
+                            {{user.profile.image.url}}
+                            {% else %}
+                            {% static 'img/carbonvise.png' %}
+                            {% endif %}" class="profile_image_act" alt=""> -->
+                        </div>
+                        {% csrf_token %}
+                        {{form.media}}
+                        {{form|crispy}}
+                        <div class="input_center">
+                            <div class= "button_wrapper">
+                                <button class="site-btn my-5" type="submit" value="submit">
+                                    submit
+                                </button>
+                                <span></span>
+                            </div>
+                        </div> 
+                    </form>
+			</div>
+		</div>
+	</section>
+	
+
+
+
+{% endblock %} 

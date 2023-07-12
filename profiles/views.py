@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, FormView
 from profiles.models import Profile
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
-from profiles.forms import DealerCreationForm
+from profiles.forms import ProfileForm
+from dealer.forms import DealerCreationForm
 
 #Fatal: Add the Profile owner mixins here!!!! (later)
 # class ProfileDetailView(DetailView):
@@ -52,9 +53,16 @@ def profile_page(request, slug):
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Profile
 
-    form_class = DealerCreationForm
+    form_class = ProfileForm
 
-class UserUpdateView(LoginRequiredMixin, UpdateView):
+class DealerForm(LoginRequiredMixin, CreateView):
+    template_name = 'profiles/dealer_form.html'
     model = Profile
 
     form_class = DealerCreationForm
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+

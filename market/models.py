@@ -28,6 +28,7 @@ class Market(models.Model):
     long_description = RichTextUploadingField(null=True,blank=True)
     price_per_unit = models.PositiveIntegerField()
     category = models.CharField(max_length=100, choices=CATEGORY)
+    #add provinces here
     image = models.ImageField(null=True,blank=True, upload_to = upload_path) 
     
     #Number of buyers is necessary, it will be used to calculate the RCC later.

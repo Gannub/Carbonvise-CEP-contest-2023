@@ -43,14 +43,16 @@
                             </div>
                         </div>
                             <div class="my-3">  {% if req_profile.user == user %}
-                                                    <a href="{% url 'profiles:dealer_signup' user.profile.slug  %}" class="site-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
+                                                    <a href="{% url 'profiles:become_dealer' user.profile.slug  %}" class="site-btn ms-3 me-3">สมัครเป็นดีลเลอร์</a>
+ 
+                                                    <a href="{% url 'profiles:profile_update' user.profile.slug  %}" class="site-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
                                                     {% if req_profile.user.is_dealer %}
                                                     
                                                     <a href="{% url 'market:market_create' %}" class="site-btn me-3">Create deal</a>
                                                     {% else %}
                                                     
                                                     {% endif %} 
-                                                    <a href="{% url 'account_logout' %}" class="site-btn ">ออกจากระบบ</a>
+                                                    <a href="{% url 'account_logout' %}" class="site-btn ms-3 ">ออกจากระบบ</a>
                                                 {% else %} 
                                                 {% endif %}
                                
