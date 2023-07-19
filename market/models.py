@@ -23,7 +23,7 @@ def upload_path(instance, filename):
 
 class Market(models.Model):
     name = models.CharField(max_length=100,unique=True)
-    dealer = models.ForeignKey(User, on_delete=models.CASCADE)
+    dealer = models.ForeignKey(User,related_name="deal_created", on_delete=models.CASCADE)
     short_description = models.CharField(max_length=150, null=True, blank=True)
     long_description = RichTextUploadingField(null=True,blank=True)
     price_per_unit = models.PositiveIntegerField()

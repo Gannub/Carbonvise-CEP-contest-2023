@@ -57,12 +57,16 @@ INSTALLED_APPS = [
     #ckeditor
     'ckeditor',
     'ckeditor_uploader',
+    #rest_framework
+    'rest_framework',
     #my apps
     'profiles',
     'market',
     'users',
     'carts',
     'dealer',
+    'api',
+
 ]
 
 AUTHENTICATION_BACKENDS = [ 

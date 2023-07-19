@@ -93,7 +93,7 @@ def upload_path(instance, filename):
 
 class Profile(models.Model):
     #remind about dealer 
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,related_name='profile',on_delete=models.CASCADE)
     about_me = models.TextField(null=True,blank=True)
     province = models.CharField(max_length=100, choices=PROVINCES)
     image = models.ImageField(null=True,blank=True, upload_to = upload_path) 

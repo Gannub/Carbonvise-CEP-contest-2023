@@ -36,5 +36,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('userlist',UserListView.as_view(), name='user_list'), 
+
+    path('api/', include('api.urls',namespace='api')),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
