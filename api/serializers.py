@@ -28,7 +28,7 @@ class UserProvinceSLZ(serializers.ModelSerializer):
 class DealsSLZ(serializers.ModelSerializer):
     class Meta:
         model = Market
-        fields = ['name',]
+        fields = ['id','name',]
 
 
 class UserSLZ(serializers.ModelSerializer):

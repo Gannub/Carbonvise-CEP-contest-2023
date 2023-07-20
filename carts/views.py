@@ -11,7 +11,7 @@ def cart_view(request):
     
     if request.user.is_authenticated:
         
-        customer = request.user.profile
+        customer = request.user
         # print(customer.cart.)
         cart,created = Cart.objects.get_or_create(customer=customer, deal_complete=False)
         ## child object (lowercase)_set
@@ -28,11 +28,12 @@ def cart_view(request):
 
 def UpdateCart(request):
     data = json.loads(request.body)
+    print(data)
     deal_slug = data['deal_slug']
     action = data['action']
     print(deal_slug,action)
 
-    customer = request.user.profile
+    customer = request.user
     deal = Market.objects.get(slug=deal_slug)
     cart,created = Cart.objects.get_or_create(customer=customer, deal_complete=False)
     cart_item ,created = CartItem.objects.get_or_create(in_cart=cart, deal=deal)
