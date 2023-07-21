@@ -50,9 +50,13 @@
                                                     
                                                     <a href="{% url 'market:market_create' %}" class="site-btn me-3">Create deal</a>
                                                     {% else %}
-                                                    
                                                     {% endif %} 
+
+                                                    <a href="{% url 'profiles:start_session' user.profile.slug %}" class="site-btn me-3">start session</a>
+                                                    
+                                                    
                                                     <a href="{% url 'account_logout' %}" class="site-btn ms-3 ">ออกจากระบบ</a>
+                                                
                                                 {% else %} 
                                                 {% endif %}
                                
@@ -71,14 +75,16 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4 mb-lg-0"> 
                                 <div class="cp-item">
-                                    <div class="circle-progress" data-cpid="id-1" data-cpvalue="56" data-cpcolor="#0b1800" data-cpsize="500" data-cptitle="Progress to neutral"></div>
+                                    <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{profile_credit}}" data-cpcolor="#0b1800" data-cpsize="500" data-cptitle="Progress to neutral"></div>
                                 </div>
                             
                             </div>
                             <div class="col-lg-6 px-xl-10">
                                 <div class="d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                     <div class="h2 text-white mb-0 my-3">Status : Burden</div>
-                                    <div class="h4 text-white mb-0 my-3">Require 32,537 chestnuts to become neutral! </div> 
+                                    <div class="h4 text-white mb-0 my-3">Your Credits : {{req_profile.user.profile_credit.credits}} Credits</div> 
+                                    <div class="h4 text-white mb-0 my-3">Neutral Goal : 100 Credits</div> 
+
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
                                    

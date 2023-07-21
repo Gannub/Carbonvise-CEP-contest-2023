@@ -94,7 +94,7 @@ $(window).on('load', function() {
 		if (cpvalue < 100) {
 
 			$('.' + cpid).circleProgress({
-				value: '0.' + cpvalue,
+				value: cpvalue/100 ,
 				size: cpsize,
 				thickness: 60,
 				fill: cpcolor,

@@ -3,7 +3,7 @@ from django.urls import reverse
 from profiles.utils import check_slug_unique
 from django.db.models.signals import pre_save, post_save
 from django.contrib.auth import get_user_model
-
+from django.utils import timezone
 from market.models import Market
     
 User = get_user_model()
@@ -123,3 +123,27 @@ def post_save_profile_create(sender ,instance, created, *arg, **kwargs): # sent 
     if created:
         Profile.objects.create(user=instance)
 post_save.connect(post_save_profile_create, sender=User)
+
+class CreditSession(models.Model):
+    user = models.OneToOneField(User,related_name='profile_credit',on_delete=models.CASCADE)
+    credits = models.IntegerField(default=0)
+    session_active = models.BooleanField(default=False)
+    start_date = models.DateTimeField(null=True,blank=True)
+    reset_date = models.DateTimeField(null=True,blank=True)
+
+    def __str__(self):
+        return f"{self.user} | {self.credits}"
+    
+
+
+class CreditHistory(models.Model):
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    credits_of_month = models.IntegerField()
+    start_date = models.DateTimeField(null=True,blank=True)
+    end_date = models.DateTimeField(null=True,blank=True)
+    
+
+
+    def __str__(self):
+        return f"{self.user} - {self.credits_of_month} credits - {self.start_date}"

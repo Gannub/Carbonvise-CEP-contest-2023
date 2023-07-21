@@ -17,7 +17,7 @@
 						<th><h5>Total Chestnuts : {{cart.cart_item_total}}</h5></th>
 						<th><h5>Total Price : ฿ {{cart.cart_total|floatformat:2}} </h5></th>
 						<th>
-							<a  style="float:right; margin-bottom:3px;" class="site-btn" href="">Checkout</a>
+							<a  style="float:right; margin-bottom:3px;" class="site-btn" href="{% url 'cart:checkout' %}">Checkout</a>
 						</th>
 					</tr>
 				</table>

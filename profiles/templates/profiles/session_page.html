@@ -1,0 +1,27 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load crispy_forms_tags %} -->
+{% block content %}
+	
+	<section class="">
+		<div class="container alley">
+			<div class="text-center">
+                {% if session_status == True %}
+                <h1 class="my-5">Session in Progress</h1>
+				<h2>Become carbon neutral and help {{profile_slug.user.profile.get_province_name}} compete with other provinces now!</h2>
+                {% elif session_status == 2 %}
+                <!-- <h1>Session already in progress</h1> -->
+
+                {% endif %}
+				<h3 class="my-5">Session Start: {{session_start}}</h3>
+				<h3>Session End : {{session_end}}</h3>
+			</div>
+		</div>
+	</section>
+	
+
+
+
+{% endblock %} 

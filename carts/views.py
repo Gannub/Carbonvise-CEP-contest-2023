@@ -4,7 +4,13 @@ from market.models import Market
 import json
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 from django.http import JsonResponse
+from profiles.models import Profile, CreditSession
+from profiles.views import start_session
+
+
 # Create your views here.
 #i am using a function based.
 def cart_view(request):
@@ -53,3 +59,41 @@ def UpdateCart(request):
     
     
     # return JsonResponse("Deal addded to the cart", safe=False)
+
+
+
+
+@login_required
+def TempCheckout(request):
+    try:
+        user_session = CreditSession.objects.get(user = request.user)
+    except CreditSession.DoesNotExist:
+        return redirect('howto')
+
+    if user_session.session_active:
+        cart_items = CartItem.objects.filter(in_cart=request.user.cart)
+
+        for cart_item in cart_items:
+            deal = cart_item.deal
+            if deal.quantity_left >= cart_item.quantity:
+                deal.quantity_left -= cart_item.quantity
+                deal.save()
+
+                #update user credits in the session
+
+                credit_to_add = cart_item.quantity
+                user_credit,created = CreditSession.objects.get_or_create(user=request.user)
+                # print(user_credit.user_credit)
+                user_credit.credits += credit_to_add
+                user_credit.save()
+
+                cart_item.delete()
+        
+        # print(profile_slug)
+        # user_cart = request.user.cart
+        
+        return redirect('index')
+
+    else:
+        pass
+    # it should redirect to the session educator page (tell users that they have to create a session first )

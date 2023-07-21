@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('error403', TemplateView.as_view(template_name='error403.html'), name='error403'),
+    path('howto', TemplateView.as_view(template_name='session_edu.html'), name='howto'),
     # path('become_a_dealer', views.BecomeADealerTemplateView.as_view(), name='become_a_dealer'),
     #market app
     path('market/', include('market.urls',namespace='market')),

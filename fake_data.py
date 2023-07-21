@@ -129,7 +129,7 @@ for user in users:
         long_description = dummy_text(40)
         price_per_unit = random.randint(20,100) 
         category = random.choice(CATEGORY)[0]
-        n_of_buyer = random.randint(100,1000)
+        n_of_buyer = random.randint(1,1000)
 
         deal_object = Market.objects.get_or_create(
             dealer=user,
@@ -138,7 +138,7 @@ for user in users:
             long_description=long_description,
             price_per_unit=price_per_unit,
             category=category,
-            number_of_buyer = n_of_buyer,
+            quantity_left = n_of_buyer,
         )
         
         # print(deal_object)

@@ -33,7 +33,7 @@ class Market(models.Model):
     
     #Number of buyers is necessary, it will be used to calculate the RCC later.
     #but I'm leaving it null=True just in case.
-    number_of_buyer = models.PositiveIntegerField(null=True, blank=True)
+    quantity_left = models.PositiveIntegerField(null=True, blank=True)
     deal_rating = models.DecimalField(decimal_places=1, max_digits=5, null=True, blank=True)
     
     slug = models.SlugField(unique=True,null=True,blank=True)
