@@ -3,7 +3,7 @@ from django.db.models.signals import pre_save
 from carts.utils import check_slug_unique
 from market.models import Market
 from django.contrib.auth import get_user_model
-from profiles.models import Profile
+from profiles.models import Profile, CreditSession, CreditHistory
 
 User = get_user_model()
 
@@ -44,18 +44,6 @@ class CartItem(models.Model):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
         if not instance.slug:
             instance.slug = check_slug_unique(instance)
@@ -63,3 +51,23 @@ def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginn
 pre_save.connect(pre_save_slug_field, sender=Cart)
 
     
+
+    
+
+
+
+class CartItemHistory(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
+    deal = models.ForeignKey(Market, on_delete=models.SET_NULL, null=True, blank=True)
+    # in_cart = models.ForeignKey(CartHistory, on_delete=models.SET_NULL, null=True, blank=True)
+    quantity = models.IntegerField(default=0,null=True,blank=True)
+    date_dealed = models.DateTimeField(auto_now_add=False, null=True,blank=True)
+    in_session_name = models.CharField(max_length=100, null=True, blank=True)
+
+
+    def __str__(self) -> str:
+        return f'{self.user} {self.deal} {self.date_dealed}'
+    @property
+    def get_total(self):
+        total = self.deal.price_per_unit * self.quantity
+        return total

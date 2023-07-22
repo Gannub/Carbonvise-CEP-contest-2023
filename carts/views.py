@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from carts.models import Cart,CartItem
+from carts.models import Cart,CartItem, CartItemHistory
 from market.models import Market
 import json
 from django.shortcuts import redirect
@@ -86,14 +86,24 @@ def TempCheckout(request):
                 # print(user_credit.user_credit)
                 user_credit.credits += credit_to_add
                 user_credit.save()
-
+                CartItemHistory.objects.create(user=request.user, deal=cart_item.deal,quantity=cart_item.quantity,date_dealed=cart_item.date_added) # add in_session_name later
+                
                 cart_item.delete()
         
         # print(profile_slug)
-        # user_cart = request.user.cart
+        user_cart = request.user.cart
+        user_cart.delete()
+        
+
+
+
+
+
+
         
         return redirect('index')
 
     else:
         pass
     # it should redirect to the session educator page (tell users that they have to create a session first )
+    # did that using try/except
