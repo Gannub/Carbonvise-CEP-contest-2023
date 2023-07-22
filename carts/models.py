@@ -7,11 +7,13 @@ from profiles.models import Profile, CreditSession, CreditHistory
 
 User = get_user_model()
 
+def upload_path(instance, filename):
+    return f'item_qr/{filename}'
 # Create your models here.
 class Cart(models.Model):
     customer = models.OneToOneField(User,on_delete=models.SET_NULL, null=True, blank=True)
     date_dealed = models.DateTimeField(auto_now_add=True)
-    deal_complete = models.BooleanField(default=False, null=True, blank=False)
+    deal_complete = models.BooleanField(default=False, null=True, blank=False) #Basically i didnt use this one
     slug = models.SlugField(unique=True,null=True,blank=True)
     
     def __str__(self) -> str:
@@ -28,11 +30,14 @@ class Cart(models.Model):
         total = sum([item.quantity for item in cart_items])
         return total
     
+
+
 class CartItem(models.Model):
     deal = models.ForeignKey(Market, on_delete=models.CASCADE, null=True, blank=True)
     in_cart = models.ForeignKey(Cart, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(default=0,null=True,blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    # qrcode = models.ImageField(null=True,blank=True,upload_to= upload_path)
 
     def __str__(self) -> str:
         return f'{self.in_cart} {self.deal} {self.quantity}'
@@ -53,7 +58,8 @@ pre_save.connect(pre_save_slug_field, sender=Cart)
     
 
     
-
+def upload_path_history(instance, filename):
+    return f'item_qr/{filename}'
 
 
 class CartItemHistory(models.Model):
@@ -63,6 +69,7 @@ class CartItemHistory(models.Model):
     quantity = models.IntegerField(default=0,null=True,blank=True)
     date_dealed = models.DateTimeField(auto_now_add=False, null=True,blank=True)
     in_session_name = models.CharField(max_length=100, null=True, blank=True)
+    qrcode = models.ImageField(null=True,blank=True,upload_to=upload_path_history)
 
 
     def __str__(self) -> str:

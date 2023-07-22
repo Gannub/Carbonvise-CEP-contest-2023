@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, FormView
 from profiles.models import Profile,CreditSession, CreditHistory
+from carts.models import CartItemHistory
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
@@ -24,8 +25,10 @@ def profile_page(request, slug):
         profile = Profile.objects.get(slug=slug)
         try:      
             profile_credits = profile.user.profile_credit
-            percentage = math.ceil(profile_credits.credits)
+            percentage = math.ceil(profile_credits.credits/10)
+            if profile.user==request.user:
 
+                purchased_item = CartItemHistory.objects.filter(user=profile.user)
         except :
            #might fix this part later 
             percentage = 0
@@ -34,7 +37,7 @@ def profile_page(request, slug):
     else:
         return redirect('account_login')
     
-    ctx = {'req_profile':profile, 'profile_credit':percentage}
+    ctx = {'req_profile':profile, 'profile_credit':percentage,'purchased_item':purchased_item}
 
     return render (request,'profiles/profile_detail.html',ctx)
 

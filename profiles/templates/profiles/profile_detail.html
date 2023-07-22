@@ -83,7 +83,7 @@
                                 <div class="d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                     <div class="h2 text-white mb-0 my-3">Status : Burden</div>
                                     <div class="h4 text-white mb-0 my-3">Your Credits : {{req_profile.user.profile_credit.credits}} Credits</div> 
-                                    <div class="h4 text-white mb-0 my-3">Neutral Goal : 100 Credits</div> 
+                                    <div class="h4 text-white mb-0 my-3">Neutral Goal : 1000 Credits</div> 
 
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
@@ -97,6 +97,37 @@
                 </div>
             </div>
         </div>
+            <h2 class="my-3">Purchase History</h2>
+			<div class="box-element">
+                
+				<div class="cart-row">
+					<div style="flex:1"><strong>Time</strong></div>
+					<div style="flex:1"><strong></strong></div>
+					<div style="flex:1"><strong>Deal</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:1"><strong>Quantity</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+				{% for item in purchased_item reversed %}
+				<div class="cart-row">
+                    <div style="flex:1"><p>{{item.date_dealed}}</p></div>
+
+					<div style="flex:1"><img class="row-image" src="{% if item.qrcode %}
+                        {{item.qrcode.url}}
+                    {% else %}
+                        {% static 'img/carbonvise.png' %}
+                    {% endif %}" "></div>
+					
+					<div style="flex:1"><p>{{item.deal.name}}</p></div>
+					<div style="flex:1"><p>฿{{item.deal.price_per_unit}}</p></div>
+					<div style="flex:1">
+						<p class="quantity">{{item.quantity}}</p>
+						
+					</div>
+					<div style="flex:1"><p>฿{{item.get_total}}</p></div>
+				</div>
+				{% endfor %}
+			</div>
     </div>
           
 
