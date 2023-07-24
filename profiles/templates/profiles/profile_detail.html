@@ -70,6 +70,8 @@
         
         <div class="row">
             <div class="col-lg-12 mb-4 mb-sm-5">
+                <h2 class="my-3">Session</h2>
+
                 <div class="card card-style1 border-0">
                     <div class="profile-bg card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7 text-white">
                         <div class="row align-items-center">
@@ -82,9 +84,26 @@
                             <div class="col-lg-6 px-xl-10">
                                 <div class="d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                     <div class="h2 text-white mb-0 my-3">Status : Burden</div>
+                                    <!-- <div class="h2 text-white mb-0 my-3">Session Active : {{req_profile.user.profile_credit.session_active}}</div> -->
+                                    <div class="h2 text-white mb-0 my-3">Session name : {{req_profile.user.profile_credit.session_name}}</div>
+                                    <div class="h4 text-white mb-0 my-5">Session End : {{req_profile.user.profile_credit.reset_date}}</div>
+
                                     <div class="h4 text-white mb-0 my-3">Your Credits : {{req_profile.user.profile_credit.credits}} Credits</div> 
                                     <div class="h4 text-white mb-0 my-3">Neutral Goal : 1000 Credits</div> 
 
+                                </div>
+                                <div class="my-3">  {% if req_profile.user == user %}
+                                        <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="site-btn ms-3 me-3">End session</a>
+
+          
+
+                                        
+                                        
+                                    
+                                    {% else %} 
+                                    {% endif %}
+               
+               
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
                                    

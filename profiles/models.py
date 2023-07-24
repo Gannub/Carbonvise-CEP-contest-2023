@@ -127,6 +127,7 @@ post_save.connect(post_save_profile_create, sender=User)
 class CreditSession(models.Model):
     user = models.OneToOneField(User,related_name='profile_credit',on_delete=models.CASCADE)
     session_name = models.CharField(max_length=100, null=True, blank=True)
+    session_des = models.TextField(null=True,blank=True)
     credits = models.IntegerField(default=0)
     session_active = models.BooleanField(default=False)
     start_date = models.DateTimeField(null=True,blank=True)
@@ -140,6 +141,8 @@ class CreditSession(models.Model):
 class CreditHistory(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    session_name = models.CharField(max_length=100, null=True, blank=True)
+    session_des = models.TextField(null=True,blank=True)
     credits_of_month = models.IntegerField()
     start_date = models.DateTimeField(null=True,blank=True)
     end_date = models.DateTimeField(null=True,blank=True)

@@ -70,6 +70,7 @@ class CartItemHistory(models.Model):
     date_dealed = models.DateTimeField(auto_now_add=False, null=True,blank=True)
     in_session_name = models.CharField(max_length=100, null=True, blank=True)
     qrcode = models.ImageField(null=True,blank=True,upload_to=upload_path_history)
+    slug = models.SlugField(unique=True,null=True,blank=True)
 
 
     def __str__(self) -> str:
@@ -78,3 +79,9 @@ class CartItemHistory(models.Model):
     def get_total(self):
         total = self.deal.price_per_unit * self.quantity
         return total
+
+def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
+        if not instance.slug:
+            instance.slug = check_slug_unique(instance)
+
+pre_save.connect(pre_save_slug_field, sender=CartItemHistory)

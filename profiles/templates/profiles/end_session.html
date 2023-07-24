@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %} 
 {% load static %} 
 {% load crispy_forms_tags %} 
@@ -6,14 +7,14 @@
 <section class="">
   <div class="container alley">
     <div class="my-3">
-      <h1 class="my-5">Session</h1>
+      <h1 class="my-5">End Session</h1>
       <form method="post">
-		    {% csrf_token %}	
-        <div>{{form|crispy}}</div>
-        <button class="site-btn my-5" type="submit">
-          Start Session
-        </button>
+        
+        {% csrf_token %}	
+        <button type="submit" class="site-btn my-5">Confirm end session</button>
       </form>
+      
+      
     </div>
   </div>
 </section>
