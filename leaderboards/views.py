@@ -1,12 +1,16 @@
-from django.db import models
-from django.urls import reverse
-from profiles.utils import check_slug_unique
-from django.db.models.signals import pre_save, post_save
+from django.shortcuts import render
+
+from django.db.models import Sum, Count, Q
+from django.db.models.functions import Coalesce
+# from django.db.models import Q
 from django.contrib.auth import get_user_model
-from django.utils import timezone
-from market.models import Market
-    
+from profiles.models import CreditSession 
+# from users.models import
 User = get_user_model()
+
+
+# Create your views here.
+
 
 PROVINCES=(('1', 'กรุงเทพมหานคร'),
  ('2', 'สมุทรปราการ'),
@@ -85,73 +89,48 @@ PROVINCES=(('1', 'กรุงเทพมหานคร'),
  ('75', 'ปัตตานี'),
  ('76', 'ยะลา'),
  ('77', 'นราธิวาส'))
-#seperate calls to avoid circular import.
-# class User(AbstractUser):
-#     pass
-def upload_path(instance, filename):
-    return f'profiles/{instance}/{filename}'
 
-class Profile(models.Model):
-    #remind about dealer 
-    user = models.OneToOneField(User,related_name='profile',on_delete=models.CASCADE)
-    about_me = models.TextField(null=True,blank=True)
-    province = models.CharField(max_length=100, choices=PROVINCES)
-    image = models.ImageField(null=True,blank=True, upload_to = upload_path) 
-
-    #hopefully i fixed the circular import
-    deals = models.ManyToManyField(Market, blank=True)
-    slug = models.SlugField(unique=True,null=True,blank=True)
-    
-    def __str__(self):
-        return f'{self.user.username}'
-    @property
-    def get_slug(self):
-        return(self.slug)
-    
-    def get_absolute_url(self, **kwargs):
-        return reverse('profiles:profile_page', kwargs={'slug':self.slug}) 
-    
-    @property
-    def get_province_name(self):
-        for province in PROVINCES:
-            if self.province == province[0]:
+def get_province_name(number):
+    for province in PROVINCES:
+            if number == province[0]:
                 return province[1]
-
-def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
-    if not instance.slug:
-        instance.slug = check_slug_unique(instance)
-pre_save.connect(pre_save_slug_field, sender=Profile)
-
-def post_save_profile_create(sender ,instance, created, *arg, **kwargs): # sent at the end of the save()
-    if created:
-        Profile.objects.create(user=instance)
-post_save.connect(post_save_profile_create, sender=User)
-
-class CreditSession(models.Model):
-    user = models.OneToOneField(User,related_name='profile_credit',on_delete=models.CASCADE)
-    session_name = models.CharField(max_length=100, null=True, blank=True)
-    session_des = models.TextField(null=True,blank=True)
-    credits = models.IntegerField(default=0)
-    is_neutral = models.BooleanField(default=False)
-    session_active = models.BooleanField(default=False)
-    start_date = models.DateTimeField(null=True,blank=True)
-    reset_date = models.DateTimeField(null=True,blank=True)
-
-    def __str__(self):
-        return f"{self.user} | {self.credits}"
     
 
 
-class CreditHistory(models.Model):
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    session_name = models.CharField(max_length=100, null=True, blank=True)
-    session_des = models.TextField(null=True,blank=True)
-    credits_of_month = models.IntegerField()
-    start_date = models.DateTimeField(null=True,blank=True)
-    end_date = models.DateTimeField(null=True,blank=True)
-    
+def leaderboard_by_province(request):
+    provinces_credits_sum = (
+        User.objects
+        .values('province')
+        .annotate(  total_credits=Coalesce(Sum('profile_credit__credits'), 0),
+                    total_neutral=Count('id', filter=Q(profile_credit__is_neutral=True))
+                  
+        )
+        .order_by('-total_neutral')
+    )
+    for province in provinces_credits_sum:
+        province['province'] = get_province_name(province['province'])
+
+    context = {
+        'object_list': provinces_credits_sum
+    }
+
+    return render(request, 'leaderboards/leaderboards.html', context)
 
 
-    def __str__(self):
-        return f"{self.user} - {self.credits_of_month} credits - {self.start_date}"
+def user_by_credits(request):
+    users_by_credits = (
+        User.objects
+        .annotate(total_credits=Coalesce(Sum('profile_credit__credits'), 0),
+                  
+                  
+                )
+        .order_by('-total_credits')
+    )
+    # for province in i:
+    #     province['province'] = get_province_name(province['province'])
+
+    context = {
+        'object_list': users_by_credits
+    }
+
+    return render(request, 'leaderboards/leaderboards_user.html', context)

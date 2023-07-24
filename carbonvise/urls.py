@@ -39,6 +39,8 @@ urlpatterns = [
     path('userlist',UserListView.as_view(), name='user_list'), 
 
     path('api/', include('api.urls',namespace='api')),
+    path('leaderboards/', include('leaderboards.urls',namespace='leaderboards')),
+    
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
