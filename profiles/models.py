@@ -104,6 +104,9 @@ class Profile(models.Model):
     
     def __str__(self):
         return f'{self.user.username}'
+    @property
+    def get_slug(self):
+        return(self.slug)
     
     def get_absolute_url(self, **kwargs):
         return reverse('profiles:profile_page', kwargs={'slug':self.slug}) 

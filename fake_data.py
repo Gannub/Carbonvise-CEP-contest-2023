@@ -12,15 +12,16 @@ from market.models import Market
 
 #fake 10 dealers test
 
-# dealers = [{
-#     'username':f'dealer{num}',
-#     'first_name':f'dealer{num}',
-#     'last_name':f'dealer{num}',
-#     'email':f'dealer{num}@dev.com',
-# } for num in range (0,10)] 
+dealers = [{
+    'username':f'dealer{num}',
+    'first_name':f'dealer{num}',
+    'last_name':f'dealer{num}',
+    'email':f'dealer{num}@dev.com',
+    
+} for num in range (0,10)] 
 
-# for dealer in dealers:
-#     User.objects.create_user(password='111111', **dealer)
+for dealer in dealers:
+    User.objects.create_user(password='111111', **dealer)
 
 
 #fake deals 

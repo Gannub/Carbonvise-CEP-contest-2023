@@ -5,7 +5,7 @@ from profiles.models import Profile,CreditSession, CreditHistory
 from carts.models import CartItemHistory
 # Create your views here.
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from profiles.forms import ProfileForm, SessionForm
@@ -14,6 +14,8 @@ from datetime import timedelta
 from django.utils import timezone
 import math
 
+from django.contrib.auth import get_user_model
+User = get_user_model()
 #Fatal: Add the Profile owner mixins here!!!! (later)
 # class ProfileDetailView(DetailView):
     # model = Profile
@@ -73,9 +75,15 @@ def profile_page(request, slug):
 #     return render (request,'profiles/sign_up_dealer.html', {'form':form})
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
-    model = Profile
+    template_name = 'profiles/profile_form.html'
+    model = User
 
     form_class = ProfileForm
+
+@login_required
+def ProfileFirstCreate(request, slug):
+
+    pass
 
 class DealerForm(LoginRequiredMixin, CreateView):
     template_name = 'profiles/dealer_form.html'

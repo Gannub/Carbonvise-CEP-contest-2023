@@ -10,14 +10,14 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         exclude = []
-        fields = ['first_name','last_name','username','email',]
+        fields = ['first_name','last_name','username','email','province']
 
 class ProfileForm(forms.ModelForm):
 
     class Meta:
-        model = Profile 
+        model = User 
         exclude = []
-        fields = ['province','about_me','image']   
+        fields = ['first_name','last_name','email','province']
 
 class SessionForm(forms.Form):
      name = forms.CharField(label="Session name", max_length=100)

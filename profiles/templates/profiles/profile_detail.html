@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="my-3">
                                     <ul class="list-unstyled mb-1-9">
-                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Province:</span> {{req_profile.get_province_name}}</li>
+                                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Province:</span> {{req_profile.user.get_province_name}}</li>
                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Experience:</span> 10 Years</li>
                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Email:</span> {{req_profile.email}}</li>
                                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-white me-2 font-weight-600">Contacts:</span>None</li>
@@ -45,7 +45,7 @@
                             <div class="my-3">  {% if req_profile.user == user %}
                                                     <a href="{% url 'profiles:become_dealer' user.profile.slug  %}" class="site-btn ms-3 me-3">สมัครเป็นดีลเลอร์</a>
  
-                                                    <a href="{% url 'profiles:profile_update' user.profile.slug  %}" class="site-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
+                                                    <a href="{% url 'profiles:profile_update' user.slug  %}" class="site-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
                                                     {% if req_profile.user.is_dealer %}
                                                     
                                                     <a href="{% url 'market:market_create' %}" class="site-btn me-3">Create deal</a>
