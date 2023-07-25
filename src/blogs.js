@@ -92,7 +92,7 @@ const Blogs = () => {
                             just as satisfying.</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -117,7 +117,7 @@ const Blogs = () => {
                             smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -142,7 +142,7 @@ const Blogs = () => {
                             communication styles, active listening techniques, and fostering effective dialogue</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -169,7 +169,7 @@ const Blogs = () => {
                             overcome creative blocks, and foster a more innovative mindset.</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -194,7 +194,7 @@ const Blogs = () => {
                             and harness new opportunities for personal and professional growth.</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -219,7 +219,7 @@ const Blogs = () => {
                             well-being and explore techniques to cultivate a positive mindset.</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>
@@ -244,7 +244,7 @@ const Blogs = () => {
                             decisio paralysis, and make more informed and effective choices.</div>
                             <div className="tips-readmore">
                                 <div className="tips"> 
-                                    <Link to="/blogs/tips">Tips</Link>
+                                    <Link to="/blogs/events">Events</Link>
                                 </div>
                                 <div className="read-more">
                                     <Link to="/blogs/read-more">Read more</Link>

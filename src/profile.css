@@ -15,13 +15,13 @@
 }
 
 /* ProfilePage-Top */
-.topside-profile{
+.side-profile{
     margin-top: 10px;
 }
 .top-top-profile{
     display: flex;
     width: 100%;
-    height: 300px;
+    height: 250px;
     background-color: white;
     border-radius: 10px;
     align-items: center;
@@ -30,7 +30,6 @@
     margin: 0 20px;
 }
 .name{
-    font-family: Plus Jakarta Sans;
     font-size: 36px;
 }
 .description{
@@ -47,66 +46,120 @@
 
 /* ProfilePage-2ndLayer*/
 
-.second-layer-profile{
-    width: 100%;
-    height: 270px;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-.balance-box{
-    font-size: 24px;
-    width: 288px;
-    height: 214px;
-}
-.number{
-    font-size: 80px;
-    color: #EC6C03;
-    text-align: right;
-}
-.unit{
-    font-size: 24px;
-    text-align: right;
-}
-.rank-box{
-    font-size: 24px;
-    width: 288px;
-    height: 214px;
-}
-.favorite-box{
-    font-size: 24px;
-    width: 288px;
-    height: 214px;
-}
-.fav-pic{
-    margin: auto 0 auto 20px;
-}
-.wrapper-fav{
+.wrapper-profile{
     display: flex;
+    margin: 10px 0;
 }
-.fav-number{
-    font-size: 80px;
+.rank-andmore-block{
+    display: flex;
+    width: 700px;
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+}
+.rank-block{
+    margin: auto;
+    height: 230px;
+    width: 400px;
+}
+.rank-block-container{
+    width: 300px;
+    margin: 0 auto;
+}
+.rank-text,.reduced-text,.carbon-text{
+    font-size: 36px;
+}
+.number-order,.percent,.offset-natural{
+    margin-top: 20px;
     color: #EC6C03;
-    text-align: right;
-    margin-left: 50px;
-}
-.describe{
-    font-size: 12px;
+    font-size: 80px;
     text-align: right;
 }
-.unit2{
-    font-size: 12px;
+.streak{
+    margin-top: 20px;
+    text-align: right;
+    font-size: 16px;
+}
+.andmore-block{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}   
+.reduced-block,.carbon-status-block{
+    width: 350px;
+    height: 250px;
+    border-radius: 5px;
+    background: #FFF;
+    margin-left: 10px;
+}
+.reduced-block-container,.carbon-status-block-container{
+    width: 300px;
+    margin: 10px auto;
+}
+.from-text{
+    margin: 10px 0;
+    text-align: right;
+}
+.chestnuts-amount{
     text-align: right;
     color: #A4A6AF;
     opacity: 0.5;
 }
-.and-more-box{
-    font-size: 24px;
-    width: 288px;
-    height: 214px;
+
+/* Project */
+.project{
+    width: 100%;
+    height: 416px;
+    background-color: white;
+    border-radius: 5px;
+}
+.project-container{
+    height: 400px;
+    margin: auto 0 auto 20px;
+}
+.project-title{
+    font-size: 36px;
+    padding: 20px 0;
+}
+
+/* Blogs */
+.blogs-profile{
+    margin-top: 10px;
+    height: 393px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+.blogs-profile-container{
+    height: 480px;
+    margin: auto 0 auto 20px;
+}
+.blogs-text{
+    font-size: 36px;
+    padding: 20px 0;
+}
+.blogs-content{
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.nav-eachblog-profile{
+    display: flex;
+    justify-content: space-between;
+}
+.time-profile{
+    color: #AAACB4;
+    opacity: 0.5;
+}
+.secondblog-profile,.thirdblog-profile{
+    display: flex;
+    flex-direction: column;
+    width: 341px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    border: 1px solid black;
 }
 
 /* responsive */
