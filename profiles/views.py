@@ -200,3 +200,8 @@ def sessionView(request, slug):
     #         'profile_slug':profile_slug
     # }
     return render(request, 'profiles/session_page.html', {"form": form})
+
+
+def makeNeutral():
+    pass
+

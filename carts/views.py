@@ -104,6 +104,7 @@ def TempCheckout(request):
                 # print(user_credit.user_credit)
                 user_credit.credits += credit_to_add
                 user_credit.save() 
+                user_credit.checkNeutral
                 # my own function
                 qr_img = qr_generator(cart_item)
                 print(qr_img)
@@ -123,7 +124,7 @@ def TempCheckout(request):
             'items_checkout':latest_item_list
 
         }
-        
+
         return render(request, 'carts/purchase_complete.html', ctx)
 
     else:

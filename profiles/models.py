@@ -139,8 +139,16 @@ class CreditSession(models.Model):
 
     def __str__(self):
         return f"{self.user} | {self.credits}"
-    
+    @property
+    def checkNeutral(self):
+        credits_goal = 1000
 
+        if self.credits >= credits_goal and not self.is_neutral:
+            self.is_neutral = True
+            self.save()
+        elif self.credits < credits_goal and self.is_neutral:
+            self.is_neutral = False
+            self.save()
 
 class CreditHistory(models.Model):
     

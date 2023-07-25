@@ -101,12 +101,12 @@ PROVINCES=(('1', 'กรุงเทพมหานคร'),
 #     User.objects.create_user(password='111111', **dealer)
 
 # users = User.objects.all()
-session = CreditSession.objects.all()
+# session = CreditSession.objects.all()
 
-for user in session:
-    credits = random.randint(500,4000)
-    user.credits = credits
-    user.save()
+# for user in session:
+#     credits = random.randint(500,4000)
+#     user.credits = credits
+#     user.save()
 
 
 
@@ -114,7 +114,7 @@ for user in session:
 
 #fake deals 
 
-users = User.objects.filter(username__icontains='dealer')
+users = User.objects.filter(username__icontains='12')
 
 
 CATEGORY = (
@@ -132,28 +132,28 @@ print(dummy_text(7))
     
 
 
-# for user in users:
-#     deal_entries = random.randint(1,3)
-#     for deal in range(deal_entries):
-#         # dealer = user
-#         name = dummy_text(4)
-#         short_description = dummy_text(10)
-#         long_description = dummy_text(40)
-#         price_per_unit = random.randint(20,100) 
-#         category = random.choice(CATEGORY)[0]
-#         n_of_buyer = random.randint(1,1000)
+for user in users:
+    deal_entries = random.randint(1,3)
+    for deal in range(deal_entries):
+        # dealer = user
+        name = dummy_text(4)
+        short_description = dummy_text(10)
+        long_description = dummy_text(40)
+        price_per_unit = random.randint(20,100) 
+        category = random.choice(CATEGORY)[0]
+        n_of_buyer = random.randint(1,1000)
 
-#         deal_object = Market.objects.get_or_create(
-#             dealer=user,
-#             name=name,
-#             short_description=short_description,
-#             long_description=long_description,
-#             price_per_unit=price_per_unit,
-#             category=category,
-#             quantity_left = n_of_buyer,
-#         )
+        deal_object = Market.objects.get_or_create(
+            dealer=user,
+            name=name,
+            short_description=short_description,
+            long_description=long_description,
+            price_per_unit=price_per_unit,
+            category=category,
+            quantity_left = n_of_buyer,
+        )
         
-#         # print(deal_object)
+        # print(deal_object)
 
 
 
