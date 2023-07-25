@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+# from profiles.models import Profile
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -57,12 +57,17 @@ INSTALLED_APPS = [
     #ckeditor
     'ckeditor',
     'ckeditor_uploader',
+    #rest_framework
+    'rest_framework',
     #my apps
     'profiles',
     'market',
     'users',
     'carts',
     'dealer',
+    'api',
+    'leaderboards',
+
 ]
 
 AUTHENTICATION_BACKENDS = [ 
@@ -77,7 +82,7 @@ SITE_ID = 1
 AUTH_USER_MODEL = "users.User"
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'howto'
 LOGOUT_REDIRECT_URL = 'index'
 
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False

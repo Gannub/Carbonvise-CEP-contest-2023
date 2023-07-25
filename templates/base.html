@@ -73,17 +73,17 @@
 							<a class="nav-link" href="#">บล็อก</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">อันดับรายจังหวัด</a>
+							<a class="nav-link" href="{% url 'leaderboards:leaderboards' %}">อันดับรายจังหวัด</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'user_list' %}">ผู้ใช้ทั้งหมด</a>
+							<a class="nav-link" href="{% url 'leaderboards:user_by_credits' %}">อันดับผู้ใช้</a>
 						</li>
 					</ul>
 					<span class="navbar-text">
 						<span class="nav-cart me-4">
 							<a class="" href="{% url 'cart:carts' %}" style="text-decoration:none">
 								<i class="fa fa-shopping-cart"  ></i>
-								{{user.profile.cart.cart_item_total}}
+								{{user.cart.cart_item_total}}
 							</a>
 						</span>
 						{% if user.is_authenticated %}

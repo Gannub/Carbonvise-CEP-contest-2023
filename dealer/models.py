@@ -93,7 +93,7 @@ def upload_path(instance, filename):
     return f'dealer/dealer_icon/{instance}/{filename}'
 class Dealer(models.Model):
     #is_dealer data
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,related_name='dealer_data',on_delete=models.CASCADE)
     company_name = models.CharField(max_length=100)
     shop_name = models.CharField(max_length=100, unique=True)
     deal_province = models.CharField(max_length=100, choices=PROVINCES)

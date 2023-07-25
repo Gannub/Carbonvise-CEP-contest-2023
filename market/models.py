@@ -23,7 +23,7 @@ def upload_path(instance, filename):
 
 class Market(models.Model):
     name = models.CharField(max_length=100,unique=True)
-    dealer = models.ForeignKey(User, on_delete=models.CASCADE)
+    dealer = models.ForeignKey(User,related_name="deal_created", on_delete=models.CASCADE)
     short_description = models.CharField(max_length=150, null=True, blank=True)
     long_description = RichTextUploadingField(null=True,blank=True)
     price_per_unit = models.PositiveIntegerField()
@@ -33,7 +33,7 @@ class Market(models.Model):
     
     #Number of buyers is necessary, it will be used to calculate the RCC later.
     #but I'm leaving it null=True just in case.
-    number_of_buyer = models.PositiveIntegerField(null=True, blank=True)
+    quantity_left = models.PositiveIntegerField(null=True, blank=True)
     deal_rating = models.DecimalField(decimal_places=1, max_digits=5, null=True, blank=True)
     
     slug = models.SlugField(unique=True,null=True,blank=True)
