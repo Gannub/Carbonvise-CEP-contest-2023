@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="container">
+		<div class="h1 text-center my-3">Purchase complete</div>
+   
+				{% for item in items_checkout reversed %}
+                    <h3>Deal</h3>
+                    {{item.deal}} {{item.quantity}}
+                    <img src="{{item.qrcode.url}}">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

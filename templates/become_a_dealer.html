@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+	<section class="hero-section set-bg" data-setbg="{% static 'img/forest.jpg' %}">
+		<div class="container">
+			<div class="hero-text text-white">
+                    <h1>Become a dealer!</h1> 
+					<a href="{% url 'market:market_create'%}" class="site-btn my-5">Create Deal Now</a>
+			</div>
+		</div>
+	</section>
+	
+
+
+
+{% endblock %} 

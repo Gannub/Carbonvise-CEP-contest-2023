@@ -1,0 +1,349 @@
+.market-inside{
+    max-width: 1408px;
+    height: 1237px;
+    background-color: white;
+    border-radius: 10px;
+}
+.market-insideContainer{
+    max-width: 1300px;
+    margin: 10px auto;
+}
+
+/* TopSide */
+
+.top-side{
+    margin: 0 auto;
+    max-width: 1342px;
+    height: 512px;
+}
+
+/* firstLayer */
+
+.first-layer{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1390px;
+}
+.undo,.threedots{
+    margin-top: 40px;
+}
+
+/* secondLayer */
+
+.second-layer{
+    margin: 20px auto;
+    max-width: 1257px;
+    display: flex;
+}
+.left-second-layer{
+    max-width: 600px;
+    height: 400px;
+}
+
+.mid-second-layer{
+    margin-left: 20px;
+}
+.mid-title{
+    font-size: 36px;
+}
+.score{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.score img{
+    margin-left: 5px;
+}
+.mid-text{
+    margin-left: 10px;
+    color: #A4A6AF;
+    opacity: 0.7;
+}
+.mid-type{
+    margin-top: 10px;
+    padding: 5px;
+    width: max-content;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    font-weight: 700;
+}
+.mid-type a{
+    text-decoration: none;
+}
+.mid-decription-title{
+    margin: 10px 0;
+    font-size: 11px;
+}
+.mid-decription-info{
+    width: 367px;
+    text-align: justify;
+    color: #A4A6AF;
+    font-size: 11px;
+}
+
+.right-second-layer{
+    margin-left: 20px;
+}
+.right-topbox{
+    width: 217px;
+    height: 148px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+}
+.upper-topbox{
+    width: 200px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.adjust-num{
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+}
+.x{
+    margin: 0 10px;
+}
+.subunit-inside{
+    margin-left: 30px;
+}
+.upper-bottom{
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+}
+.add-cart{
+    margin-left: 40px;
+    height: 36px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+}
+.buy{
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 20px;
+}
+.buy a{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+.add-cart a{
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.right-botbox{
+    margin-top: 20px;
+    width: 217px;
+    height: 116px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    display: flex;
+}
+.userpic{
+    margin: 10px 0 0 10px;
+}
+.about-userpic{
+    width: 90px;
+    margin: 10px 0 0 10px;
+}
+.name-userpic{
+    font-weight: 700;
+}
+.rating-userpic{
+    padding: 5px;
+    margin-top: 15px;
+}
+.view{
+    margin: 15px 0 0 15px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+.view a{
+    text-decoration: none;
+}
+
+
+/* BottomSide */
+/* TopofBottomSide */
+
+.bot-side{
+    margin: 50px auto 0 auto;
+    max-width: 1342px;
+    height: 512px;
+}
+.bot-sidenav{
+    display: flex;
+    justify-content: space-between;
+}
+.RatingReviews{
+    font-size: 36px;
+}
+.uppersorted{
+    display: flex;
+    align-items: center;
+}
+.underline-sorted{
+    margin-left: 10px;
+    width: 97px;
+    height: 0.5px;
+    background-color: black;
+}
+.lowersorted{
+    display: flex;
+    margin-top: 10px;
+}
+.date{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+.reviews{
+    margin-left: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.bot-underline{
+    margin-top: 20px;
+    max-width: 1342px;
+    height: 0.5px;
+    background-color: black;
+}
+
+/* comment-section */
+
+
+/* responsive */
+.second-layer-responsive{
+    display: none;
+}
+.add-market-inside-res{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    /* Blogs-inside */
+    .market-inside{
+        margin: 0 auto;
+        width: 400px;
+        height: 650px;
+    }
+    .market-insideContainer{
+        width: 350px;
+        margin: 10px auto;
+    }
+    .second-layer-responsive{
+        display: block;
+    }
+    .second-layer{
+        display: none;
+    }
+    .mid-second-layer-res{
+        width: 300px;
+        margin: 0 auto;
+    }
+    .mid-title{
+        font-size: 24px;
+    }
+    .mid-img-market-inside-res{
+        margin: 0 auto;
+        width: 300px;
+        height: 222px;
+    }
+    .mid-decription-info{
+        width: 300px;
+    }
+    .user-info-market-inside-res{
+        margin: 0;
+        width: 300px;
+        display: flex;
+    }
+    .right-side-userpic{
+        margin: auto 20px;
+    }
+    .rating-userpic{
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+    .view{
+        margin: 0;
+        width: max-content;
+    }
+    .bot-side{
+        width: 300px;
+    }
+    .bot-sidenav{
+        margin: 0 auto;
+        width: 300px;
+    }
+    .RatingReviews{
+        font-size: 16px;
+    }
+    .underline-sorted{
+        width: 61px;
+        height: 0.5px;
+    }
+    .bot-underline{
+        display: none;
+    }
+    .comment-section-component{
+        display: none;
+    }
+    .bot-side{
+        height: max-content;
+    }
+
+    /* added-block */
+    .add-market-inside-res{
+        display: block;
+        margin: 10px auto;
+        width: 400px;
+        height: 100px;
+        border-radius: 5px;
+        background-color: white;
+    }
+    .add-market-inside-res-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 350px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    .left-side-added-block-res{
+        display: flex;
+    }
+    .num{
+        padding: 0 5px;
+    }
+    .subunit-inside{
+        margin: 0;
+        padding-top: 23px;
+    }
+    .upper-bottom{
+        width: max-content;
+    }
+    .adjust-num{
+        margin: 0 0 5px 0;
+    }
+    .add-cart{
+        margin: 0;
+    }
+    .buy{
+        margin: 0 0 0 5px;
+    }
+    .minus{
+        margin-left: 60px;
+    }
+  }
