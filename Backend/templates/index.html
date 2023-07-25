@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!-- Hero section -->
+	<section class="hero-section set-bg" data-setbg="{% static 'img/forest2.jpg' %}">
+		<div class="container">
+	
+			<div class="hero-text">
+				
+				<h2>เราเปลี่ยนการจัดการคาร์บอนที่น่าเบื่อ<br>ให้กลายเป็นตลาดซื้อขายคาร์บอนที่น่าตื่นเต้น !</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<form class="intro-newslatter">
+						{% if user.is_authenticated %}
+						{% else %}	
+						<input type="text" placeholder="Name">
+						<input type="text" class="last-s" placeholder="E-mail">
+						<button class="site-btn">Sign Up Now</button>
+						{% endif %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				<h4>ครอบครองสถานะ "เป็นกลางทางคาร์บอน" ได้ง่าย ๆ </h4>
+				<h5>ร่วมช่วยโลกของเราโดยการลดการปล่อยคาร์บอนให้ได้มากที่สุด!</h5>
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn neutral">เริ่มต้นตอนนี้เลย</a>
+			</div>
+		</div>
+	</section>	
+	
+	<!-- categories section -->
+	<section class="categories-section spad">
+		<div class="container">
+			<div class="section-title">
+				<h2>เราทำได้อย่างไร ?</h2>
+				<p>“ตลาดคาร์บอน” หรือตลาดซื้อขายคาร์บอน (Carbon Market) เริ่มมีแนวคิดที่ใช้กลไกตลาดเป็นแรงจูงใจในการลดการปล่อยก๊าซเรือนกระจก โดยกำหนดให้ “คาร์บอนเครดิต” เป็นสินค้าสำหรับการซื้อขายได้ จึงทำให้เกิดเป็น “ตลาดคาร์บอน” ขึ้น รวมทั้งยังทำให้เกิดการการกำหนดราคาของคาร์บอนเครดิตด้วย ซึ่งตามทฤษฎีเศรษฐศาสตร์แล้ว กลไกการตลาดดังกล่าวจะเป็นการทำให้ต้นทุนของการลดปล่อยก๊าซเรือนกระจกต่ำที่สุด ตลาดคาร์บอนสามารถแยกออกได้เป็น 2 กลุ่ม ได้แก่ ตลาดทางการและตลาดแบบสมัครใจ</p>
+			</div>
+			<div class="row">
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>ตลาดทางการ</h5>
+							<p>(Mandatory market / Compliance Market / Regulated Market) </p>
+							<span>120 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>Business</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<span>70 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>Illustration & Drawing</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<span>55 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>Social Media</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<span>40 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>Photoshop</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<span>220 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-text">
+							<h5>Cryptocurrencies</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<span>25 Chestnuts</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- categories section end -->
+
+
+	<!-- search section -->
+	<section class="search-section">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2>Buy Carbon credits</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<!-- search form -->
+						<form class="carbon-search-form">
+							<input type="text" placeholder="Carbon">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn">Search for a dealer</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
+
+
+
+	<!-- signup section -->
+	<section class="signup-section spad my-5">
+		<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="signup-warp">
+						<div class="section-title text-white text-left">
+							<h2>Become a Carbon Credit Dealer</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+						</div>
+						<!-- signup form -->
+						
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- signup section end -->
+	<div class="container">
+		<div id="map-canvas"></div>
+		<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6332.478370682145!2d100.53338985065469!3d13.739896827570131!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f2aae33623f%3A0x421e0643a63c2093!2z4LiI4Li44Lis4Liy4Lil4LiH4LiB4Lij4LiT4LmM4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii!5e0!3m2!1sth!2sth!4v1687720196839!5m2!1sth!2sth" width="600" height="600" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+	</div>
+	
+{% endblock %} 

@@ -1,0 +1,73 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+<link rel="stylesheet" href="{% static 'css/leaderboards.css' %}"/>
+</head>
+<!-- <body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">อันดับรายจังหวัด </h1>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">จังหวัด</th>
+                    <th scope="col">จำนวนผู้ใช้ที่เป็นกลางทางคาร์บอน</th>
+                    <th scope="col">จำนวนเครดิตสะสม</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in provinces_credits_sum %}
+                <tr>
+                    <td>{{ user.user }}</td> 
+                    <td>{{user.total_neutral}}</td>
+                    <td>{{ user.total_credits }}</td>
+                   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>  -->
+<div class="container">
+    <div class="table-block">
+        <div class="table-block-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        
+                        <th>Username</th>
+                        <th>Province</th>
+                        <th>Status</th>
+                        <th class="mooyong">Total Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in object_list %}
+                    
+                        <div>
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                
+                                <td class="user_click"><a href="{% url 'profiles:profile_page' user.profile.slug %}">{{ user.username}}</a></td> 
+                                
+                                <td>{{ user.get_province_name }}</td>
+                                <td class="neutral">Neutral</td>
+                                <td>{{user.total_credits}}</td>
+                            </tr>
+                        </div>
+                   
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

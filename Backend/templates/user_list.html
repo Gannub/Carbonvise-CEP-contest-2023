@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+
+<div class="container">
+
+                        
+                    
+                        <div class="mix col-lg-4 col-md-4 col-sm-10  ">
+                            {% for user in user_list %}
+                                <div class="carbon-item">
+                                        <a href="{% url 'profiles:profile_page' user.profile.slug %}">
+                                            <div class="carbon-thumb set-bg" data-setbg="
+                                            {% if user.profile.image %}
+                                                {{user.profile.image.url}}
+                                            {% else %}
+                                                {% static 'img/carbonvise.png' %}
+                                            {% endif %}">
+                                                
+                                            </div>
+                                                <div class="carbon-info">
+                                                    <div class="carbon-text">
+                                                        <h5>{{user.first_name}} {{user.last_name}} </h5>
+                                                        <p>{{deal.short_description}}</p>
+                                                        
+                                                        <div class="students">{{deal.quantity_left}} Chestnuts </div>
+                                                    </div>
+                                        </a>
+                                                <div class="carbon-author">
+                                                    <a href=""> 
+                                                        <div class="ca-pic set-bg" data-setbg=" 
+                                                        {% if deal.dealer.profile.image %}
+                                                            {{deal.dealer.profile.image.url}}
+                                                        {% else %}
+                                                            {% static 'img/carbonvise.png' %}
+                                                        {% endif %}"></div>
+                                                    </a> 
+                                                    <a href="">
+                                                        <p>{{deal.dealer}}, <span>{{deal.get_category_name}}</span></p>
+                                                    </a>
+                                                </div>
+                                </div>
+                                        
+                            
+                        </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+{% endblock %} 
