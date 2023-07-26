@@ -40,6 +40,7 @@ urlpatterns = [
 
     path('api/', include('api.urls',namespace='api')),
     path('leaderboards/', include('leaderboards.urls',namespace='leaderboards')),
+    path('badges/', include('badges.urls',namespace='badges')),
     
 
 

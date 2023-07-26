@@ -77,7 +77,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4 mb-lg-0"> 
                                 <div class="cp-item">
-                                    <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{profile_credit}}" data-cpcolor="#0b1800" data-cpsize="500" data-cptitle="Progress to neutral"></div>
+                                    <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#0b1800" data-cpsize="500" data-cptitle="Progress to neutral"></div>
                                 </div>
                             
                             </div>
@@ -93,9 +93,17 @@
 
                                 </div>
                                 <div class="my-3">  {% if req_profile.user == user %}
+                                    {% if not profile_credit == None %}
                                         <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="site-btn ms-3 me-3">End session</a>
+                                        {%if profile_credit.badges.is_obtained %}
+                                        <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}" class="site-btn ms-3 me-3">View badge</a>
+                                        {% else %}
+                                        <a href="{% url 'badges:obtain_badges' %}" class="site-btn ms-3 me-3">obtain badges</a>
+                                        {% endif %}
+                                        
 
-          
+                                    {% else %}
+                                    {% endif %}
 
                                         
                                         
@@ -115,7 +123,42 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>            <h2 class="my-3">Session History</h2>
+			<div class="box-element">
+                
+                    <div class="cart-row">
+                        <div style="flex:1"><strong>Session name</strong></div>
+                        
+                        <div style="flex:1"><strong>Credits Obtained</strong></div>
+                        
+                        <div style="flex:1"><strong>Start date</strong></div>
+                        <div style="flex:1"><strong>End date</strong></div>
+                        <div style="flex:1"><strong>Status</strong></div>
+                        <div style="flex:1"><strong>Badge</strong></div>
+                    </div>
+                    {% for sess in session_history reversed %}
+                    <div class="cart-row">
+                        <div style="flex:1"><p>{{sess.session_name}}</p></div>
+
+                        
+                        
+                        <div style="flex:1"><p>{{sess.credits_of_month}}</p></div>
+                        <div style="flex:1"><p>{{sess.start_date}}</p></div>
+                        <div style="flex:1">
+                            <p class="quantity">{{sess.end_date}}</p>
+                            
+                        </div>
+                        {% if sess.is_neutral %}
+                        <div style="flex:1"><p>Neutral</p></div>
+                        <div style="flex:1"><a href="{% url 'badges:badge_detail' sess.slug %}" class="site-btn ms-3 me-3">View badges</a></div>
+                        {% else %}
+                        <div style="flex:1"><p>Not Neutral</p></div>
+                        <div style="flex:1"></div>
+                        {% endif %}
+                        
+                    </div>
+                    {% endfor %}
+			</div>
             <h2 class="my-3">Purchase History</h2>
 			<div class="box-element">
                 
@@ -147,6 +190,8 @@
 				</div>
 				{% endfor %}
 			</div>
+
+
     </div>
           
 

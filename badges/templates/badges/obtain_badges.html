@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{%block content %}
+
+<section class="">
+  <div class="container alley">
+    <div class="my-3">
+      <h1 class="my-5 text-center">Congratulations</h1>
+      <div class="my-3 text-center">
+        <h4>Your have made it, You are now neutral to carbon!</h4>
+        <h4 class="my-3">Thank you for your reach to our beloved world!</h4>
+
+      </div>
+      <div class="text-center">
+        Here's your badge for being neutral to carbon.
+        
+         <form method="post">
+            {% csrf_token %}
+                
+                <input type="hidden" name="selected_number" id="selected_number" value="">
+                <div class="badge_container">
+                    <div class="badges_set">
+                        <img src="{% static 'img/badges_test.png' %}" class='imagebadges' alt="badges" onclick="selectNumber(1)">
+                        <img src="{% static 'img/badge2.jpg' %}" class='imagebadges' alt="badges" onclick="selectNumber(2)">
+                        <img src="{% static 'img/badge3.png' %}" class='imagebadges' alt="badges" onclick="selectNumber(3)">
+                        <img src="{% static 'img/badge4.png' %}" class='imagebadges' alt="badges" onclick="selectNumber(4)">
+                        <img src="{% static 'img/badge5.png' %}" class='imagebadges' alt="badges" onclick="selectNumber(5)">
+                    </div>
+                </div>
+            <br>
+            <input class='site-btn' type="submit" value="Submit">
+        </form>
+
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
