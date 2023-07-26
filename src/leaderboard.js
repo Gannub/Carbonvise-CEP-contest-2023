@@ -2,6 +2,12 @@ import './leaderboard.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const Leaderboard = () => {
+
+    const changeCategory = event => {
+        if (event.currentTarget.className === 'subcategory') {
+            event.currentTarget.classList.toggle('subcategory-selected');
+        }
+    }
     return ( 
         <div className="container">
             <div className="top-block">
@@ -16,18 +22,26 @@ const Leaderboard = () => {
                             <div className="underline-filter-leaderboard"></div>
                         </div>
                         <div className="category-blog">
-                            <div className="subcategory-selected">
-                                <Link to="/leaderboard/today">Today</Link>
+                            <Link to="/leaderboard/today">
+                            <div className="subcategory-selected " onClick={changeCategory}>
+                                Today
                             </div>
-                            <div className="subcategory">
-                                <Link to="/leaderboard/week">Week</Link>
+                            </Link>
+                            <Link to="/leaderboard/week"  >
+                            <div className="subcategory" onClick={changeCategory}>
+                                Week
                             </div>
-                            <div className="subcategory">
-                                <Link to="/leaderboard/month">Month</Link>
+                            </Link>
+                            <Link to="/leaderboard/month">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Month
                             </div>
-                            <div className="subcategory">
-                                <Link to="/leaderboard/all-time">All time</Link>
+                            </Link>
+                            <Link to="/leaderboard/all-time">
+                            <div className="subcategory" onClick={changeCategory}>
+                                All time
                             </div>
+                            </Link>
                         </div>
                     </div>
                     <div className="sorted-test">

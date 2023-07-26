@@ -5,6 +5,13 @@ import leaf from './images/market-inside/leaf.jpg';
 import dropdown from './images/blogs/dropdown.jpg';
 
 const Market = () => {
+
+    const changeCategory = event => {
+        if (event.currentTarget.className === 'subcategory' ||  event.currentTarget.className === 'subcategory-res') {
+            event.currentTarget.classList.toggle('subcategory-selected');
+        }
+    }
+
     return ( 
         <div className="container">
             <div className="top-block">
@@ -21,30 +28,44 @@ const Market = () => {
                         <div className="category">
 
                             <div className="wrapper-responsive-market">
-                            <div className="subcategory-selected">
-                                <Link to="/market/all">All</Link>
+                            <Link to="/market/all">
+                            <div className="subcategory-selected" onClick={changeCategory}>
+                                All
                             </div>
-                            <div className="subcategory">
-                                <Link to="/market/biomass">Biomass</Link>
+                            </Link>
+                            <Link to="/market/biomass">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Biomass
                             </div>
-                            <div className="subcategory">
-                                <Link to="/market/biological">Biological</Link>
+                            </Link>
+                            <Link to="/market/biological">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Biological
                             </div>
-                            <div className="subcategory">
-                                <Link to="/market/renewable energy">Renewable energy</Link>
+                            </Link>
+                            <Link to="/market/renewable energy">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Renewable energy   
                             </div>
+                            </Link>
                             </div>
 
                             <div className="wrapper-responsive-market-under">
-                            <div className="subcategory-res">
-                                <Link to="/market/hydropower">Hydropower</Link>
+                            <Link to="/market/hydropower">
+                            <div className="subcategory-res" onClick={changeCategory}>
+                                Hydropower    
                             </div>
-                            <div className="subcategory">
-                                <Link to="/market/waste heat recovery">Waste Heat</Link>
+                            </Link>
+                            <Link to="/market/waste heat recovery">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Waste Heat
                             </div>
-                            <div className="subcategory">
-                                <Link to="/market/solar energy">Solar energy</Link>
+                            </Link>
+                            <Link to="/market/solar energy">
+                            <div className="subcategory" onClick={changeCategory}>
+                                Solar energy
                             </div>
+                            </Link>
                             </div>
 
                         </div>

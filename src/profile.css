@@ -43,6 +43,17 @@
     margin-left: 5px;
     text-decoration: none;
 }
+.follow-btn{
+    border: 1px solid black;
+    padding: 5px;
+    width: max-content;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.follow-btn a{
+    text-decoration: none;
+}
 
 /* ProfilePage-2ndLayer*/
 
@@ -109,19 +120,63 @@
 }
 
 /* Project */
+.wrapper-project{
+    display: flex;
+}
+.wrapper-project a{
+    text-decoration: none;
+}
 .project{
-    width: 100%;
+    width: 1408px;
     height: 416px;
     background-color: white;
     border-radius: 5px;
 }
 .project-container{
-    height: 400px;
     margin: auto 0 auto 20px;
 }
 .project-title{
     font-size: 36px;
     padding: 20px 0;
+}
+.product1-profile,.product2-profile,.product3-profile{
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 303px;
+    background-color: white;
+    border-radius: 5px;
+}
+.product2-profile,.product3-profile{
+    margin-left: 10px;
+}
+.related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
+    display: flex;
+    width: 316px;
+    height: 209px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.related-pic-1-profile{
+    background: url(images/market/product1.jpg);
+}
+.related-pic-2-profile{
+    background: url(images/market/product2.jpg);
+}
+.related-pic-3-profile{
+    background: url(images/market/product3.png);
+} 
+.about-pic-profile{
+    margin: 0 auto;
+    width: 316px;
+    display: flex;
+    justify-content: space-between;
+}
+.type-profile{
+    font-size: 16px;
+}
+.num-profile{
+    font-size: 32px;
 }
 
 /* Blogs */
@@ -161,9 +216,109 @@
     margin-right: 15px;
     border: 1px solid black;
 }
+.container-eachblog-profile{
+    margin: 20px auto;
+    width: 300px;
+}
 
 /* responsive */
 @media only screen and (max-width: 600px) {
     /* profile */
-    
+    /* top-block */
+    .container{
+        margin: 0 20px;
+    }
+    .top-block-profile{
+        width: 400px;
+        margin: 10px auto;
+    }
+    .profile-title{
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    /* user-profile */
+    .top-top-profile{
+        width: 400px;
+        margin: 10px auto;
+    }
+    .userFace{
+        width: 83px;
+    }
+    /* cant make img small */
+    .userFace img{
+        display: none;
+    }
+    .name{
+        font-size: 16px;
+    }
+
+    /* mid-section */
+    .wrapper-profile{
+        width: 400px;
+        margin: 0 auto;
+    }
+    .andmore-block{
+        display: none;
+    }
+    .rank-block,.rank-andmore-block,.reduced-block,.carbon-status-block{
+        width: 110px;
+        height: 110px;
+    }
+    .rank-block-container,.reduced-block-container,.carbon-status-block-container{
+        width: 100px;
+        height: 100px;
+        margin:  10px auto;
+    }
+    .rank-text,.streak,.reduced-text,.carbon-text{
+        font-size: 12px;
+    }
+    .number-order,.percent,.offset-natural{
+        font-size: 24px;
+    }
+    .from-text,.chestnuts-amount{
+        font-size: 8px;
+    }
+    .streak,.number-order,.percent{
+        margin-top: 10px;
+    }
+    .from-text{
+        margin: 5px 0;
+    }
+
+    /* project */
+    .project{
+        margin: 10px auto;
+        width: max-content;
+    }
+    .project-title{
+        font-size: 16px;
+    }
+    .product1-profile,.product2-profile,.product3-profile{
+        width: 250px;
+        height: 290px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid black; 
+    }
+    .related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
+        width: 230px;
+    }
+    .about-pic-profile{
+        width: 230px;
+    }
+    .type-profile{
+        font-size: 12px;
+    }
+    .num-profile{
+        font-size: 24px;
+    }
+
+    /* Blogs */
+    .blogs-profile{
+        width: max-content;
+    }
+    .blogs-text{
+        font-size: 16px;
+    }
   }

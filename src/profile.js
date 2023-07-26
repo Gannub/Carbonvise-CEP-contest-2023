@@ -30,6 +30,7 @@ const Profile = () => {
                             </Link>
                         </div>   
                     </div>
+                    <div className="follow-btn"><Link to="/profile">Follow</Link></div>
                 </div>
                 <div className="wrapper-profile">
                     <div className="rank-andmore-block">
@@ -63,65 +64,65 @@ const Profile = () => {
                     <div className="project-container">
                         <div className="project-title">Projects</div>
                         <div className="project-content">
-                        <div className="wrapper-market">
+                        <div className="wrapper-project">
                     <Link to="/market-inside">
-                    <div className="product1">
-                        <div className="related-pic-1">
+                    <div className="product1-profile">
+                        <div className="related-pic-1-profile">
                             <div className="subcategory-each">
                                 <Link to="/market/renewable energy">Renewable energy</Link>
                             </div>
                         </div>
-                        <div className="about-pic">
+                        <div className="about-pic-profile">
                             <div className="about-pic-left">
-                                <div className="type">EcoPower</div>
+                                <div className="type-profile">EcoPower</div>
                                 <div className="rating">
                                     <img src={leaf} alt="" />
                                     5.0(52 Reviews)
                                     </div>
                             </div>
                             <div className="about-pic-right">
-                                <div className="num">324</div>
+                                <div className="num-profile">324</div>
                                 <div className="subunit">Chestnuts</div>
                             </div>
                         </div>
                     </div>
                     </Link>
-                    <div className="product2">
-                        <div className="related-pic-2">
+                    <div className="product2-profile">
+                        <div className="related-pic-2-profile">
                             <div className="subcategory-each">
                                 <Link to="/market/renewable energy">Solar energy</Link>
                             </div>
                         </div>
-                        <div className="about-pic">
+                        <div className="about-pic-profile">
                             <div className="about-pic-left">
-                                <div className="type">Embrace Solar Power</div>
+                                <div className="type-profile">Embrace Solar Power</div>
                                 <div className="rating">
                                     <img src={leaf} alt="" />
                                     4.9(39 Reviews)
                                     </div>
                             </div>
                             <div className="about-pic-right">
-                                <div className="num">500</div>
+                                <div className="num-profile">500</div>
                                 <div className="subunit">Chestnuts</div>
                             </div>
                         </div>
                     </div>
-                    <div className="product3">
-                        <div className="related-pic-3">
+                    <div className="product3-profile">
+                        <div className="related-pic-3-profile">
                             <div className="subcategory-each">
                                 <Link to="/market/renewable energy">Waste Heat Recovery</Link>
                             </div>
                         </div>
-                        <div className="about-pic">
+                        <div className="about-pic-profile">
                             <div className="about-pic-left">
-                                <div className="type">Embrace Solar Power</div>
+                                <div className="type-profile">Embrace Solar Power</div>
                                 <div className="rating">
                                     <img src={leaf} alt="" />
                                     1.9(70 Reviews)
                                     </div>
                             </div>
                             <div className="about-pic-right">
-                                <div className="num">2903</div>
+                                <div className="num-profile">2903</div>
                                 <div className="subunit">Chestnuts</div>
                             </div>
                         </div>
@@ -135,7 +136,7 @@ const Profile = () => {
                         <div className="blogs-text">Blogs</div>
                         <div className="blogs-content">
                         <div className="secondblog-profile">
-                        <div className="container-eachblog">
+                        <div className="container-eachblog-profile">
                         <div className="nav-eachblog-profile">
                             <div className="time-profile">16 hour ago</div>
                             <div className="three-dot"><img src={threeDot} alt="" /></div>
@@ -157,7 +158,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className="thirdblog-profile">
-                        <div className="container-eachblog">
+                        <div className="container-eachblog-profile">
                         <div className="nav-eachblog-profile">
                             <div className="time-profile">18 hour ago</div>
                             <div className="three-dot"><img src={threeDot} alt="" /></div>
