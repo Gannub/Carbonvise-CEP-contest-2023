@@ -67,6 +67,7 @@ def qr_generator(cart_item):
         # print(cart_item.date_added)
         # change to html page (reciept )
         localtime = timezone.localtime(cart_item.date_added)
+        #data will be changed to a landing page in the production?
         data = f'{cart_item.in_cart.customer} \n bought {cart_item.deal} \n At {localtime} \n Quantity:{cart_item.quantity}'
         # data = hash(data)
 
@@ -103,8 +104,10 @@ def TempCheckout(request):
                 user_credit,created = CreditSession.objects.get_or_create(user=request.user)
                 # print(user_credit.user_credit)
                 user_credit.credits += credit_to_add
-                user_credit.save() 
                 user_credit.checkNeutral
+                # I put save here right after the checkNeutral Property because the django's post_save logic that i had implemented on the `give badges` function.
+                user_credit.save() 
+                
                 # my own function
                 qr_img = qr_generator(cart_item)
                 print(qr_img)

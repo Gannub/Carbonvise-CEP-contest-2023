@@ -136,6 +136,7 @@ class CreditSession(models.Model):
     session_active = models.BooleanField(default=False)
     start_date = models.DateTimeField(null=True,blank=True)
     reset_date = models.DateTimeField(null=True,blank=True)
+    slug = models.SlugField(unique=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.user} | {self.credits}"
@@ -150,6 +151,11 @@ class CreditSession(models.Model):
             self.is_neutral = False
             self.save()
 
+def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
+    if not instance.slug:
+        instance.slug = check_slug_unique(instance)
+pre_save.connect(pre_save_slug_field, sender=CreditSession)
+
 class CreditHistory(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -158,7 +164,7 @@ class CreditHistory(models.Model):
     credits_of_month = models.IntegerField()
     start_date = models.DateTimeField(null=True,blank=True)
     end_date = models.DateTimeField(null=True,blank=True)
-    
+    slug = models.SlugField(unique=True, null=True, blank=True)
 
 
     def __str__(self):

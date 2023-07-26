@@ -25,6 +25,29 @@
 	font-family: sukhum;
 	src: url(SukhumvitSet-Medium.ttf);
   }
+.badge_container{
+	/* max-width: fit-content; */
+}
+.badges_set{
+	margin-top: 30px;
+	display: flex;
+	
+	/* width: 250 */
+}
+.imagebadges{
+	
+	width: 300px;
+	height: 150px;
+	cursor: pointer;
+	transition: opacity 0.2s ease-in-out;
+	transition: scale 0.2s ease-in-out;
+	  
+}
+.selected {
+	opacity: 0.5;
+	scale: 1.1;
+	animation: ease-in 2s;
+  }
 .iframe {
 
 

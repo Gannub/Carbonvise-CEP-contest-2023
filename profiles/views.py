@@ -112,7 +112,12 @@ def start_session(request, name , desc):
                 # print('Test timelapse')
                 # Store the current credits in the credit history
                 if user_session.credits > 0:
-                    CreditHistory.objects.create(user=request.user, session_name=user_session.session_name, session_des=user_session.session_des,credits_of_month=user_session.credits,start_date=user_session.start_date,end_date=timezone.now())
+                    CreditHistory.objects.create(
+                        user=request.user, session_name=user_session.session_name, 
+                        session_des=user_session.session_des,credits_of_month=user_session.credits,
+                        start_date=user_session.start_date,end_date=timezone.now(),
+                        slug=user_session.slug,
+                        )
 
                 # Reset the user's credits and set the new credit reset date to 1 month from now
                 user_session.credits = 0
@@ -142,9 +147,11 @@ def end_session(request):
         user_session = CreditSession.objects.get(user=request.user)
 
         if user_session.credits > 0:
+            #if user.isneutral we should collect badges in that session of that users
             CreditHistory.objects.create(user=request.user, session_name=user_session.session_name, session_des=user_session.session_des,credits_of_month=user_session.credits,start_date=user_session.start_date,end_date=timezone.now())
-        
+        # print('pre _ delete')
         user_session.delete()
+        
     except:
         pass
     

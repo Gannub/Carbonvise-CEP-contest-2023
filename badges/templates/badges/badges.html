@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{%block content %}
+
+<section class="">
+  <div class="container alley">
+    <div class="my-3">
+      <h1 class="my-5 text-center">Congratulations</h1>
+      <div class="my-3 text-center">
+        <h4>Your have made it, You are now neutral to carbon!</h4>
+        <h4 class="my-3">Thank you for your reach to our beloved world!</h4>
+
+      </div>
+      <div class="text-center">
+        Here's your badge for being neutral to carbon.
+        <div class="my-5">
+            <div class="h2">Session name : {{badge_obj.in_session.session_name}}</div>
+            <div class="h2">badge Status : {{badge_obj.is_obtained}} </div>
+            <img class="" src="{{badge_obj.badges.url}}"></img>
+        </div>
+      </div>
+      <!-- <canvas id="paint" width="750" height="750" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
+        <button class='site-btn my-3' id="penciltool" type="button" style="height: 40px; width: 100px;" onclick="pencil()">Pencil</button>
+        <button class='site-btn my-3' id="linetool" type="button" style="height: 40px; width: 100px;" onclick="line()">Line</button>
+        <button class='site-btn my-3' id="rectangletool" type="button" style="height: 40px; width: 100px;" onclick="rectangle()">Rectangle</button> 
+        <button class='site-btn my-3' id="circletool" type="button" style="height: 40px; width: 100px;" onclick="circle()">Circle</button> 
+        <button class='site-btn my-3' id="erasertool" type="button" style="height: 40px; width: 100px;" onclick="eraser()">Eraser</button> 
+        <button class='site-btn my-3' id="resettool" type="button" style="height: 40px; width: 100px;" onclick="reset()">Reset</button> -->
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

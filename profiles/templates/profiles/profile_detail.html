@@ -94,6 +94,8 @@
                                 </div>
                                 <div class="my-3">  {% if req_profile.user == user %}
                                         <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="site-btn ms-3 me-3">End session</a>
+                                        <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}" class="site-btn ms-3 me-3">View badge</a>
+                                        <a href="{% url 'badges:obtain_badges' %}" class="site-btn ms-3 me-3">obtain badges</a>
 
           
 
