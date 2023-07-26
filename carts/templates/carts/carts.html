@@ -1,6 +1,107 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Carbonvise</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Carbonvise">
+	<meta name="keywords" content="Carbonvise">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+	<script>
+		var user = '{{request.user}}';
+		
+		function getToken(name) {
+			let cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+				const cookies = document.cookie.split(';');
+				for (let i = 0; i < cookies.length; i++) {
+					const cookie = cookies[i].trim();
+					// Does this cookie string begin with the name we want?
+					if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						break;
+					}
+				}
+			}
+			return cookieValue;
+		}
+		const csrftoken = getToken('csrftoken');
+	</script>
+	
+	
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+				<div class="container-fluid">
+				  <a class="navbar-brand" href="{% url 'index' %}"><strong>CARBONVISE</strong></a>
+				  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link"  href="{% url 'index' %}">หน้าหลัก</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'market:market_list' %}">ตลาดคาร์บอน</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">บล็อก</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'leaderboards:leaderboards' %}">อันดับรายจังหวัด</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'leaderboards:user_by_credits' %}">อันดับผู้ใช้</a>
+						</li>
+					</ul>
+					<span class="navbar-text">
+						<span class="nav-cart me-4">
+							<a class="" href="{% url 'cart:carts' %}" style="text-decoration:none">
+								<i class="fa fa-shopping-cart"  ></i>
+								{{user.cart.cart_item_total}}
+							</a>
+						</span>
+						{% if user.is_authenticated %}
+					
+							<a class="font-weight-bold " href="{% url 'profiles:profile_page' user.profile.slug %}" style="text-decoration:none">{{user}}</a>
+							
+						{% else %}
+						
+						<!-- {% url 'account_logout' %} -->
+							<a href="{% url 'account_login' %}" class="nav-item me-3" style="text-decoration:none"> Login</a>
+							<a href="{% url 'account_signup' %}" class="nav-item" style="text-decoration:none"> Sign up</a> 
+						
+						{% endif %} 
+						 
+					</span>
+				  </div>
+				</div>
+			  </nav>
+         
+		</div>
+	</header>
 	<div class="container">
 		<div class="h1 text-center my-3">Your Cart</div>
     <div class="row">
@@ -61,4 +162,12 @@
 		</div>
 	</div>
 </div>
-{% endblock content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<!-- <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script> -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/circle-progress.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/carts.js' %}"></script>
