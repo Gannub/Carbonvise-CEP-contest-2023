@@ -13,7 +13,7 @@ def upload_path(instance, filename):
 
 
 class NeutralBadges(models.Model): 
-        in_session = models.OneToOneField(CreditSession,related_name='badges',on_delete=models.DO_NOTHING)
+        in_session = models.OneToOneField(CreditSession,related_name='badges',on_delete=models.SET_NULL,null=True)
         session_name = models.CharField(max_length=100, null=True, blank=True)
         slug = models.SlugField(unique=True,null=True,blank=True)
         badges = models.ImageField(null=True,blank=True, upload_to = upload_path)

@@ -164,6 +164,7 @@ class CreditHistory(models.Model):
     credits_of_month = models.IntegerField()
     start_date = models.DateTimeField(null=True,blank=True)
     end_date = models.DateTimeField(null=True,blank=True)
+    is_neutral = models.BooleanField(default=False)  
     slug = models.SlugField(unique=True, null=True, blank=True)
 
 

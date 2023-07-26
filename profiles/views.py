@@ -38,16 +38,20 @@ def profile_page(request, slug):
                     # purchased_item = None
         except :
            #might fix this part later 
+            profile_credits = None
             percentage = 0
         if profile.user==request.user:
 
             purchased_item = CartItemHistory.objects.filter(user=profile.user)
+            session_history = CreditHistory.objects.filter(user=profile.user)
+
+            
         else:
             purchased_item = None
     else:
         return redirect('account_login')
     
-    ctx = {'req_profile':profile, 'profile_credit':percentage,'purchased_item':purchased_item}
+    ctx = {'req_profile':profile, 'credit_percentage':percentage,'profile_credit':profile_credits ,'purchased_item':purchased_item, 'session_history':session_history}
 
     return render (request,'profiles/profile_detail.html',ctx)
 
@@ -143,17 +147,17 @@ def start_session(request, name , desc):
 
         
 def end_session(request):
-    try : 
+    # try : 
         user_session = CreditSession.objects.get(user=request.user)
 
         if user_session.credits > 0:
             #if user.isneutral we should collect badges in that session of that users
-            CreditHistory.objects.create(user=request.user, session_name=user_session.session_name, session_des=user_session.session_des,credits_of_month=user_session.credits,start_date=user_session.start_date,end_date=timezone.now())
+            CreditHistory.objects.create(user=request.user, session_name=user_session.session_name, session_des=user_session.session_des,credits_of_month=user_session.credits,start_date=user_session.start_date,end_date=timezone.now(),is_neutral=user_session.is_neutral,slug=user_session.slug)
         # print('pre _ delete')
         user_session.delete()
         
-    except:
-        pass
+    # except:
+        # pass
     
 
 def endSessionView(request, slug):
