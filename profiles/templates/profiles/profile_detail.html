@@ -4,7 +4,7 @@
 {% block content %}
 
 <!-- <link rel="stylesheet" href="{% static 'css/frontend/profile.css' %}"/> -->
-
+<!-- 
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-4 mb-sm-5">
@@ -85,7 +85,7 @@
                                 <div class="d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                     <div class="h2 text-white mb-0 my-3">Status : {{req_profile.user.profile_credit.is_neutral}}</div>
                                     <!-- <div class="h2 text-white mb-0 my-3">Session Active : {{req_profile.user.profile_credit.session_active}}</div> -->
-                                    <div class="h2 text-white mb-0 my-3">Session name : {{req_profile.user.profile_credit.session_name}}</div>
+                                    <!-- <div class="h2 text-white mb-0 my-3">Session name : {{req_profile.user.profile_credit.session_name}}</div>
                                     <div class="h4 text-white mb-0 my-5">Session End : {{req_profile.user.profile_credit.reset_date}}</div>
 
                                     <div class="h4 text-white mb-0 my-3">Your Credits : {{req_profile.user.profile_credit.credits}} Credits</div> 
@@ -123,43 +123,9 @@
                     </div>
                 </div>
             </div>
-        </div>            <h2 class="my-3">Session History</h2>
-			<div class="box-element">
-                
-                    <div class="cart-row">
-                        <div style="flex:1"><strong>Session name</strong></div>
-                        
-                        <div style="flex:1"><strong>Credits Obtained</strong></div>
-                        
-                        <div style="flex:1"><strong>Start date</strong></div>
-                        <div style="flex:1"><strong>End date</strong></div>
-                        <div style="flex:1"><strong>Status</strong></div>
-                        <div style="flex:1"><strong>Badge</strong></div>
-                    </div>
-                    {% for sess in session_history reversed %}
-                    <div class="cart-row">
-                        <div style="flex:1"><p>{{sess.session_name}}</p></div>
-
-                        
-                        
-                        <div style="flex:1"><p>{{sess.credits_of_month}}</p></div>
-                        <div style="flex:1"><p>{{sess.start_date}}</p></div>
-                        <div style="flex:1">
-                            <p class="quantity">{{sess.end_date}}</p>
-                            
-                        </div>
-                        {% if sess.is_neutral %}
-                        <div style="flex:1"><p>Neutral</p></div>
-                        <div style="flex:1"><a href="{% url 'badges:badge_detail' sess.slug %}" class="site-btn ms-3 me-3">View badges</a></div>
-                        {% else %}
-                        <div style="flex:1"><p>Not Neutral</p></div>
-                        <div style="flex:1"></div>
-                        {% endif %}
-                        
-                    </div>
-                    {% endfor %}
-			</div>
-            <h2 class="my-3">Purchase History</h2>
+        </div>            -->
+        
+            <!-- <h2 class="my-3">Purchase History</h2>
 			<div class="box-element">
                 
 				<div class="cart-row">
@@ -192,7 +158,7 @@
                 </a>
 				{% endfor %}
 			
-            </div>
+            </div> -->
 
 
     </div>
@@ -229,7 +195,22 @@
                         </a>
                     </div>    -->
                 </div>
-                <div class="follow-btn"><a href="/profile">Follow</a></div>
+                <!-- <div class="follow-btn"><a href="/profile">Follow</a></div> -->
+                {% if req_profile.user == user %}
+                <a href="{% url 'profiles:become_dealer' user.profile.slug  %}" class="session-btn ms-3 me-3">สมัครเป็นดีลเลอร์</a>
+
+                <a href="{% url 'profiles:profile_update' user.slug  %}" class="session-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
+                {% if req_profile.user.is_dealer %}
+                
+                {% else %}
+                {% endif %} 
+
+                
+                
+                <a href="{% url 'account_logout' %}" class="session-btn ms-3 ">ออกจากระบบ</a>
+            
+            {% else %} 
+            {% endif %} 
             </div>
             <div class="wrapper-profile">
                 <div class="rank-andmore-block">
@@ -267,11 +248,19 @@
                     </div>
                     </div>
                     <div class="andmore-block">
+                        {%if profile_credit.is_neutral %}
+                        <div class="progress-circle">
+                            <div class="cp-item">
+                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#41C266" data-cpbg="#96C7A4" data-cpsize="200" data-cptitle="Offset"></div>
+                            </div>
+                        </div>
+                        {% else %}
                         <div class="progress-circle">
                             <div class="cp-item">
                                 <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#EC6C03" data-cpsize="200" data-cptitle="Offset"></div>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="reduced-block">
@@ -410,74 +399,83 @@
                 </div>
                     </div>
                 </div>
-            </div>
+            </div> <h2 class="my-3">Session History</h2>
+			<div class="box-element">
+                
+                    <div class="cart-row">
+                        <div style="flex:1"><strong>Session name</strong></div>
+                        
+                        <div style="flex:1"><strong>Credits Obtained</strong></div>
+                        
+                        <div style="flex:1"><strong>Start date</strong></div>
+                        <div style="flex:1"><strong>End date</strong></div>
+                        <div style="flex:1"><strong>Status</strong></div>
+                        <div style="flex:1"><strong>Badge</strong></div>
+                    </div>
+                    {% for sess in session_history reversed %}
+                    <div class="cart-row">
+                        <div style="flex:1"><p>{{sess.session_name}}</p></div>
+
+                        
+                        
+                        <div style="flex:1"><p>{{sess.credits_of_month}}</p></div>
+                        <div style="flex:1"><p>{{sess.start_date}}</p></div>
+                        <div style="flex:1">
+                            <p class="quantity">{{sess.end_date}}</p>
+                            
+                        </div>
+                        {% if sess.is_neutral %}
+                        <div style="flex:1"><p class="neutral_his_status">Neutral</p></div>
+                        <div style="flex:1"><a href="{% url 'badges:badge_detail' sess.slug %}" class="session-btn ms-3 me-3 my-2">View badges</a></div>
+                        {% else %}
+                        <div style="flex:1"><p>Not Neutral</p></div>
+                        <div style="flex:1"></div>
+                        {% endif %}
+                        
+                    </div>
+                    {% endfor %}
+			</div>
             <div class="project">
-                <div class="project-container">
-                    <div class="project-title">Purchase History</div>
+                <div class="purhis-container purhis-owl">
+                    <div class="project-title">ซื้อล่าสุด</div>
                     <div class="project-content">
-                    <div class="wrapper-project">
-                <a href="/market-inside">
-                <div class="product1-profile">
-                    <div class="related-pic-1-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Renewable energy</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">EcoPower</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                5.0(52 Reviews)
+                    <div class="carbon-warp">
+                <div class="profile-slider owl-carousel">
+                        {% for item in purchased_item reversed %}
+                            <a href="{% url 'market:market_detail' item.deal.slug %}">
+                                <div class="product1-profile ms-3">
+                                    <div class="related-pic-1-profile set-bg" data-setbg="{% if item.deal.image %}
+                                    {{item.deal.image.url}}
+                                    {% else %}
+                                    {% static 'img/carbonvise.png' %}
+                                    {% endif %}">
+
+                                        <div class="subcategory-each">
+                                            <a href="">{{item.deal.get_category_name}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="about-pic-profile">
+                                        <div class="about-pic-left">
+                                            <a href="{% url 'market:market_detail' item.deal.slug %}">
+                                                <div class="type-profile">{{item.deal.name}}</div>
+                                            </a>
+                                            <div class="rating">
+                                                    {{item.date_dealed}}
+                                                </div>
+                                        </div>
+                                        <div class="about-pic-right">
+                                            <div class="num-profile">{{item.deal.quantity_left}}</div>
+                                            <div class="h5">left</div>
+                                        </div>
+                                    </div>
                                 </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">324</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
+                            </a>
+                        
+                        {% endfor %}
                     </div>
-                </div>
-                </a>
-                <div class="product2-profile">
-                    <div class="related-pic-2-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Solar energy</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                4.9(39 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">500</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product3-profile">
-                    <div class="related-pic-3-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Waste Heat Recovery</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                1.9(70 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">2903</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
+        
+
+            
                 </div>
                     </div>
                 </div>
@@ -486,5 +484,5 @@
     </div>
 
 
-
+ 
 {% endblock %} 

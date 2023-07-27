@@ -81,7 +81,7 @@
 
 .box-element{
 	
-	background-color: #d7e7e0;
+	background-color: #FFFFFF;
 	border-radius: 4px;
 	padding: 10px;
 }
@@ -707,7 +707,7 @@ ol {
 
 .carbon-warp {
 	max-width: 1559px;
-	padding: 0 15px;
+	padding:  15px;
 	margin: 0 auto -30px;
 }
 

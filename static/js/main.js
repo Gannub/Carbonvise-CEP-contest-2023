@@ -45,9 +45,9 @@ $(window).on('load', function() {
 	--------------------*/
     $('.rc-slider').owlCarousel({
 		autoplay:true,
-		loop: true,
+		loop: false,
 		nav:true,
-		dots: false,
+		dots: true,
 		margin: 30,
 		navText: ['', '<i class="fa fa-angle-right"></i>'],
 		responsive:{
@@ -65,7 +65,30 @@ $(window).on('load', function() {
 			}
 		}
 	});
-
+    $('.profile-slider').owlCarousel({
+		// autoplay:true,
+		loop: true,
+		nav:true,
+		// dots: true,
+		startPosition:1,
+		margin: 100,
+		autowidth:true,
+		navText: ['', '<i class="fa fa-angle-right"></i>'],
+		responsive:{
+			0:{
+				items:1
+			},
+			576:{
+				items:4
+			},
+			990:{
+				items:6
+			},
+			1200:{
+				items:8		
+			}
+		}
+	});
 
     /*------------------
 		Accordions
@@ -88,6 +111,7 @@ $(window).on('load', function() {
 		var cptitle = $(this).data("cptitle");
 		var cpid 	= $(this).data("cpid");
 		var cpsize 	= $(this).data("cpsize");
+		var cpbg 	= $(this).data("cpbg");
 
 		$(this).append('<div class="'+ cpid +'"></div><div class="progress-info"><h2>'+ cpvalue +'%</h2><h4>'+ cptitle +'</h4></div>');
 
@@ -98,7 +122,7 @@ $(window).on('load', function() {
 				size: cpsize,
 				thickness: 40,
 				fill: cpcolor,
-				emptyFill: "rgba(244, 189, 144, 1)"
+				emptyFill: cpbg
 			});
 		} else {
 			$('.' + cpid).circleProgress({
@@ -106,7 +130,7 @@ $(window).on('load', function() {
 				size: cpsize,
 				thickness: 40,
 				fill: cpcolor,
-				emptyFill: "rgba(244, 189, 144, 1)"
+				emptyFill: cpbg
 			});
 		}
 

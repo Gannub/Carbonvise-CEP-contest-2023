@@ -102,6 +102,9 @@ def profile_page(request, slug):
                     # purchased_item = None
         except :
            #might fix this part later 
+            user_rank = 'ไม่มีอันดับ'
+            user_province_rank = 'ไม่มีอันดับ'
+            province_rank =  get_province_rank(profile.user)
             profile_credits = None
             percentage = 0
         if profile.user==request.user:
