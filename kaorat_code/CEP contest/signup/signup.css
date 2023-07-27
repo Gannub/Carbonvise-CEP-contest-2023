@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #F6F6F9;
+    font-family: Plus Jakarta Sans;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.sign{
+    margin: auto;
+    width: 1408px;
+    height: 109px;
+    border-radius: 5px;
+    background: #ffffff;
+    border-radius: 5px;
+    
+}
+.sign span{
+    background-color: white;
+    color: #1B1B1B;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding:16px 36px
+}
+/* input block */
+.superblock{
+    margin: 36px auto;
+    margin: auto;
+    display:flex ;
+    height: 462px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.block{
+    display: flex;
+    border: #1877F2;
+}
+
+label{
+    background-color: white;
+}
+/* input coloumn1 */
+.coloumn1{
+    padding: 16px;
+    background-color: white;
+    padding-top: 16px;
+    padding-bottom: 0;
+    width: 416px;
+}
+input{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    background-color: white;
+    height: 46px;
+    margin-top: 8px;
+    margin-bottom: 36px;
+    padding: 10px;
+    
+}
+input[type=password]{
+    margin-bottom: 10px;
+}
+/* sign in */
+.sign_in{
+    border: none;
+    background-color: black;
+    color:white;
+    margin: auto;
+    margin-bottom: 16px;
+    width: 800px;
+    height: 46px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.sign_in label{
+    background-color: black;
+    font-size: 20px;
+}
+.sign_in:hover{
+    opacity: 0.8;
+}
+
+/* accept and condition */
+.accept{
+    display: block;
+    /* padding: 2em; */
+    margin-right: 0;
+    background-color: rgb(106, 22, 22);
+    height: 17px;
+}
+#accept{
+    width: 17px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.tacbox{
+        /* display:block; */
+        /* padding: 1em; */
+        /* margin: 2em; */
+     
+        background-color: white;
+        /* max-width: 800px; */
+
+
+ } 
+input[type=checkbox]{
+    border: none;
+    vertical-align: middle;
+    appearance: none;
+    
+}
+#checkbox {
+    scale: 95%;
+    height: 1em;
+    width: 1em;
+    vertical-align: middle;
+    background-color: lightgray;
+    border-radius: 5px;
+
+}
+#checkbox:hover{
+    background-color: rgb(240, 239, 239);
+}
+#checkbox:checked{
+    background-color: black
+}
+.tacbox{
+    margin-top: 10px;
+}
+.tacbox label{
+    vertical-align: 12px;
+    margin-left: 5px ;
+}
+
+a{
+    background-color: white;
+    color: #1877F2;
+    text-decoration: none;
+}
+.coloumn2{
+    background-color: white;
+    padding: 16px;
+    width: 416px;
+}
+
+/* or */
+.or::before{
+    content:" ";
+    display: block;
+    height: 1px;
+    width: 180px;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    background: #A4A6AF;
+}
+.or::after{
+    content:"";
+    display: block;
+    height: 1px;
+    width: 180px;
+    position: absolute;
+    top: 50%;
+    right: 35%;
+    background: #A4A6AF;
+}
+.or{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    color:#A4A6AF
+}
+/* others */
+
+.others{
+    display: flex;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: white;
+    width: 350px;
+    margin: auto;
+    flex-direction: column;
+}
+
+/* facebook */
+.facebook{
+    
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background: #1877F2;
+    color: white;
+    cursor: pointer;
+}
+.facebook:hover,.apple:hover{
+    opacity: 0.9;
+}
+
+.f_icon{
+    background-color: #1877F2;
+    margin-right: 12px;
+    vertical-align: baseline
+}
+.facebook_label{
+    background-color: #1877F2;
+    font-size: 16px;
+}
+/* google */
+.google{
+    margin:12px 0 12px 0;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.17), 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+.g_icon{
+    margin-right: 15px;
+}
+.google_label{
+    background-color: white;
+    font-size: 16px;
+}
+/* apple */
+.apple{
+    padding:20px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.a_icon{
+    background-color: black;
+    margin-right: 15px;
+    vertical-align: baseline;
+}
+.apple_label{
+    background-color: black;
+    font-size: 16px;
+}

@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content:center;
+    background: #F6F6F9;
+}
+ul{
+    list-style-type: none;
+    background-color: white;
+}
+/* left bar */
+.left_bar{
+    width: 226px;
+    height: 270px;
+    margin-top: 16px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 36px;
+    padding-top: 36px;
+}
+li{
+    text-decoration: none;
+    margin-bottom: 36px;
+    text-align: center;
+    background-color: white;
+    font-weight: 550;
+}
+/* link */
+a{
+    text-decoration: none;
+    color: #A4A6AF;
+    background-color: white;
+}
+a:hover{
+    color: black;
+}
+/* right bar */
+.right_bar{
+    width: 940px;
+    height: 1500px;
+    margin-top: 14px;
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 36px;
+    padding-left: 34px;
+}
+/* row1 */
+/* user*/
+.user{
+    margin-top: 36px;
+    display: flex;
+
+}
+.user input{
+    margin-top: 8px;
+    width: 416px;
+    padding: 13px 16px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    margin-bottom: 36px;
+    margin-right: 36px;
+}
+/*  google*/
+.gg{
+    margin-top: 8px;
+    border: none;
+    padding: 13px;
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25), 3px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    margin-right: 16px;
+}
+label[for="gg"]{
+    font-family: 'Roboto', sans-serif;
+    margin-left:8px;
+    vertical-align: 3px;
+}
+.gg:hover{
+    transition: 100ms;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1), 3px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.gg:active{
+    transition: 100ms;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3), 3px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+span{
+    color: black;
+}
+/* row2 */
+label[for="old"]{
+    margin-top: 16px;
+}
+.changepw{
+    margin-top: 16px;
+}
+.pw input{
+    margin-top: 8px;
+    width: 416px;
+    padding: 13px 16px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    margin-bottom: 36px;
+    margin-right: 36px;
+    
+}
+
+/* btn change password */
+.btn{
+    width: 416px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #1B1B1B;
+    color: white;
+    margin-bottom: 36px;
+}
+.btn:hover{
+    opacity: 0.8;
+}
+.btn:active{
+    opacity: 0.9;
+}
+/* bill info */
+
+.allcard{
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 36px;
+}
+.card_info{
+    vertical-align: top;
+    margin-top: 18px;
+    margin-bottom: 36px;
+}
+label[for="credit"]{
+    vertical-align: top;
+}
+.info_01,.info_02{
+    width: 416px;
+    margin-top: 4px;
+    flex-shrink: 1;
+    height: 124px;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    padding: 16px;
+}
+.coloumn1,.coloumn2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+/* add payment */
+.add{
+    margin-top: 8px;
+}
+.plus{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.plus:hover{
+    scale: 120%;
+    transition: 300ms;
+}
+label[for="add_pay"]{
+    vertical-align: 5px;
+}
+/* billing his */
+.billing_history{
+    margin-top: 36px;
+    width: min(869px, 100% - 3rem );
+}
+label[for="billing"]{
+    font-size: 1.5rem;
+}
+/* table */
+table{
+    margin-top: 16px;
+    border-collapse: collapse;
+}
+th,
+td{
+    padding: 0.5rem 1.5rem 0.75rem 0;
+}
+
+th{
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-weight: 400;
+}
+tfoot th{
+    text-align: right;
+    padding: 0.5rem 0 0.75rem;
+}
+.more{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.more:hover{
+    scale: 110%;
+    transition: 300ms;
+}
+.more:active{
+    transform: scale(0.9);
+}
+
+/* account deactivation */
+.deactive{
+    margin-top: 36px;
+}
+label[for="acc_deactive"]{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: red;
+}
+
+label[for="text"]{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* delete */
+.deactive{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-aroud;
+}
+.delete{
+    border-radius: 5px;
+    border: 1px solid #EA4335;
+    width: 156px;
+    height: 46px;
+    background-color: white;
+    cursor: pointer;
+}
+label[for="del_acc"]{
+    font-weight: 700;
+    color: red;
+    cursor: pointer;
+}
+.delete:hover{
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    transition: 0.5s;
+}
+.delete:active{
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Empty Dropdown with JavaScript</title>
+</head>
+<body>
+
+<h2>Select your favorite fruit:</h2>
+
+<select id="fruitDropdown">
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="orange">Orange</option>
+  <option value="grape">Grape</option>
+</select>
+
+<script>
+  // Get the dropdown element
+  const dropdown = document.getElementById("fruitDropdown");
+
+  // Clear any preselected option (optional but recommended)
+  dropdown.value = "";
+</script>
+
+</body>
+</html>
