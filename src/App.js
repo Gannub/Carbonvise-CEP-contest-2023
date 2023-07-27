@@ -9,6 +9,7 @@ import Signin from './signin';
 import MarketInside from './market-inside.js';
 import BlogsInside from './blogs-inside';
 import Receipt from './receipt';
+import MainPage from './main';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
         <Switch>
+        <Route exact path="/">
+        <MainPage></MainPage>
+          </Route>
         <Route path="/market">
             <Market></Market>
           </Route>

@@ -16,7 +16,9 @@ const Navbar = () => {
             <nav>
                 <ul>
                     <div className="logo">
+                        <Link to="/">
                         <h1>LOGO</h1>
+                        </Link>
                         <div class="ham-menu" onClick={showPopupMenu}>
                             <div class="bar1"></div>
                             <div class="bar2"></div>

@@ -47,6 +47,9 @@ nav ul{
     margin-top: 30px;
     display: flex;
 }
+.logo a{
+    text-decoration: none;
+}
 .logo .ham-menu{
     display: none;
 }

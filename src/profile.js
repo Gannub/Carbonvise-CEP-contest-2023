@@ -1,5 +1,4 @@
 import {Link} from 'react-router-dom';
-import USERFACE from './images/profile/userface.jpg';
 import arrow from './images/profile/bx-link-external 1.jpg';
 import leaf from './images/market-inside/leaf.jpg';
 import threeDot from './images/market-inside/bx-dots-horizontal-rounded 1.jpg'
@@ -19,7 +18,7 @@ const Profile = () => {
             <div className="side-profile">
                 <div className="top-top-profile">
                     <div className="userFace">
-                        <img src={USERFACE} alt="USERFACE" />
+                        
                     </div>
                     <div className="owner">
                         <div className="name">Samuel de Chestnuts </div> 

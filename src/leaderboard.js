@@ -23,28 +23,20 @@ const Leaderboard = () => {
                         </div>
                         <div className="category-blog">
                             <Link to="/leaderboard/today">
-                            <div className="subcategory-selected " onClick={changeCategory}>
-                                Today
-                            </div>
+                                <div className="subcategory-selected " onClick={changeCategory}>Today</div>
                             </Link>
                             <Link to="/leaderboard/week"  >
-                            <div className="subcategory" onClick={changeCategory}>
-                                Week
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}>Week</div>
                             </Link>
                             <Link to="/leaderboard/month">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Month
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}>Month</div>
                             </Link>
                             <Link to="/leaderboard/all-time">
-                            <div className="subcategory" onClick={changeCategory}>
-                                All time
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}>All time</div>
                             </Link>
                         </div>
                     </div>
-                    <div className="sorted-test">
+                    <div className="sorted-test-leaderboard">
                         <div className="layerst">
                             <div className="sorted-blog">Last update</div>
                             <div className="underLine-last-update"></div>

@@ -1,0 +1,183 @@
+/* topPage */
+.top-main-page{
+    background: url(images/main/Frame\ 97.jpg);
+    background-size: 100% auto;
+    margin: 0 auto;
+    
+    height: 610px;
+    background-repeat: no-repeat;
+}
+
+/* midPage */
+.mid-main-page{
+    height: 1450px;
+    border-radius: 10px;
+    background: #FFF;
+    margin: 10px 0;
+}
+.mid-main-page-leftText{
+    width: 420px;
+}
+.mid-main-page-leftText-container{
+    width: 400px;
+    height: 1100px;
+    margin: 10px auto;
+    text-align: justify;
+    font-size: 24px;
+}
+.mid-main-page-sectionLine{
+    background-color: black;
+    margin-top: 10px;
+    width: 1px;
+    height: 1100px;
+}
+.mid-main-page-rightPic{
+    width: 967px;
+    height: 1411px;
+    background: url(images/main/plasticBag.jpg);
+}
+.mid-main-page-underline{
+    margin: 20px auto;
+    width: 1376px;
+    height: 1px;
+    position: relative;
+    background-color: black;
+}
+.plastic-bag-description{
+    width: 1100px;
+    height: 200px;
+    position: relative;
+}
+.plastic-bag-description-title{
+    display: flex;
+    align-items: center;
+    width: 650px;
+    margin-left: auto;
+    position: relative;
+}
+.plastic-bag-text{
+    font-size: 36px;
+    font-weight: 700;
+}
+.underline-plastic{
+    margin-left: 20px;
+    width: 420px;
+    height: 0.5px;
+    background-color: black;
+}
+.plastic-bag-description-content{
+    margin-top: 20px;
+    font-size: 24px;
+    width: 657px;
+    text-align: right;
+}
+
+/* bottomPage */
+.bottom-main-page{
+    height: 537px;
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+}
+.bottom-main-page-container{
+    width: 95%;
+    margin: 0px auto;
+}
+.bottom-main-page-nav{
+    display: flex;
+    align-items: center;
+}
+.connect-line{
+    width: 291px;
+    height: 0.5px;
+    background-color: black;
+    margin: 0 10px;
+}
+.year-title,.purpose-title,.mission-title{
+    font-size: 36px;
+    font-weight: 700;
+}
+.bottom-main-page-content{
+    margin-top: 20px;
+    display: flex;
+}
+
+/* left */
+.year-title-content{
+    font-size: 24px;
+    width: 400px;
+}
+.issued,.issued-number{
+    color: #EA4335;
+}
+.retired,.retired-number{
+    color: #41C266;
+}
+.non-retired,.non-retired-number{
+    color: #EC6C03;
+}
+.issued-number,.retired-number,.non-retired-number{
+    font-size: 36px;
+    padding: 10px 0;
+}
+.issued{
+    font-weight: 700;
+}
+.retired,.non-retired{
+    margin-top: 25px;
+    font-weight: 700;
+}
+.volume-in-tCO2e{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.volume-in-tCO2e img{
+    margin-left: 10px;
+}
+
+/* mid */
+.purpose-title-content{
+    width: 560px;
+}
+.purpose-title-content-container{
+    width: 400px;
+    font-size: 24px;
+    padding: 10px 0;
+}
+.purpose-title-content-container img{
+    margin-top: 10px;
+}
+.mission-title-content{
+    width: 300px;
+}
+
+/* right */
+.vertical-line{
+    background-color: black;
+    height: 400px;
+    width: 0.5px;
+}
+
+/* responsive */
+@media only screen and (max-width: 600px) {
+    /* Main */
+    .top-main-page{
+        margin: 10px auto;
+        height: 150px;
+        width: 400px;
+    }
+    /* midPage */
+.mid-main-page{
+    margin: 0 auto;
+    width: 400px;
+}
+.mid-main-page-leftText{
+    width: 300px;
+}
+.mid-main-page-leftText-container{
+    width: 200px;
+    margin: 10px auto;
+    font-size: 12px;
+}
+  }

@@ -29,42 +29,28 @@ const Market = () => {
 
                             <div className="wrapper-responsive-market">
                             <Link to="/market/all">
-                            <div className="subcategory-selected" onClick={changeCategory}>
-                                All
-                            </div>
+                                <div className="subcategory-selected" onClick={changeCategory}> All </div>
                             </Link>
                             <Link to="/market/biomass">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Biomass
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}> Biomass </div>
                             </Link>
                             <Link to="/market/biological">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Biological
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}> Biological </div>
                             </Link>
                             <Link to="/market/renewable energy">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Renewable energy   
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}> Renewable energy </div>
                             </Link>
                             </div>
 
                             <div className="wrapper-responsive-market-under">
                             <Link to="/market/hydropower">
-                            <div className="subcategory-res" onClick={changeCategory}>
-                                Hydropower    
-                            </div>
+                                <div className="subcategory-res" onClick={changeCategory}> Hydropower</div>
                             </Link>
                             <Link to="/market/waste heat recovery">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Waste Heat
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}>Waste Heat</div>
                             </Link>
                             <Link to="/market/solar energy">
-                            <div className="subcategory" onClick={changeCategory}>
-                                Solar energy
-                            </div>
+                                <div className="subcategory" onClick={changeCategory}>Solar energy</div>
                             </Link>
                             </div>
 

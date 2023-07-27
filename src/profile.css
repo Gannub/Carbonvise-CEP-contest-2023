@@ -27,7 +27,12 @@
     align-items: center;
 }
 .userFace{
+    background: url(images/profile/userface.jpg);
+    background-size: 100% auto;
+    width: 222px;
+    height: 222px;
     margin: 0 20px;
+    background-repeat: no-repeat;
 }
 .name{
     font-size: 36px;
@@ -258,15 +263,13 @@
 
     /* user-profile */
     .top-top-profile{
+        height: 150px;
         width: 400px;
         margin: 10px auto;
     }
     .userFace{
+        height: 83px;
         width: 83px;
-    }
-    /* cant make img small */
-    .userFace img{
-        display: none;
     }
     .name{
         font-size: 16px;

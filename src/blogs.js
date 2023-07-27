@@ -11,6 +11,13 @@ import userBlog6 from './images/blogs/userpicblog6.png'
 import userBlog7 from './images/blogs/userpicblog7.png'
 
 const Blogs = () => {
+
+    const changeCategory = event => {
+        if (event.currentTarget.className === 'subcategory' ||  event.currentTarget.className === 'subcategory-res') {
+            event.currentTarget.classList.toggle('subcategory-selected');
+        }
+    }
+
     return ( 
         <div className="container">
             <div className="top-block">
@@ -25,18 +32,18 @@ const Blogs = () => {
                             <div className="underLine-filter"></div>
                         </div>
                         <div className="category-blog">
-                            <div className="subcategory-selected">
-                                <Link to="/blogs/foryou">For you</Link>
-                            </div>
-                            <div className="subcategory">
-                                <Link to="/blogs/tips">Tips</Link>
-                            </div>
-                            <div className="subcategory">
-                                <Link to="/blogs/news">News</Link>
-                            </div>
-                            <div className="subcategory">
-                                <Link to="/blogs/events">Events</Link>
-                            </div>
+                            <Link to="/blogs/foryou">
+                                <div className="subcategory-selected" onClick={changeCategory}>For you</div>
+                            </Link>
+                            <Link to="/blogs/tips">
+                                <div className="subcategory" onClick={changeCategory}>Tips</div>
+                            </Link>
+                            <Link to="/blogs/news">
+                                <div className="subcategory" onClick={changeCategory}>News</div>
+                            </Link>
+                            <Link to="/blogs/events">
+                                <div className="subcategory" onClick={changeCategory}>Events</div>
+                            </Link>
                         </div>
                     </div>
                     <div className="search-test">
