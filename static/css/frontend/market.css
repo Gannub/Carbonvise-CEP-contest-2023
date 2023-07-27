@@ -1,6 +1,8 @@
 /* marketPage */
 /* top-block */
-
+.subunit{
+    font-size: 15px;
+}
 .top-block{
     background-color: white;
     max-width: 1408px;
@@ -55,6 +57,7 @@
     margin-left: 20px;
     width: max-content;
     background-color: white;
+    cursor: pointer;
 }
 .subcategory a{
     text-decoration: none;
@@ -65,17 +68,19 @@
     padding: 5px;
     margin-left: 20px;
     width: max-content;
+    cursor: pointer;
 }
 .subcategory-res a{
     text-decoration: none;
 }
 /* selected-category */
-.subcategory-selected{
+.subcategory-first{
     border: 1px solid black;
-    background-color: black;
+    /* background-color: black; */
     border-radius: 5px;
     padding: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
 }
 
 .Tdropdown{
@@ -120,7 +125,7 @@
 .product1,.product2,.product3,.product4,.product5,.product6{
     display: flex;
     flex-direction: column;
-    width: 340px;
+    width: 329px;
     height: 303px;
     background-color: white;
     border-radius: 5px;
@@ -154,7 +159,7 @@
     border-radius: 5px;
     margin: 10px auto;
 }
-.related-pic-1{
+/* .related-pic-1{
     background: url(images/market/product1.jpg);
 }
 .related-pic-2{
@@ -171,7 +176,7 @@
 }
 .related-pic-6{
     background: url(images/market/product6.jpg);
-}
+} */
 .subcategory-each{
     border: 1px solid black;
     background-color: black;
@@ -198,10 +203,12 @@
 }
 .rating{
     margin-top: 10px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
     color: #313135;
     opacity: 0.5;
+    font-size: 15px;
 }
 .num{
     text-align: center;

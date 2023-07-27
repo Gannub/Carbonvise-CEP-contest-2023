@@ -174,12 +174,14 @@
         </div>
         <div class="side-profile">
             <div class="top-top-profile">
-                <div class="userFace">
-                    <img src="{% if req_profile.image %}
+                <div class="top-top-profile-container">
+                <div class="wrapper-userFace-owner">
+                <div class="userFace set-bg" data-setbg="{% if req_profile.image %}
                     {{req_profile.image.url}}
                     {% else %}
                     {% static 'img/carbonvise.png' %}
-                    {% endif %}" class="profile_image_act"  alt="USERFACE" />
+                    {% endif %}">
+                    
                 </div>
                 <div class="owner">
                     <div class="name">{{req_profile.user.first_name}} {{req_profile.user.last_name}}</div> 
@@ -195,22 +197,29 @@
                         </a>
                     </div>    -->
                 </div>
+            </div>
                 <!-- <div class="follow-btn"><a href="/profile">Follow</a></div> -->
                 {% if req_profile.user == user %}
-                <a href="{% url 'profiles:become_dealer' user.profile.slug  %}" class="session-btn ms-3 me-3">สมัครเป็นดีลเลอร์</a>
-
-                <a href="{% url 'profiles:profile_update' user.slug  %}" class="session-btn ms-3 me-3">แก้ไขโปรไฟล์</a>
+                <div class="wrapper-dealer">
+                    <div class="dealer-btn">
+                        <a href="{% url 'profiles:become_dealer' user.profile.slug  %}" >สมัครเป็นดีลเลอร์</a>
+                    </div>
+                    <div class="fix-profile-btn">
+                        <a href="{% url 'profiles:profile_update' user.slug  %}" >แก้ไขโปรไฟล์</a>
+                    </div>
                 {% if req_profile.user.is_dealer %}
                 
                 {% else %}
                 {% endif %} 
 
                 
-                
-                <a href="{% url 'account_logout' %}" class="session-btn ms-3 ">ออกจากระบบ</a>
-            
+                    <div class="exit-btn">
+                        <a href="{% url 'account_logout' %}">ออกจากระบบ</a>
+                    </div>
+                </div>
             {% else %} 
             {% endif %} 
+        </div>
             </div>
             <div class="wrapper-profile">
                 <div class="rank-andmore-block">
@@ -219,17 +228,25 @@
                         <div class="rank-text">เซสชั่น </div>
                         <div class="h5"><strong>ชื่อเซสชั่น</strong> : {{req_profile.user.profile_credit.session_name}}</div>
                         <div class="h5"><strong>จบวันที่ </strong>:{{req_profile.user.profile_credit.reset_date}}</div>
-                        <div class="number-order">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} Credits</div>
+                        <div class="number-order-cred">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} Credits</div>
                         <!-- <div class="streak">4 week streak</div> -->
                         <div>
                             {% if req_profile.user == user %}
                             {% if not profile_credit == None %}
-                                <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="session-btn me-5 my-3">End session</a>
+                            <div class="wrapper">
+                                <div class="end-btn">
+                                <a href="{% url 'profiles:end_session' user.profile.slug  %}" >End session</a>
+                                </div>
                                 {%if profile_credit.badges.is_obtained %}
-                                <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}" class="session-btn ">View badge</a>
+                                <div class="view-badge-btn">
+                                <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}">View badge</a>
+                                </div>
                                 {% else %}
+                                <div class="obtain-badge-btn">
                                 <a href="{% url 'badges:obtain_badges' %}" class="session-btn">obtain badges</a>
+                                </div>
                                 {% endif %}
+                            </div>
                                 
                             
                             {% else %}
@@ -282,8 +299,7 @@
                 <div class="project-container">
                     <div class="project-title">Badges</div>
                     <div class="project-content">
-                    <div class="wrapper-project">
-                <a href="/market-inside">
+                    <div class="wrapper-project snaps-inline">
                 <div class="product1-profile">
                     <div class="related-pic-1-profile">
                         <div class="subcategory-each">
@@ -304,7 +320,86 @@
                         </div>
                     </div>
                 </div>
-                </a>
+                <div class="product2-profile">
+                    <div class="related-pic-2-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Solar energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(39 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">500</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product3-profile">
+                    <div class="related-pic-3-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                1.9(70 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">2903</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product2-profile">
+                    <div class="related-pic-2-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Solar energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(39 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">500</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product3-profile">
+                    <div class="related-pic-3-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                1.9(70 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">2903</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="product2-profile">
                     <div class="related-pic-2-profile">
                         <div class="subcategory-each">
@@ -352,8 +447,52 @@
             <div class="blogs-profile">
                 <div class="blogs-profile-container">
                     <div class="blogs-text">Blogs</div>
-                    <div class="blogs-content">
+                    <div class="blogs-content snaps-inline">
                     <div class="secondblog-profile">
+                    <div class="container-eachblog-profile">
+                    <div class="nav-eachblog-profile">
+                        <div class="time-profile">16 hour ago</div>
+                        <div class="three-dot"><img src={threeDot} alt="" /></div>
+                    </div>
+                    <div class="underline-eachblog"></div>
+                    <div class="below-eachblog">
+                        <div class="title-blog">Revitalize Your Morning Routine...</div>
+                        <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+                        smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+                        <div class="tips-readmore">
+                            <div class="tips"> 
+                                <a href="/blogs/events">Events</a>
+                            </div>
+                            <div class="read-more">
+                                <a href="/blogs/read-more">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="thirdblog-profile">
+                    <div class="container-eachblog-profile">
+                    <div class="nav-eachblog-profile">
+                        <div class="time-profile">18 hour ago</div>
+                        <div class="three-dot"><img src={threeDot} alt="" /></div>
+                    </div>
+                    <div class="underline-eachblog"></div>
+                    <div class="below-eachblog">
+                        <div class="title-blog">Mastering the Art of Communication</div>
+                        <div class="text-blog">Enhance your communication skills by understanding different 
+                        communication styles, active listening techniques, and fostering effective dialogue</div>
+                        <div class="tips-readmore">
+                            <div class="tips"> 
+                                <a href="/blogs/events">Events</a>
+                            </div>
+                            <div class="read-more">
+                                <a href="/blogs/read-more">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="secondblog-profile">
                     <div class="container-eachblog-profile">
                     <div class="nav-eachblog-profile">
                         <div class="time-profile">16 hour ago</div>
@@ -407,8 +546,8 @@
                         
                         <div style="flex:1"><strong>Credits Obtained</strong></div>
                         
-                        <div style="flex:1"><strong>Start date</strong></div>
-                        <div style="flex:1"><strong>End date</strong></div>
+                        <div style="flex:1" class="start-date-res"><strong>Start date</strong></div>
+                        <div style="flex:1" class="end-date-res"><strong>End date</strong></div>
                         <div style="flex:1"><strong>Status</strong></div>
                         <div style="flex:1"><strong>Badge</strong></div>
                     </div>
@@ -419,14 +558,14 @@
                         
                         
                         <div style="flex:1"><p>{{sess.credits_of_month}}</p></div>
-                        <div style="flex:1"><p>{{sess.start_date}}</p></div>
-                        <div style="flex:1">
+                        <div style="flex:1" class="start-date-res"><p>{{sess.start_date}}</p></div>
+                        <div style="flex:1" class="end-date-res">
                             <p class="quantity">{{sess.end_date}}</p>
                             
                         </div>
                         {% if sess.is_neutral %}
                         <div style="flex:1"><p class="neutral_his_status">Neutral</p></div>
-                        <div style="flex:1"><a href="{% url 'badges:badge_detail' sess.slug %}" class="session-btn ms-3 me-3 my-2">View badges</a></div>
+                        <div style="flex:1" ><a href="{% url 'badges:badge_detail' sess.slug %}" class="session-btn ms-3 me-3 my-2 viewbadge">View badges</a></div>
                         {% else %}
                         <div style="flex:1"><p>Not Neutral</p></div>
                         <div style="flex:1"></div>

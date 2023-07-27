@@ -49,15 +49,28 @@
     margin-top: 10px;
 }
 .top-top-profile{
-    display: flex;
     width: 100%;
     height: 250px;
     background-color: white;
     border-radius: 10px;
+}
+.top-top-profile-container{
+    width: 100%;
+    height: 100%;   
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 .userFace{
+    width: 222px;
+    height: 222px;
     margin: 0 20px;
+    background-repeat: no-repeat;
+}
+.wrapper-userFace-owner{
+    display: flex;
+    align-items: center;
 }
 .name{
     font-size: 36px;
@@ -72,6 +85,20 @@
 .description a{
     margin-left: 5px;
     text-decoration: none;
+}
+.dealer-btn,.fix-profile-btn,.exit-btn{
+    background-color: black;
+    padding: 10px;
+    width: max-content;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.dealer-btn a,.fix-profile-btn a,.exit-btn a{
+    background-color: black;
+    color: white;
+}
+.wrapper-dealer{
+    display: flex;
 }
 .follow-btn{
     border: 1px solid black;
@@ -99,18 +126,32 @@
     border-radius: 5px;
 }
 .rank-block{
-    margin: auto;
+    margin: 0;
     height: 230px;
     width: 400px;
 }
 .rank-block-container{
     width: 400px;
-    margin-left:30px;
+    margin: 10px 20px;
 }
 .rank-text,.reduced-text,.carbon-text{
     font-size: 36px;
 }
-.number-order{
+.end-btn,.view-badge-btn{
+    padding: 10px;
+    background-color: black;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+.view-badge-btn{
+    margin-left: 10px;
+}
+.end-btn a,.view-badge-btn a{
+    background-color: black;
+    color: white;
+}
+
+.number-order-cred{
     margin-top: 10px;
     color: #EC6C03;
     font-size: 25px;
@@ -173,8 +214,22 @@
 
 /* Project */
 .wrapper-project{
-    display: flex;
-    height: 600px;
+    margin-left: 20px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 26%;
+    gap: 10px;
+    padding: 10px 0;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+.snaps-inline{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 10px;
+}
+.snaps-inline *{
+    scroll-snap-align: start;
 }
 .wrapper-project a{
     text-decoration: none;
@@ -206,7 +261,7 @@
 }
 .project-title{
     font-size: 36px;
-    padding: 20px 0;
+    padding: 20px 20px;
 }
 .product1-profile,.product2-profile,.product3-profile{
     display: flex;
@@ -218,7 +273,7 @@
     margin-right: 10px;
 }
 .product2-profile,.product3-profile{
-    margin-left: 10px;
+    padding: 0 10px;
 }
 .related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
     display: flex;
@@ -266,7 +321,14 @@
     padding: 20px 0;
 }
 .blogs-content{
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 24%;
+    gap: 20px;
+    padding: 10px 0;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
 }
 .nav-eachblog-profile{
     display: flex;
@@ -295,9 +357,6 @@
 @media only screen and (max-width: 600px) {
     /* profile */
     /* top-block */
-    .container{
-        margin: 0 20px;
-    }
     .top-block-profile{
         width: 400px;
         margin: 10px auto;
@@ -310,46 +369,69 @@
     /* user-profile */
     .top-top-profile{
         width: 400px;
+        height: 150px;
         margin: 10px auto;
     }
     .userFace{
         width: 83px;
+        height: 83px;
     }
     /* cant make img small */
     .userFace img{
         display: none;
     }
+    .fix-profile-btn{
+        margin: 10px 0;
+    }
     .name{
         font-size: 16px;
+    }
+    .wrapper-dealer{
+        display: block;
     }
 
     /* mid-section */
     .wrapper-profile{
+        display: block;
         width: 400px;
         margin: 0 auto;
     }
-    .andmore-block{
-        display: none;
+    .rank-andmore-block,.reduced-block,.carbon-status-block{
+        width: 400px;
+        height: 200px;
+        margin: 0 auto;
     }
-    .rank-block,.rank-andmore-block,.reduced-block,.carbon-status-block{
-        width: 110px;
-        height: 110px;
+    .andmore-block{
+        margin: 0 auto;
+    }
+    .rank-andmore-block{
+        display: block;
+        width: 400px;
+        height: 450px;
+        margin: 0 auto;
+    }
+    .rank-block{
+        height: 200px;
     }
     .rank-block-container,.reduced-block-container,.carbon-status-block-container{
-        width: 100px;
+        width: 375px;
         height: 100px;
         margin:  10px auto;
     }
-    .rank-text,.streak,.reduced-text,.carbon-text{
+    .h5{
         font-size: 12px;
     }
-    .number-order,.percent,.offset-natural{
+    .rank-text,.streak,.reduced-text,.carbon-text{
+        font-size: 12px;
+        padding: 10px 0;
+    }
+    .number-order-cred,.percent,.offset-natural{
         font-size: 24px;
     }
     .from-text,.chestnuts-amount{
         font-size: 8px;
     }
-    .streak,.number-order,.percent{
+    .streak,.number-order-cred,.percent{
         margin-top: 10px;
     }
     .from-text{
@@ -359,7 +441,10 @@
     /* project */
     .project{
         margin: 10px auto;
-        width: max-content;
+        width: 400px;
+    }
+    .project-container{
+        width: 350px;
     }
     .project-title{
         font-size: 16px;
@@ -383,12 +468,38 @@
     .num-profile{
         font-size: 24px;
     }
+    .wrapper-project{
+        grid-auto-columns: 76%;
+        gap: 10px;
+    }
 
     /* Blogs */
     .blogs-profile{
-        width: max-content;
+        margin: 10px auto;
+        width: 400px;
+    }
+    .blogs-profile-container{
+        width: 350px;
     }
     .blogs-text{
         font-size: 16px;
+    }
+    .secondblog-profile,.thirdblog-profile{
+        width: 275px;
+    }
+    .container-eachblog-profile{
+        width: 250px;
+    }
+    .blogs-content{
+        grid-auto-columns: 76%;
+        gap: 20px;
+    }
+
+    /* session history */
+    .start-date-res,.end-date-res{
+        display: none;
+    }
+    .session-btn ms-3 me-3 my-2{
+        display: none;
     }
   }
