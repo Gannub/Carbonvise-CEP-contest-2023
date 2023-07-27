@@ -13,7 +13,7 @@ User =get_user_model()
 
 class UserAPIView(APIView):
     def get(self, request, *args, **kwargs):
-        qs_all = User.objects.filter(is_dealer=True)
+        qs_all = User.objects.all()
         serializer = UserSLZ(qs_all, many=True)
         serializer_prof = UserSLZ(qs_all,many=True)
         return Response(serializer.data)

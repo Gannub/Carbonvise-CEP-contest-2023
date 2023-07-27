@@ -1,0 +1,226 @@
+/* navBlog */
+
+.blog-title{
+    font-size: 36px;
+    padding-top: 10px;
+}
+
+.filter-search-sorted-wrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.layerst{
+    display: flex;
+    align-items: center;
+}
+
+.underLine-filter{
+    margin-left: 10px;
+    background-color: black;
+    width: 665px;
+    height: 0.5px;
+}
+.underLine-search{
+    margin-left: 10px;
+    background-color: black;
+    width: 300px;
+    height: 0.5px;
+}
+.underLine-sorted{
+    margin-left: 10px;
+    background-color: black;
+    width: 100px;
+    height: 0.5px;
+}
+.category-blog{
+    display: flex;
+    margin-top: 10px;
+}
+.search-box form input{
+    margin: 10px 0 0 0px;
+    border-radius: 5px;
+    width: 359px;
+    height: 31px;
+    border: 1px solid black;
+}
+.drop-views{
+    border: 1px solid black;
+    margin-left: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+.views-text{
+    padding: 5px;
+}
+.dropdown-btn{
+    height: 10px;
+}
+
+/* mid-section*/
+.wrapper-blogs{
+    display: flex;
+}
+.wrapper-blogs a{
+    text-decoration: none;
+}
+.wrapper-blogs-under{
+    display: flex;
+    margin-top: 10px;
+}
+.all-blogs{
+    margin: 20px auto;
+}
+.firstblog{
+    width: 696px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+.secondblog,.thirdblog,.fourthblog,.fifthblog,.sixthblog,.seventhblog{
+    display: flex;
+    flex-direction: column;
+    width: 341px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+.secondblog,.thirdblog,.fifthblog,.sixthblog,.seventhblog{
+    margin-left: 15px;
+}
+.nav-blog1{
+    width: 650px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+.username-blogs{
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.underline-navblog{
+    background-color: #AAACB4;
+    opacity: 0.5;
+    margin: auto;
+    width: 650px;
+    height: 1px;
+}
+.below-blog1{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 650px;
+    height: 200px;
+}
+.title-blog{
+    font-size: 16px;
+    margin: 15px 0;
+    font-weight: 500;
+}
+.text-blog{
+    font-weight: 300;
+    font-size: 16px;
+}
+.tips-readmore{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.tips{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.tips a{
+    text-decoration: none;
+}
+.read-more{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: black;
+}
+.read-more a{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
+
+.container-eachblog{
+    margin: 20px auto;
+    width: 300px;
+}
+.nav-eachblog{
+    display: flex;
+    align-items: center;
+}
+.below-eachblog{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+.underline-eachblog{
+    background-color: #AAACB4;
+    opacity: 0.5;
+    margin: 10px auto;
+    height: 1px;
+    width: 300px;
+}
+
+  /* responsive */
+  @media only screen and (max-width: 600px) {
+    /* Blogs */
+    .top-block{
+        margin: 0 auto;
+        width: 400px;
+        height: 270px;
+    }
+    .top-block-container{
+        width: 325px;
+        margin: 10px auto;
+    }
+
+    .blog-title{
+        font-size: 12px;
+    }
+    .filter-search-sorted-wrapper{
+        display: block;
+    }
+    .subcategory{
+        margin-left: 10px;
+    }
+    .search-box form input{
+        width: 300px;
+        height: 25px;
+    }
+    .filert-test{
+        margin-top: 10px;
+    }
+    .search-test{
+        margin-top: 10px;
+    }
+    .sorted-test{
+        margin-top: 10px;
+    }
+    .underLine-sorted{
+        width: 235px;
+    }
+
+    /* mid-section */
+    .wrapper-blogs{
+        display: block;
+    }
+    .wrapper-blogs-under{
+        display: block;
+    }
+    .firstblog{
+        display: none;
+    }
+    .secondblog,.thirdblog,.fourthblog,.fifthblog,.sixthblog,.seventhblog{
+        margin: 20px auto;
+        width: 400px;
+    }
+    .container-eachblog{
+        width: 350px;
+    }
+  }

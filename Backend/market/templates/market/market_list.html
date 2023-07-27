@@ -1,205 +1,204 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-
-<!-- carbon section -->
-<section class="carbon-section spad">
+<link rel="stylesheet" href="{% static 'css/front-end/market.css' %}">
     <div class="container">
-        <div class="section-title mb-0">
-            <h1 class="my-3">ตลาดคาร์บอน</h1>
-            <p>The most effective way to buy carbon credits is by investing directly in carbon offset projects. This option requires that you perform research to ensure that the offset program is actually working to eliminate carbon emissions, not simply 'moving them around.</p>
+        <div class="hrefp-block">
+        <div class="hrefp-block-container">
+            <div class="market-title">
+                <h1>Market</h1>
+            </div>
+            <div class="filter-sorted-wrapper">
+                <div class="filter-section">
+                    <div class="layerst">
+                        <div class="filter">filter </div>
+                        <div class="underLine"></div>
+                    </div>
+                    <div class="category">
+
+                        <div class="wrapper-responsive-market">
+                        <div class="subcategory-selected">
+                            <a href="/market/all">All</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/market/biomass">Biomass</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/market/biological">Biological</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/market/renewable energy">Renewable energy</a>
+                        </div>
+                        </div>
+
+                        <div class="wrapper-responsive-market-under">
+                        <div class="subcategory-res">
+                            <a href="/market/hydropower">Hydropower</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/market/waste heat recovery">Waste Heat</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/market/solar energy">Solar energy</a>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sorted-section">
+                    <div class="layerst">
+                        <div class="sorted">sorted by</div>
+                        <div class="underLine2"></div>
+                    </div>
+                    <div class="Tdropdown">
+                        <div class="drop-date">
+                            <div class="date-text">date</div>
+                            <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
+                        </div>
+                        <div class="drop-price">
+                            <div class="price-text">price</div>
+                            <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
+                        </div>
+                        <div class="drop-review">
+                            <div class="review-text">review</div>
+                            <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container carbon-market-list">
-        <div class="carbon-warp">
-            <ul class="carbon-filter controls">
-                <li class="control active" data-filter="all">All</li>
-                <li class="control" data-filter=".solar">Solar Energy</li>
-                <li class="control" data-filter=".Biof">Biofuel</li>
-                <li class="control" data-filter=".water">Water Sources</li>
-                <li class="control" data-filter=".forest">Forest</li>
-            </ul>                                       
-            <div class="row carbon-items-area">
-                <!-- carbon -->
-            {% for deal in market_list reversed %}
-                    <div class="mix col-lg-3 col-md-4 col-sm-6 {{deal.category}}">
-                        <div class="carbon-item">
-                            <a href="{% url 'market:market_detail' deal.slug %}">
-                                <div class="carbon-thumb set-bg" data-setbg="
-                                {% if deal.image %}
-                                    {{deal.image.url}}
-                                {% else %}
-                                    {% static 'img/carbonvise.png' %}
-                                {% endif %}">
-                                    <div class="price">Price: ฿{{deal.price_per_unit}}</div> 
+        </div>
+        <div class="product">
+            <div class="wrapper-market">
+                <a href="/market-inside">
+                <div class="product1">
+                    <div class="related-pic-1">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Renewable energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">EcoPower</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                5.0(52 Reviews)
                                 </div>
-                                    <div class="carbon-info">
-                                        <div class="carbon-text">
-                                            <h5>{{deal.name}}</h5>
-                                            <p>{{deal.short_description}}</p>
-                                            
-                                            <div class="students">{{deal.quantity_left}} Chestnuts </div>
-                                        </div>
-                            </a>
-                                            <div class="carbon-author">
-                                                <a href="{% url 'profiles:profile_page' deal.dealer.profile.slug %}"> 
-                                                    <div class="ca-pic set-bg" data-setbg=" 
-                                                    {% if deal.dealer.profile.image %}
-                                                        {{deal.dealer.profile.image.url}}
-                                                    {% else %}
-                                                        {% static 'img/carbonvise.png' %}
-                                                    {% endif %}"></div>
-                                                </a> 
-                                                <a href="{% url 'profiles:profile_page' deal.dealer.profile.slug %}">
-                                                    <p>{{deal.dealer}}, <span>{{deal.get_category_name}}</span></p>
-                                                </a>
-                                            </div>
-                                        
-                                    </div>
-                                
-                    </div>
-            </div>
-            {% endfor %}
-    </div>
-            <!-- carbon -->
-            <!-- <div class="mix col-lg-3 col-md-4 col-sm-6 design">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>IT Development</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
                         </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
+                        <div class="about-pic-right">
+                            <div class="num">324</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <div class="product2">
+                    <div class="related-pic-2">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Solar energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(39 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num">500</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product3">
+                    <div class="related-pic-3">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                1.9(70 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num">2903</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product4">
+                    <div class="related-pic-4">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">Waste Heat Recovery </div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(100 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num">109</div>
+                            <div class="subunit">Chestnuts</div>
                         </div>
                     </div>
                 </div>
             </div>
-            carbon
-            <div class="mix col-lg-3 col-md-4 col-sm-6 web">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>Graphic Design</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
-                        </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
+            <div class="wrapper-market-under">
+                <div class="product5">
+                    <div class="related-pic-5">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Hydropower</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- carbon -->
-            <!-- <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>IT Development</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">Home hydropower</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                3.9(10 Reviews)
+                                </div>
                         </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
+                        <div class="about-pic-right">
+                            <div class="num">309</div>
+                            <div class="subunit">Chestnuts</div>
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- carbon -->
-            <!-- <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>IT Development</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
-                        </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
+                <div class="product6">
+                    <div class="related-pic-6">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Renewable energy</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- carbon -->
-            <!-- <div class="mix col-lg-3 col-md-4 col-sm-6 design">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>Socia Media</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
+                    <div class="about-pic">
+                        <div class="about-pic-left">
+                            <div class="type">Home hydropower</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                0.9(105 Reviews)
+                                </div>
                         </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
+                        <div class="about-pic-right">
+                            <div class="num">909</div>
+                            <div class="subunit">Chestnuts</div>
                         </div>
                     </div>
                 </div>
-            </div>  -->
-            <!-- carbon -->
-            <!-- <div class="mix col-lg-3 col-md-4 col-sm-6 web">
-                <div class="carbon-item"> -->
-                    <!-- <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>IT Development</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
-                        </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            carbon
-            <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
-                <div class="carbon-item">
-                    <div class="carbon-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}">
-                        <div class="price">Price: $15</div>
-                    </div>
-                    <div class="carbon-info">
-                        <div class="carbon-text">
-                            <h5>HTML 5</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="students">120 Students</div>
-                        </div>
-                        <div class="carbon-author">
-                            <div class="ca-pic set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-                            <p>William Parker, <span>Developer</span></p>
-                        </div>
-                    </div>
-                </div>
+                <div class="product7"></div>
             </div>
         </div>
-    </div> -->
-</section>
-
-
+        <Footer></Footer>
+    </div>
 
 {% endblock %}

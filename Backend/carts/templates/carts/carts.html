@@ -1,64 +1,156 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/front-end/cart.css' %}">
 	<div class="container">
-		<div class="h1 text-center my-3">Your Cart</div>
-    <div class="row">
-		<div class="col-lg-12">
-
-			<div class="box-element">
-
-				<a  class="site-btn" href="{% url 'market:market_list' %}">&#x2190; Continue Shopping</a>
-
-				<br>
-				<br>
-				<table class="table">
-					<tr>
-						<th><h5>Total Chestnuts : {{cart.cart_item_total}}</h5></th>
-						<th><h5>Total Price : ฿ {{cart.cart_total|floatformat:2}} </h5></th>
-						<th>
-							<a  style="float:right; margin-bottom:3px;" class="site-btn" href="{% url 'cart:checkout' %}">Checkout</a>
-						</th>
-					</tr>
+		<div class="cart-block">
+			<div class="cart-block-container">
+			
+				<table class="cart-table">
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>QTY</th>
+							<th>Chestnuts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class='description-content'>
+								<div class="description-content-main">
+								Embrace Solar Power
+								</div>
+								<div class="description-content-category">
+								Solar energy
+								</div>
+							</td>
+							<td class='adjust-num-cart'>
+								<div class="minus-cart">
+									<img src={minusCart} alt="" />
+								</div>
+								<div class="num-cart">4</div>
+								<div class="plus-cart">
+									<img src={plusCart} alt="" />
+								</div>
+							</td>
+							<td class='chestnuts-cart'>
+								11,612
+							</td>
+						</tr>
+						<tr>
+							<td class='description-content'>
+								<div class="description-content-main">
+								Home hydropower
+								</div>
+								<div class="description-content-category">
+								Waste Heat Recovery
+								</div>
+							</td>
+							<td class='adjust-num-cart'>
+								<div class="minus-cart">
+									<img src={minusCart} alt="" />
+								</div>
+								<div class="num-cart">1</div>
+								<div class="plus-cart">
+									<img src={plusCart} alt="" />
+								</div>
+							</td>
+							<td class='chestnuts-cart'>
+								2,903
+							</td>
+						</tr>
+						<tr>
+							<td class='description-content'>
+								<div class="description-content-main">
+								EcoPower
+								</div>
+								<div class="description-content-category">
+								Renewable energy
+								</div>
+							</td>
+							<td class='adjust-num-cart'>
+								<div class="minus-cart">
+									<img src={minusCart} alt="" />
+								</div>
+								<div class="num-cart">1</div>
+								<div class="plus-cart">
+									<img src={plusCart} alt="" />
+								</div>
+							</td>
+							<td class='chestnuts-cart'>
+								903
+							</td>
+						</tr>
+					</tbody>
 				</table>
 
-			</div>
-
-			<br>
-			<div class="box-element">
-				<div class="cart-row">
-					<div style="flex:1"><strong>Time</strong></div>
-					<div style="flex:1"><strong></strong></div>
-					<div style="flex:1"><strong>Deal</strong></div>
-					<div style="flex:1"><strong>Price</strong></div>
-					<div style="flex:1"><strong>Quantity</strong></div>
-					<div style="flex:1"><strong>Total</strong></div>
+				<div class="payment-title">
+					Payment methods
 				</div>
-				{% for deal in deals reversed %}
-				<div class="cart-row">
-                    <div style="flex:1"><p>{{deal.date_added}}</p></div>
-
-					<div style="flex:1"><img class="row-image" src="{% if deal.deal.image %}
-                        {{deal.deal.image.url}}
-                    {% else %}
-                        {% static 'img/carbonvise.png' %}
-                    {% endif %}" "></div>
-					
-					<div style="flex:1"><p>{{deal.deal.name}}</p></div>
-					<div style="flex:1"><p>฿{{deal.deal.price_per_unit}}</p></div>
-					<div style="flex:1">
-						<p class="quantity">{{deal.quantity}}</p>
-						<div class="quantity">
-							<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/arrow-up.png' %}">
-					
-							<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/arrow-down.png' %}">
+				<div class="underline-cart"></div>
+				<div class="wrapper">
+				<div class="payment-cart">
+					<div class="payment-cart-nav">
+						<div class="payment-cart-name">Mastercard</div>
+						<div class="payment-cart-logo"><img src={mastercardLogo} alt="" /></div>
+					</div>
+					<div class="payment-cart-block">
+						<div class="payment-cart-block-container">
+						<div class="payment-username">Lucille de Chestnuts</div>
+						<div class="payment-id">**** **** **** 4321</div>
+						<div class="payment-date-default">
+							<div class="payment-date">XX/20XX</div>
+							<div class="payment-default">Default</div>
+						</div>
 						</div>
 					</div>
-					<div style="flex:1"><p>฿{{deal.get_total}}</p></div>
 				</div>
-				{% endfor %}
+				<div class="payment-cart">
+					<div class="payment-cart-nav">
+						<div class="payment-cart-name">Mastercard</div>
+						<div class="payment-cart-logo"><img src={applePay} alt="" /></div>
+					</div>
+					<div class="payment-cart-block">
+						<div class="payment-cart-block-container">
+						<div class="payment-username">Lucille de Chestnuts</div>
+						<div class="payment-id">**** **** **** 4321</div>
+						<div class="payment-date-default">
+							<div class="payment-date">XX/20XX</div>
+							<div class="payment-default">Default</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="payment-cart-plus">
+					<div class="payment-cart-nav">
+						<div class="payment-cart-name-add">Add more methods</div>
+						<div class="payment-cart-logo"></div>
+					</div>
+
+					
+
+					<div class="payment-cart-block-plus">
+						<div class="payment-cart-block-container-plus">
+							<div class="payment-plus">
+								<Link to="">+</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="vat">VAT : 7%</div>
+				<div class="chestnuts-total">
+					<div class="chestnuts-total-text">TOTAL (Chestnuts) :</div>
+					<div class="chestnuts-total-amount">฿ {{cart.cart_total|floatformat:2}}</div>
+				</div>
+				<div class="underline-cart"></div>
+				<a href="/receipt">
+				<button class="checkout-btn">
+					Checkout
+				</button>
+				</Link>
 			</div>
 		</div>
 	</div>
-</div>
-{% endblock content %}
+
+{% endblock %}

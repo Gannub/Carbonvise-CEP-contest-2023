@@ -1,67 +1,76 @@
 
-
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-<head>
-<link rel="stylesheet" href="{% static 'css/leaderboards.css' %}"/>
-</head>
-<!-- <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">อันดับรายจังหวัด </h1>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">จังหวัด</th>
-                    <th scope="col">จำนวนผู้ใช้ที่เป็นกลางทางคาร์บอน</th>
-                    <th scope="col">จำนวนเครดิตสะสม</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for province in provinces_credits_sum %}
-                <tr>
-                    <td>{{ province.province }}</td> 
-                    <td>{{province.total_neutral}}</td>
-                    <td>{{ province.total_credits }}</td>
-                   
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
 
-    <!-- Include Bootstrap JS and jQuery -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>  -->
-<div class="container">
-    <div class="table-block">
-        <div class="table-block-container">
-            <table class="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Province</th>
-                        <th>Number of user</th>
-                        <th>Majorities</th>
-                        <th class="mooyong">Total credit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for province in object_list %}
 
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ province.province }}</td>
-                        <td>{{ province.total_neutral}}</td>
-                        <td class="neutral">Neutral</td>
-                        <td>{{province.total_credits}}</td>
-                    </tr>
-                    {% endfor%}
-                </tbody>
-            </table>
+<link rel="stylesheet" href="{% static 'css/front-end/leaderboard.css' %}"/>
+
+
+    <div class="container">
+        <div class="top-block">
+        <div class="top-block-container">
+            <div class="blog-title">
+                <h1>Leaderboard</h1>
+            </div>
+            <div class="filter-search-sorted-wrapper">
+                <div class="filter-test">
+                    <div class="layerst">
+                        <div class="filter-blogs">filter </div>
+                        <div class="underline-filter-leaderboard"></div>
+                    </div>
+                    <div class="category-blog">
+                        <div class="subcategory-selected">
+                            <a href="/leaderboard/today">today</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/leaderboard/week">Week</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/leaderboard/month">Month</a>
+                        </div>
+                        <div class="subcategory">
+                            <a href="/leaderboard/all-time">All time</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sorted-test">
+                    <div class="layerst">
+                        <div class="sorted-blog">Last update</div>
+                        <div class="underLine-last-update"></div>
+                    </div>
+                    <div class="Last-update-date">
+                        July 21, 2023, 2:18 a.m.
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="table-block">
+            <div class="table-block-container">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Province</th>
+                            <th>Majorities</th>
+                            <th>Neutral Users</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for province in object_list|slice:":10" %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ province.province }}</td>
+                            <td class="neutral">Neutral</td>
+                            <td>{{province.total_credits}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+
 {% endblock %}
