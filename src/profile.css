@@ -121,7 +121,21 @@
 
 /* Project */
 .wrapper-project{
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 24%;
+    gap: 10px;
+    padding: 10px 0;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+.snaps-inline{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 10px;
+}
+.snaps-inline *{
+    scroll-snap-align: start;
 }
 .wrapper-project a{
     text-decoration: none;
@@ -148,7 +162,7 @@
     border-radius: 5px;
 }
 .product2-profile,.product3-profile{
-    margin-left: 10px;
+    padding: 0 10px;
 }
 .related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
     display: flex;
@@ -196,8 +210,16 @@
     padding: 20px 0;
 }
 .blogs-content{
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 24%;
+    gap: 20px;
+    padding: 10px 0;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
 }
+
 .nav-eachblog-profile{
     display: flex;
     justify-content: space-between;
@@ -225,9 +247,6 @@
 @media only screen and (max-width: 600px) {
     /* profile */
     /* top-block */
-    .container{
-        margin: 0 20px;
-    }
     .top-block-profile{
         width: 400px;
         margin: 10px auto;
@@ -289,7 +308,10 @@
     /* project */
     .project{
         margin: 10px auto;
-        width: max-content;
+        width: 400px;
+    }
+    .project-container{
+        width: 350px;
     }
     .project-title{
         font-size: 16px;
@@ -313,12 +335,30 @@
     .num-profile{
         font-size: 24px;
     }
+    .wrapper-project{
+        grid-auto-columns: 73%;
+        gap: 10px;
+    }
 
     /* Blogs */
     .blogs-profile{
-        width: max-content;
+        margin: 10px auto;
+        width: 400px;
+    }
+    .blogs-profile-container{
+        width: 350px;
     }
     .blogs-text{
         font-size: 16px;
+    }
+    .secondblog-profile,.thirdblog-profile{
+        width: 275px;
+    }
+    .container-eachblog-profile{
+        width: 250px;
+    }
+    .blogs-content{
+        grid-auto-columns: 76%;
+        gap: 20px;
     }
   }
