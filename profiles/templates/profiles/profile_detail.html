@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-
+<!-- <link rel="stylesheet" href="{% static 'css/frontend/profile.css' %}"/> -->
 
     <div class="container">
         <div class="row">
@@ -171,31 +171,319 @@
 					<div style="flex:1"><strong>Total</strong></div>
 				</div>
 				{% for item in purchased_item reversed %}
-				<div class="cart-row">
-                    <div style="flex:1"><p>{{item.date_dealed}}</p></div>
+                <a href="{% url 'market:market_detail' item.deal.slug %}">
+                    <div class="cart-row">
+                        <div style="flex:1"><p>{{item.date_dealed}}</p></div>
 
-					<div style="flex:1"><img class="row-image" src="{% if item.qrcode %}
-                        {{item.qrcode.url}}
-                    {% else %}
-                        {% static 'img/carbonvise.png' %}
-                    {% endif %}" "></div>
-					
-					<div style="flex:1"><p>{{item.deal.name}}</p></div>
-					<div style="flex:1"><p>฿{{item.deal.price_per_unit}}</p></div>
-					<div style="flex:1">
-						<p class="quantity">{{item.quantity}}</p>
-						
-					</div>
-					<div style="flex:1"><p>฿{{item.get_total}}</p></div>
-				</div>
+                        <div style="flex:1"><img class="row-image" src="{% if item.qrcode %}
+                            {{item.qrcode.url}}
+                        {% else %}
+                            {% static 'img/carbonvise.png' %}
+                        {% endif %}" "></div>
+                        
+                        <div style="flex:1"><p>{{item.deal.name}}</p></div>
+                        <div style="flex:1"><p>฿{{item.deal.price_per_unit}}</p></div>
+                        <div style="flex:1">
+                            <p class="quantity">{{item.quantity}}</p>
+                            
+                        </div>
+                        <div style="flex:1"><p>฿{{item.get_total}}</p></div>
+                    </div>
+                </a>
 				{% endfor %}
-			</div>
+			
+            </div>
 
 
     </div>
           
 
-	
+	<div class="container">
+        <div class="top-block-profile">
+            <div class="top-block-profile-container">
+                <div class="profile-title">
+                    <h1>โปรไฟล์</h1>
+                </div>
+            </div>
+        </div>
+        <div class="side-profile">
+            <div class="top-top-profile">
+                <div class="userFace">
+                    <img src="{% if req_profile.image %}
+                    {{req_profile.image.url}}
+                    {% else %}
+                    {% static 'img/carbonvise.png' %}
+                    {% endif %}" class="profile_image_act"  alt="USERFACE" />
+                </div>
+                <div class="owner">
+                    <div class="name">{{req_profile.user.first_name}} {{req_profile.user.last_name}}</div> 
+                            {% if profile_credit.is_neutral %}
+                            <div class="neutral_prof_status">Neutral</div> 
+                            {% else %}
+                            
+                            {% endif %}
+                    <!-- <div class="description">
+                        description 
+                        <a href="/profile/description">
+                        <img src={arrow} alt="ARROW" />
+                        </a>
+                    </div>    -->
+                </div>
+                <div class="follow-btn"><a href="/profile">Follow</a></div>
+            </div>
+            <div class="wrapper-profile">
+                <div class="rank-andmore-block">
+                    <div class="rank-block">
+                    <div class="rank-block-container">
+                        <div class="rank-text">เซสชั่น </div>
+                        <div class="h5"><strong>ชื่อเซสชั่น</strong> : {{req_profile.user.profile_credit.session_name}}</div>
+                        <div class="h5"><strong>จบวันที่ </strong>:{{req_profile.user.profile_credit.reset_date}}</div>
+                        <div class="number-order">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} Credits</div>
+                        <!-- <div class="streak">4 week streak</div> -->
+                        <div>
+                            {% if req_profile.user == user %}
+                            {% if not profile_credit == None %}
+                                <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="session-btn me-5 my-3">End session</a>
+                                {%if profile_credit.badges.is_obtained %}
+                                <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}" class="session-btn ">View badge</a>
+                                {% else %}
+                                <a href="{% url 'badges:obtain_badges' %}" class="session-btn">obtain badges</a>
+                                {% endif %}
+                                
+                            
+                            {% else %}
+                           
+                                <a href="{% url 'profiles:start_session' user.profile.slug %}" class="session-btn">Start Session</a>
+                          
+                            {% endif %}
+
+                                
+                                
+                            
+                            {% else %} 
+                            {% endif %}
+                          
+                        </div>
+                    </div>
+                    </div>
+                    <div class="andmore-block">
+                        <div class="progress-circle">
+                            <div class="cp-item">
+                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#EC6C03" data-cpsize="200" data-cptitle="Offset"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reduced-block">
+                    <div class="reduced-block-container">
+                        <div class="reduced-text">จังหวัด</div>
+                        <div class="percent"> {{req_profile.user.get_province_name}}</div>
+                        <div class="offset-natural"># {{province_rank}} </div>
+                    </div>
+                </div>
+                <div class="carbon-status-block">
+                    <div class="carbon-status-block-container">
+                        <div class="carbon-text">อันดับผู้ใช้</div>
+                        <div class="offset-natural"># {{user_province_rank}} <br> ใน{{req_profile.user.get_province_name}}</div>
+                        <div class="thai_rank"># {{user_rank}} <br> ในประเทศไทย</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-container">
+                    <div class="project-title">Badges</div>
+                    <div class="project-content">
+                    <div class="wrapper-project">
+                <a href="/market-inside">
+                <div class="product1-profile">
+                    <div class="related-pic-1-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Renewable energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">EcoPower</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                5.0(52 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">324</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <div class="product2-profile">
+                    <div class="related-pic-2-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Solar energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(39 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">500</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product3-profile">
+                    <div class="related-pic-3-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                1.9(70 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">2903</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blogs-profile">
+                <div class="blogs-profile-container">
+                    <div class="blogs-text">Blogs</div>
+                    <div class="blogs-content">
+                    <div class="secondblog-profile">
+                    <div class="container-eachblog-profile">
+                    <div class="nav-eachblog-profile">
+                        <div class="time-profile">16 hour ago</div>
+                        <div class="three-dot"><img src={threeDot} alt="" /></div>
+                    </div>
+                    <div class="underline-eachblog"></div>
+                    <div class="below-eachblog">
+                        <div class="title-blog">Revitalize Your Morning Routine...</div>
+                        <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+                        smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+                        <div class="tips-readmore">
+                            <div class="tips"> 
+                                <a href="/blogs/events">Events</a>
+                            </div>
+                            <div class="read-more">
+                                <a href="/blogs/read-more">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="thirdblog-profile">
+                    <div class="container-eachblog-profile">
+                    <div class="nav-eachblog-profile">
+                        <div class="time-profile">18 hour ago</div>
+                        <div class="three-dot"><img src={threeDot} alt="" /></div>
+                    </div>
+                    <div class="underline-eachblog"></div>
+                    <div class="below-eachblog">
+                        <div class="title-blog">Mastering the Art of Communication</div>
+                        <div class="text-blog">Enhance your communication skills by understanding different 
+                        communication styles, active listening techniques, and fostering effective dialogue</div>
+                        <div class="tips-readmore">
+                            <div class="tips"> 
+                                <a href="/blogs/events">Events</a>
+                            </div>
+                            <div class="read-more">
+                                <a href="/blogs/read-more">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-container">
+                    <div class="project-title">Purchase History</div>
+                    <div class="project-content">
+                    <div class="wrapper-project">
+                <a href="/market-inside">
+                <div class="product1-profile">
+                    <div class="related-pic-1-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Renewable energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">EcoPower</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                5.0(52 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">324</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <div class="product2-profile">
+                    <div class="related-pic-2-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Solar energy</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                4.9(39 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">500</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product3-profile">
+                    <div class="related-pic-3-profile">
+                        <div class="subcategory-each">
+                            <a href="/market/renewable energy">Waste Heat Recovery</a>
+                        </div>
+                    </div>
+                    <div class="about-pic-profile">
+                        <div class="about-pic-left">
+                            <div class="type-profile">Embrace Solar Power</div>
+                            <div class="rating">
+                                <img src={leaf} alt="" />
+                                1.9(70 Reviews)
+                                </div>
+                        </div>
+                        <div class="about-pic-right">
+                            <div class="num-profile">2903</div>
+                            <div class="subunit">Chestnuts</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

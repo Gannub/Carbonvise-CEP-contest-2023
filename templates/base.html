@@ -17,6 +17,18 @@
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/blog-inside.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/blogs.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/carts.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/comment-section.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/footer.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/index.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/leaderboard.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/market-inside.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/market.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/profile.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/reciept.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/signin.css' %}"/>
 
 	<script>
 		var user = '{{request.user}}';
@@ -106,6 +118,41 @@
 		</div>
 	</header>
 	<!-- Header section end -->
+	<!-- <div class="container">
+		<nav>
+			<ul>
+				<div class="logo">
+					<h1>LOGO</h1>
+					<div class="ham-menu" onClick={showPopupMenu}>
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+					<div class="popup-menu" id='popupMenu'>
+						<li><a href="/market">Market</a></li>
+						<li><a href="/blogs">Blogs</a></li>
+						<li><a href="/leaderboard">Leaderboard</a></li>
+						<li><a href="/profile">Samuel</a></li>
+					</div>
+				</div>
+				<div class="wrapper">
+				<li><a href="/market">Market</a></li>
+				<li><a href="/blogs">Blogs</a></li>
+				<li><a href="/leaderboard">Leaderboard</a></li>
+				<li>
+						<div class="cart-logo">
+							<h1>Carbonvise</h1>
+						</div>
+				</li>
+				</div>
+				<div class="wrapper">
+					<li><a href="/profile" class="username">Samuel</a></li>
+					<li><a href="/cart" class="cart">Cart</a></li>
+				</div>
+			</ul>
+			<div class="under"></div>
+		</nav>
+	</div> -->
 
 {% block content %}    
 

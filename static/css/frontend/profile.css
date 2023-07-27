@@ -1,0 +1,370 @@
+
+.neutral_prof_status{
+    margin-top: 10px;
+    color: #41C266;
+    font-size: 25px;
+    text-align: left;
+}
+.session-btn{
+    display: inline-block;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+    padding: 7px;
+    width: max-content;
+    height: 30px;
+    
+    scale: 1.3; 
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* top-block */
+
+.top-block-profile{
+    background-color: white;
+    max-width: 1408px;
+    height: max-content;
+    border-radius: 5px;
+}
+.top-block-profile-container{
+    max-width: 1358px;
+    margin: 0 auto;
+}
+.profile-title{
+    font-size: 36px;
+    padding: 10px 0;
+}
+
+/* ProfilePage-Top */
+.side-profile{
+    margin-top: 10px;
+}
+.top-top-profile{
+    display: flex;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+}
+.userFace{
+    margin: 0 20px;
+}
+.name{
+    font-size: 36px;
+}
+.description{
+    display: flex;
+    align-items: center;
+    padding: 10px 0 0 0;
+    color: #A4A6AF;
+    opacity: 0.5;
+}
+.description a{
+    margin-left: 5px;
+    text-decoration: none;
+}
+.follow-btn{
+    border: 1px solid black;
+    padding: 5px;
+    width: max-content;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.follow-btn a{
+    text-decoration: none;
+}
+
+/* ProfilePage-2ndLayer*/
+
+.wrapper-profile{
+    display: flex;
+    margin: 10px 0;
+}
+.rank-andmore-block{
+    display: flex;
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+.rank-block{
+    margin: auto;
+    height: 230px;
+    width: 400px;
+}
+.rank-block-container{
+    width: 400px;
+    margin-left:30px;
+}
+.rank-text,.reduced-text,.carbon-text{
+    font-size: 36px;
+}
+.number-order{
+    margin-top: 10px;
+    color: #EC6C03;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: left;
+}
+.percent{
+    margin-top: 10px;
+    color: #EC6C03;
+    font-size: 42px;
+    text-align: left; 
+}
+.offset-natural{
+    margin-top: 10px;
+    color: #EC6C03;
+    font-size: 40px;
+    text-align: left; 
+}
+.thai_rank{
+    margin-top: 10px;
+    color: #EC6C03;
+    font-size: 25px;
+    text-align: left;  
+}
+.streak{
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+}
+.andmore-block{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}  
+.progress-circle{
+    vertical-align: bottom;
+} 
+.reduced-block,.carbon-status-block{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    background: #FFF;
+    margin-left: 10px;
+}
+.reduced-block-container,.carbon-status-block-container{
+    width: 300px;
+    margin: 10px auto;
+}
+.from-text{
+    margin: 10px 0;
+    text-align: right;
+}
+.chestnuts-amount{
+    text-align: right;
+    color: #A4A6AF;
+    opacity: 0.5;
+}
+
+/* Project */
+.wrapper-project{
+    display: flex;
+}
+.wrapper-project a{
+    text-decoration: none;
+}
+.project{
+    width: 1408px;
+    height: 416px;
+    background-color: white;
+    border-radius: 5px;
+}
+.project-container{
+    margin: auto 0 auto 20px;
+}
+.project-title{
+    font-size: 36px;
+    padding: 20px 0;
+}
+.product1-profile,.product2-profile,.product3-profile{
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 303px;
+    background-color: white;
+    border-radius: 5px;
+}
+.product2-profile,.product3-profile{
+    margin-left: 10px;
+}
+.related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
+    display: flex;
+    width: 316px;
+    height: 209px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+/* .related-pic-1-profile{
+    background: url(images/market/product1.jpg);
+}
+.related-pic-2-profile{
+    background: url(images/market/product2.jpg);
+}
+.related-pic-3-profile{
+    background: url(images/market/product3.png);
+}  */
+.about-pic-profile{
+    margin: 0 auto;
+    width: 316px;
+    display: flex;
+    justify-content: space-between;
+}
+.type-profile{
+    font-size: 16px;
+}
+.num-profile{
+    font-size: 32px;
+}
+
+/* Blogs */
+.blogs-profile{
+    margin-top: 10px;
+    height: 393px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+.blogs-profile-container{
+    height: 480px;
+    margin: auto 0 auto 20px;
+}
+.blogs-text{
+    font-size: 36px;
+    padding: 20px 0;
+}
+.blogs-content{
+    display: flex;
+}
+.nav-eachblog-profile{
+    display: flex;
+    justify-content: space-between;
+}
+.time-profile{
+    color: #AAACB4;
+    opacity: 0.5;
+}
+.secondblog-profile,.thirdblog-profile{
+    display: flex;
+    flex-direction: column;
+    width: 341px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    border: 1px solid black;
+}
+.container-eachblog-profile{
+    margin: 20px auto;
+    width: 300px;
+}
+
+/* responsive */
+@media only screen and (max-width: 600px) {
+    /* profile */
+    /* top-block */
+    .container{
+        margin: 0 20px;
+    }
+    .top-block-profile{
+        width: 400px;
+        margin: 10px auto;
+    }
+    .profile-title{
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    /* user-profile */
+    .top-top-profile{
+        width: 400px;
+        margin: 10px auto;
+    }
+    .userFace{
+        width: 83px;
+    }
+    /* cant make img small */
+    .userFace img{
+        display: none;
+    }
+    .name{
+        font-size: 16px;
+    }
+
+    /* mid-section */
+    .wrapper-profile{
+        width: 400px;
+        margin: 0 auto;
+    }
+    .andmore-block{
+        display: none;
+    }
+    .rank-block,.rank-andmore-block,.reduced-block,.carbon-status-block{
+        width: 110px;
+        height: 110px;
+    }
+    .rank-block-container,.reduced-block-container,.carbon-status-block-container{
+        width: 100px;
+        height: 100px;
+        margin:  10px auto;
+    }
+    .rank-text,.streak,.reduced-text,.carbon-text{
+        font-size: 12px;
+    }
+    .number-order,.percent,.offset-natural{
+        font-size: 24px;
+    }
+    .from-text,.chestnuts-amount{
+        font-size: 8px;
+    }
+    .streak,.number-order,.percent{
+        margin-top: 10px;
+    }
+    .from-text{
+        margin: 5px 0;
+    }
+
+    /* project */
+    .project{
+        margin: 10px auto;
+        width: max-content;
+    }
+    .project-title{
+        font-size: 16px;
+    }
+    .product1-profile,.product2-profile,.product3-profile{
+        width: 250px;
+        height: 290px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid black; 
+    }
+    .related-pic-1-profile,.related-pic-2-profile,.related-pic-3-profile{
+        width: 230px;
+    }
+    .about-pic-profile{
+        width: 230px;
+    }
+    .type-profile{
+        font-size: 12px;
+    }
+    .num-profile{
+        font-size: 24px;
+    }
+
+    /* Blogs */
+    .blogs-profile{
+        width: max-content;
+    }
+    .blogs-text{
+        font-size: 16px;
+    }
+  }

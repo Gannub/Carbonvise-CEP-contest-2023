@@ -28,6 +28,10 @@
 .badge_container{
 	/* max-width: fit-content; */
 }
+.cp-item{
+	position: relative;
+	top: 20px;
+}
 .badges_set{
 	margin-top: 30px;
 	display: flex;
@@ -192,9 +196,10 @@
 	margin-top: 20px;
 }
 .profile_image_act{  
-	width: 370px;
-	height: 370px;
+	width: 220px;
+	height: 220px;
 	border-radius: 50%;
+	margin-right: 50px;
 	border: 5px solid #031509;
 
 }
@@ -286,7 +291,7 @@ a{
 	text-decoration: none;
 }
 a:hover {
-	color: #005127;
+	color: #ffffff;
 	/* scale: 1.5; */
 }
 

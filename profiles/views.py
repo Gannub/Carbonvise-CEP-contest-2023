@@ -13,6 +13,10 @@ from dealer.forms import DealerCreationForm
 from datetime import timedelta
 from django.utils import timezone
 import math
+from django.db.models import Sum, F, Window,Count, Q
+from django.db.models.functions import Rank, DenseRank, Coalesce
+
+
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -23,6 +27,63 @@ User = get_user_model()
 
 # I am trying to use Function based views to make a separate profile page
 # done!
+def get_province_rank(user):
+    # Calculate the total credits for each province
+    provinces_credits_sum = (
+        User.objects
+        .values('province')
+        .annotate(  total_credits=Coalesce(Sum('profile_credit__credits'), 0),
+                    total_neutral=Count('id', filter=Q(profile_credit__is_neutral=True))
+                  
+        )
+        .order_by('-total_neutral')
+    )
+    # print()
+    # Calculate the rank of each province based on total credits
+    # province_rank = provinces_credits_sum.annotate(rank=Window(expression=DenseRank(), order_by=F('total_neutral').desc()))
+    # print(provinces_credits_sum)
+    # user_province_rank = next((item['rank'] for item in province_rank if item['province'] == user.province), None)
+    for rank, province in enumerate(provinces_credits_sum):
+        if province['province']==user.province:
+            # print(rank+1, province['province'])
+            
+            return rank+1
+
+    
+    # context = {
+    #     'province_ranks': province_ranks
+    # }
+def get_user_rank(user):
+    # Retrieve all users ordered by credits in descending order
+    users = User.objects.select_related('profile_credit').order_by('-profile_credit__credits')
+    # print(users)
+
+    # Calculate the rank of the given user
+    rank = 1
+    for i, u in enumerate(users):
+        if u == user:
+            return rank
+        rank+=1
+
+    # If the user is not found in the leaderboard, return None
+    return None
+def get_user_province_rank(user):
+    # Calculate the total credits for each province
+    
+    province_credits = User.objects.filter(province=user.province).annotate(total_credits=Sum('profile_credit__credits'))
+    # print(province_credits)
+    # Calculate the rank of the user's province based on total credits
+    province_ranks = province_credits.annotate(rank=Window(expression=DenseRank(), order_by=F('total_credits').desc()))
+    # print(province_ranks)
+    # Get the rank of the user's province
+    user_province_rank = province_ranks.filter(province=user.province).values_list('rank', flat=True).first()
+    # print(user_province_rank, user.province)
+    return user_province_rank
+
+
+    context = {
+        'province_rank': province_rank
+    }
 
 def profile_page(request, slug):
     if request.user.is_authenticated:
@@ -31,6 +92,9 @@ def profile_page(request, slug):
         try:      
             profile_credits = profile.user.profile_credit
             percentage = math.ceil(profile_credits.credits/10)
+            user_rank = get_user_rank(profile.user)
+            user_province_rank = get_user_province_rank(profile.user)
+            province_rank = get_province_rank(profile.user)
             # print(request.user)
                 # purchased_item = get_object_or_404(CartItemHistory, user=profile.user)
                 # print(purchased_item, 'no way??')
@@ -51,7 +115,16 @@ def profile_page(request, slug):
     else:
         return redirect('account_login')
     
-    ctx = {'req_profile':profile, 'credit_percentage':percentage,'profile_credit':profile_credits ,'purchased_item':purchased_item, 'session_history':session_history}
+    ctx = {'req_profile':profile, 
+           'credit_percentage':percentage,
+           'profile_credit':profile_credits,
+           'purchased_item':purchased_item, 
+           'session_history':session_history,
+           'user_rank':user_rank,
+           'user_province_rank': user_province_rank,
+           'province_rank': province_rank
+           
+    }
 
     return render (request,'profiles/profile_detail.html',ctx)
 

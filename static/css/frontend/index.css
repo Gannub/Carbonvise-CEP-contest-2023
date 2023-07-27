@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+*   {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Inter', 'sukhum', sans-serif;
+    color: black;
+}  
+body{
+    background-color: #F6F6F9;
+}
+
+/* NavPage */
+
+.wrapper{
+    display: flex;
+}
+.container{
+    margin: 0 auto;
+    font-size: 12px;
+    border-radius: 10px;
+    max-width: 1408px;
+}
+.under{
+    background-color: black;
+    margin: 20px auto;
+    max-width: 1380px;
+    height: 2px;
+}
+nav{
+    border-radius: 10px;
+    background-color: white;
+    height: 80px;
+    margin-bottom: 10px;
+}
+nav ul{
+    margin: 10px;
+    list-style: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    margin-top: 30px;
+    display: flex;
+}
+.logo .ham-menu{
+    display: none;
+}
+nav ul li{
+    margin-top: 30px;
+    margin-right: 18px;
+}
+nav ul li a{
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.cart-logo{
+    display: none;
+}
+
+/* SelectedPage */
+
+.selected{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.username{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* hamberger-menu */
+
+.ham-menu{
+    display: inline-block;
+    cursor: pointer;
+  }
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+/* popup-menu */
+
+.logo{
+    position: relative;
+}
+.popup-menu{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    background-color: white;
+    position: absolute;
+    display: none;
+}
+
+/* responsive */
+@media only screen and (max-width: 600px) {
+    /* nav-bar */
+    nav{
+        margin: 0 auto;
+        width: 400px;
+        height: 70px;
+    }
+    .under{
+        display: none;
+    }
+    .logo h1,nav ul li a{
+        display: none;
+    }
+    .logo .ham-menu,.cart-logo{
+        display: block;
+    }
+  }

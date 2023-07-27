@@ -1,0 +1,257 @@
+/* marketPage */
+/* top-block */
+
+.top-block{
+    background-color: white;
+    max-width: 1408px;
+    height: 192px;
+    border-radius: 5px;
+}
+.top-block-container{
+    max-width: 1358px;
+    margin: 0 auto;
+}
+.market-title{
+    font-size: 36px;
+    padding-top: 10px;
+}
+.filter-sorted-wrapper{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper-responsive-market{
+    display: flex;
+}
+.wrapper-responsive-market-under{
+    display: flex;
+}
+.underLine{
+    margin-left: 10px;
+    background-color: black;
+    width: 665px;
+    height: 0.5px;
+}
+.underLine2{
+    margin-left: 10px;
+    background-color: black;
+    width: 180px;
+    height: 0.5px;
+}
+.category{
+    display: flex;
+    margin-top: 10px;
+}
+.category a{
+    text-decoration: none;
+}
+.category-blog a{
+    text-decoration: none;
+}
+.subcategory{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 20px;
+    width: max-content;
+    background-color: white;
+}
+.subcategory a{
+    text-decoration: none;
+}
+.subcategory-res{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 20px;
+    width: max-content;
+}
+.subcategory-res a{
+    text-decoration: none;
+}
+/* selected-category */
+.subcategory-selected{
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.Tdropdown{
+    display: flex;
+    margin: 10px 50px 0 0;
+}
+.drop-date{
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+.date-text{
+    padding: 5px;
+}
+.drop-price{
+    border: 1px solid black;
+    margin-left: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+.price-text{
+    padding: 5px;
+}
+.drop-review{
+    border: 1px solid black;
+    margin-left: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+.review-text{
+    padding: 5px;
+}
+.dropdown-btn{
+    height: 10px;
+}
+
+/* mid-section */
+
+.product{
+    margin: 20px auto;
+}
+.product1,.product2,.product3,.product4,.product5,.product6{
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 303px;
+    background-color: white;
+    border-radius: 5px;
+}
+.product2,.product3,.product4{
+    margin-left: 15px;
+}
+.product7{
+    background-color: white;
+    width: 697px;
+    height: 303px;
+    border-radius: 5px;
+}
+.wrapper-market{
+    display: flex;
+}
+.wrapper-market a{
+    text-decoration: none;
+}
+.wrapper-market-under{
+    display: flex;
+    margin-top: 10px;
+}
+.product6,.product7{
+    margin-left: 15px;
+}
+.related-pic-1,.related-pic-2,.related-pic-3,.related-pic-4,.related-pic-5,.related-pic-6{
+    display: flex;
+    width: 316px;
+    height: 209px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.related-pic-1{
+    background: url(images/market/product1.jpg);
+}
+.related-pic-2{
+    background: url(images/market/product2.jpg);
+}
+.related-pic-3{
+    background: url(images/market/product3.png);
+} 
+.related-pic-4{
+    background: url(images/market/product4.png);
+} 
+.related-pic-5{
+    background: url(images/market/product5.jpg);
+}
+.related-pic-6{
+    background: url(images/market/product6.jpg);
+}
+.subcategory-each{
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    width: max-content;
+    height: 30px;
+    margin: 10px 10px 0 auto;
+}
+.subcategory-each a{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.about-pic{
+    margin: 0 auto;
+    width: 316px;
+    display: flex;
+    justify-content: space-between;
+}
+.type{
+    margin-top: 5px;
+    font-size: 16px;
+}
+.rating{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    color: #A4A6AF;
+    opacity: 0.5;
+}
+.num{
+    text-align: center;
+    font-size: 36px;
+}
+
+ /* responsive */
+ @media only screen and (max-width: 600px) {
+    /* Market */
+    .market-title{
+        font-size: 12px;
+    }
+    .filter-sorted-wrapper{
+        display: block;
+    }
+    .category{
+        display: block;
+    }
+    .wrapper-responsive-market-under{
+        margin-top: 10px;
+    }
+    .filter-section{
+        margin-top: 20px;
+    }
+    .sorted-section{
+        margin-top: 20px;
+    }
+    .subcategory-res{
+        margin-left: 0px;
+    }
+
+    /* mid-section */
+    .wrapper-market{
+        display: block;
+    }
+    .wrapper-market-under{
+        display: block;
+    }
+    .product7{
+        display: none;
+    }
+    .product1,.product2,.product3,.product4,.product5,.product6{
+        width: 400px;
+        margin: 10px auto;
+    }
+    .related-pic-1,.related-pic-2,.related-pic-3,.related-pic-4,.related-pic-5,.related-pic-6{
+        width: 375px;
+        margin-top: 10px;
+    }
+    .about-pic{
+        width: 375px;
+    }
+  }

@@ -37,6 +37,7 @@ class CartItem(models.Model):
     in_cart = models.ForeignKey(Cart, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(default=0,null=True,blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    
     # qrcode = models.ImageField(null=True,blank=True,upload_to= upload_path)
 
     def __str__(self) -> str:

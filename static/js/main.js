@@ -89,24 +89,24 @@ $(window).on('load', function() {
 		var cpid 	= $(this).data("cpid");
 		var cpsize 	= $(this).data("cpsize");
 
-		$(this).append('<div class="'+ cpid +'"></div><div class="progress-info"><h2>'+ cpvalue +'%</h2><p>'+ cptitle +'</p></div>');
+		$(this).append('<div class="'+ cpid +'"></div><div class="progress-info"><h2>'+ cpvalue +'%</h2><h4>'+ cptitle +'</h4></div>');
 
 		if (cpvalue < 100) {
 
 			$('.' + cpid).circleProgress({
 				value: cpvalue/100 ,
 				size: cpsize,
-				thickness: 60,
+				thickness: 40,
 				fill: cpcolor,
-				emptyFill: "rgba(232, 255, 230, 0.8)"
+				emptyFill: "rgba(244, 189, 144, 1)"
 			});
 		} else {
 			$('.' + cpid).circleProgress({
 				value: 1,
-				size: 176,
-				thickness: 9,
+				size: cpsize,
+				thickness: 40,
 				fill: cpcolor,
-				emptyFill: "rgba(0, 0, 0, 0)"
+				emptyFill: "rgba(244, 189, 144, 1)"
 			});
 		}
 
