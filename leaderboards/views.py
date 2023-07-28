@@ -5,6 +5,7 @@ from django.db.models.functions import Coalesce
 # from django.db.models import Q
 from django.contrib.auth import get_user_model
 from profiles.models import CreditSession 
+from django.utils import timezone
 # from users.models import
 User = get_user_model()
 
@@ -109,9 +110,10 @@ def leaderboard_by_province(request):
     )
     for province in provinces_credits_sum:
         province['province'] = get_province_name(province['province'])
-
+    time = timezone.now()
     context = {
-        'object_list': provinces_credits_sum
+        'object_list': provinces_credits_sum,
+        'date': time
     }
 
     return render(request, 'leaderboards/leaderboards.html', context)

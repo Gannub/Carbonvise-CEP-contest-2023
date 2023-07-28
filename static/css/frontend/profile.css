@@ -31,12 +31,12 @@
 
 .top-block-profile{
     background-color: white;
-    max-width: 1408px;
+    width: 100%;
     height: max-content;
     border-radius: 5px;
 }
 .top-block-profile-container{
-    max-width: 1358px;
+    width: 95%;
     margin: 0 auto;
 }
 .profile-title{
@@ -115,38 +115,42 @@
 /* ProfilePage-2ndLayer*/
 
 .wrapper-profile{
+    width: 100%;
     display: flex;
     margin: 10px 0;
 }
 .rank-andmore-block{
     display: flex;
-    width: 700px;
+    width: 60%;
     height: 300px;
     background-color: white;
     border-radius: 5px;
 }
 .rank-block{
-    margin: 0;
+    margin: auto;
     height: 230px;
-    width: 400px;
+    width: 50%;
 }
 .rank-block-container{
-    width: 400px;
+    width: 100%;
     margin: 10px 20px;
 }
 .rank-text,.reduced-text,.carbon-text{
     font-size: 36px;
 }
-.end-btn,.view-badge-btn{
-    padding: 10px;
+.end-btn,.view-badge-btn,.obtain-badge-btn{
+    padding: 15px;
     background-color: black;
     border-radius: 5px;
     margin-top: 25px;
+    cursor: pointer;
+    color: white;
 }
-.view-badge-btn{
+.view-badge-btn,.obtain-badge-btn{
     margin-left: 10px;
+    color: white;
 }
-.end-btn a,.view-badge-btn a{
+.end-btn a,.view-badge-btn a,.obtain-badge-btn a{
     background-color: black;
     color: white;
 }
@@ -173,7 +177,7 @@
 .thai_rank{
     margin-top: 10px;
     color: #EC6C03;
-    font-size: 25px;
+    font-size: 30px;
     text-align: left;  
 }
 .streak{
@@ -182,7 +186,7 @@
     font-size: 16px;
 }
 .andmore-block{
-    width: 300px;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -192,14 +196,14 @@
     vertical-align: bottom;
 } 
 .reduced-block,.carbon-status-block{
-    width: 350px;
+    width: 25%;
     height: 300px;
     border-radius: 5px;
     background: #FFF;
     margin-left: 10px;
 }
 .reduced-block-container,.carbon-status-block-container{
-    width: 300px;
+    width: 90%;
     margin: 10px auto;
 }
 .from-text{
@@ -214,15 +218,20 @@
 
 /* Project */
 .wrapper-project{
-    margin-left: 20px;
+    width: 100%;
+    margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 26%;
+    grid-auto-columns: 27%;
     gap: 10px;
     padding: 10px 0;
 
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+}
+.project-container{
+    width: 95%;
+    margin: 0 auto;
 }
 .snaps-inline{
     scroll-snap-type: inline mandatory;
@@ -235,8 +244,8 @@
     text-decoration: none;
 }
 .project{
-    /* width: 1408px; */margin-top: 10px;
-
+    margin-top: 10px;
+    width: 100%;
     height: 456px;
     background-color: white;
     border-radius: 5px;
@@ -261,7 +270,7 @@
 }
 .project-title{
     font-size: 36px;
-    padding: 20px 20px;
+    padding: 20px 0;
 }
 .product1-profile,.product2-profile,.product3-profile{
     display: flex;
@@ -307,24 +316,26 @@
 /* Blogs */
 .blogs-profile{
     margin-top: 10px;
-    height: 393px;
+    height: 456px;
     width: 100%;
     border-radius: 5px;
     background-color: white;
 }
 .blogs-profile-container{
-    height: 480px;
-    margin: auto 0 auto 20px;
+    width: 95%;
+    margin: 0 auto;
 }
 .blogs-text{
     font-size: 36px;
     padding: 20px 0;
 }
 .blogs-content{
+    width: 100%;
+    margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 24%;
-    gap: 20px;
+    grid-auto-columns: 27%;
+    gap: 10px;
     padding: 10px 0;
 
     overflow-x: auto;
@@ -350,7 +361,7 @@
 }
 .container-eachblog-profile{
     margin: 20px auto;
-    width: 300px;
+    width: 90%;
 }
 
 /* responsive */
@@ -358,7 +369,6 @@
     /* profile */
     /* top-block */
     .top-block-profile{
-        width: 400px;
         margin: 10px auto;
     }
     .profile-title{
@@ -368,7 +378,6 @@
 
     /* user-profile */
     .top-top-profile{
-        width: 400px;
         height: 150px;
         margin: 10px auto;
     }
@@ -393,11 +402,10 @@
     /* mid-section */
     .wrapper-profile{
         display: block;
-        width: 400px;
         margin: 0 auto;
     }
     .rank-andmore-block,.reduced-block,.carbon-status-block{
-        width: 400px;
+        width: 100%;
         height: 200px;
         margin: 0 auto;
     }
@@ -406,17 +414,19 @@
     }
     .rank-andmore-block{
         display: block;
-        width: 400px;
         height: 450px;
         margin: 0 auto;
     }
     .rank-block{
+        width: 100%;
         height: 200px;
     }
     .rank-block-container,.reduced-block-container,.carbon-status-block-container{
-        width: 375px;
         height: 100px;
         margin:  10px auto;
+    }
+    .rank-block-container{
+        width: 90%;
     }
     .h5{
         font-size: 12px;
@@ -441,10 +451,6 @@
     /* project */
     .project{
         margin: 10px auto;
-        width: 400px;
-    }
-    .project-container{
-        width: 350px;
     }
     .project-title{
         font-size: 16px;
@@ -469,17 +475,12 @@
         font-size: 24px;
     }
     .wrapper-project{
-        grid-auto-columns: 76%;
-        gap: 10px;
+        grid-auto-columns: 67%;
     }
 
     /* Blogs */
     .blogs-profile{
         margin: 10px auto;
-        width: 400px;
-    }
-    .blogs-profile-container{
-        width: 350px;
     }
     .blogs-text{
         font-size: 16px;
@@ -487,12 +488,8 @@
     .secondblog-profile,.thirdblog-profile{
         width: 275px;
     }
-    .container-eachblog-profile{
-        width: 250px;
-    }
     .blogs-content{
         grid-auto-columns: 76%;
-        gap: 20px;
     }
 
     /* session history */

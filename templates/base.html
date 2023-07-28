@@ -17,18 +17,19 @@
 	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+	<!-- <link rel="stylesheet" href="{% static 'css/mainpage.css' %}"/> -->
 	<link rel="stylesheet" href="{% static 'css/frontend/blog-inside.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/blogs.css' %}"/>
-	<link rel="stylesheet" href="{% static 'css/frontend/carts.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/cart.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/comment-section.css' %}"/>
-	<link rel="stylesheet" href="{% static 'css/frontend/footer.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/index.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/leaderboard.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/market-inside.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/market.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/frontend/profile.css' %}"/>
-	<link rel="stylesheet" href="{% static 'css/frontend/reciept.css' %}"/>
-	<link rel="stylesheet" href="{% static 'css/frontend/signin.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/receipt.css' %}"/>
+	<!-- <link rel="stylesheet" href="{% static 'css/frontend/signin.css' %}"/> -->
 
 	<script>
 		var user = '{{request.user}}';
@@ -67,7 +68,7 @@
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+			<nav class="navbar navbar-expand-lg navbar-light  sticky-top">
 				<div class="container-fluid">
 				  <a class="navbar-brand" href="{% url 'index' %}"><strong>CARBONVISE</strong></a>
 				  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,55 +162,50 @@
 	
 
 	<!-- banner section -->
-	<div class="my-5">
+	<!-- <div class="my-5">
 		<div class="my-5">
 			
 		</div>
-	</div>
+	</div> -->
 	<!-- banner section end -->
 
 
 	<!-- footer section -->
-	<footer class="footer-section spad pb-0">
-		<div class="footer-top">
-			<div class="footer-warp">
-				<div class="row">
-					<div class="widget-item">
-						<h4>Contact Info</h4>
-						<ul class="contact-list">
-							<li>
-                                Chestnut Team. <br>
-                                254 Phaya Thai Rd, Wang Mai, Pathum Wan, Bangkok 10330
-                                 </li>
-							<li>Tel goes here</li>
-							<li>Chestnut@gmail.com</li>
-						</ul>
-					</div>
-					<div class="widget-item">
-						<h4>Chestnut Team</h4>
-						<ul>
-							<li><a href="https://www.cp.eng.chula.ac.th/cedt"target='_blank'>
-								1	นายรัชพล กิมอ่วม เก้า <br>
-								2	นายศิษฏ์	ศรีอรพินท์งาม	ซัน<br>
-								3	นายอริญชย์	อริยะตา	หมูหยอง<br>
-								4	กษิดิศ	แซ่เกาะ	ย่วยหลง<br>
-								5	จิรวัฒน์	สุทธิศิริมงคล	เจมส์</a></li>
-							
-
-						</ul>
-					</div>
-
-					<div class="widget-item">
-						<h4>รายงานปัญหา</h4>
-						<form class="footer-newslatter">
-							<input type="text" placeholder="แจ้งให้เราทราบ">
-							<button class="site-btn">รายงาน</button>
-							<p></p>
-						</form>
-					</div>
-				</div>
+		<div class="footer-block">
+		<div class="footer-block-container">
+			<div class="footer-contact">
+				<h4>Contact Info</h4>
+				<ul >
+					<li>
+                    Chestnut Team. <br>
+                    54 Phaya Thai Rd, Wang Mai, Pathum Wan, Bangkok 10330
+                    </li>
+					<li>Tel goes here</li>
+					<li>Chestnut@gmail.com</li>
+				</ul>
+			</div>
+			<div class="footer-chestnut-team">
+				<h4>Chestnut Team</h4>
+				<ul>
+					<li><a href="https://www.cp.eng.chula.ac.th/cedt"target='_blank'>
+						1	นายรัชพล กิมอ่วม เก้า <br>
+						2	นายศิษฏ์	ศรีอรพินท์งาม	ซัน<br>
+						3	นายอริญชย์	อริยะตา	หมูหยอง<br>
+						4	กษิดิศ	แซ่เกาะ	ย่วยหลง<br>
+						5	จิรวัฒน์	สุทธิศิริมงคล	เจมส์</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer-report">
+				<h4>รายงานปัญหา</h4>
+				<form class="">
+					<input type="text" placeholder="แจ้งให้เราทราบ">
+				</form>
+				<button class="site-btn">รายงาน</button>
 			</div>
 		</div>
+		</div> 
+
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
@@ -219,8 +215,7 @@
 				</ul>
 				
 			</div>
-		</div>
-	</footer> 
+		</div> 
 	<!-- footer section end -->
 
 

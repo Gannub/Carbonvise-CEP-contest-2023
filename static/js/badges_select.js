@@ -54,13 +54,13 @@ function handleImageClick(event) {
   const clickedImage = event.target;
 
   if (selectedImage !== null) {
-    selectedImage.classList.remove('selected');
+    selectedImage.classList.remove('selected-badge');
   }
 
   if (selectedImage === clickedImage) {
     selectedImage = null;
   } else {
-    clickedImage.classList.add('selected');
+    clickedImage.classList.add('selected-badge');
     selectedImage = clickedImage;
   }
 }

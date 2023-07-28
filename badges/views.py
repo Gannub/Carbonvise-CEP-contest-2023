@@ -78,10 +78,10 @@ def obtainBadges(request):
 def get_image_url(image_number):
     image_urls = {
         1: "static/img/badges_test.png",
-        2: "static/img/badge2.jpg",
-        3: "static/img/badge3.png",
-        4: "static/img/badge4.png",
-        5: "static/img/badge5.png"
+        2: "static/img/design1.jpg",
+        3: "static/img/design2.jpg",
+        4: "static/img/design3.jpg",
+        5: "static/img/design4.jpg"
     }
     if 1 <= image_number <= 5:
         return image_urls[image_number]
