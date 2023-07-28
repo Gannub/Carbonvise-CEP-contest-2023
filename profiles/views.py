@@ -115,6 +115,7 @@ def profile_page(request, slug):
             
         else:
             purchased_item = None
+            session_history=None
     else:
         return redirect('account_login')
     
