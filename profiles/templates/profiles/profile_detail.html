@@ -168,7 +168,7 @@
         <div class="top-block-profile">
             <div class="top-block-profile-container">
                 <div class="profile-title">
-                    <h1>โปรไฟล์</h1>
+                    <h1>Hello, {{req_profile.user.username}}</h1>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 <div class="userFace set-bg" data-setbg="{% if req_profile.image %}
                     {{req_profile.image.url}}
                     {% else %}
-                    {% static 'img/carbonvise.png' %}
+                    {% static 'img/kaobot2.jpg' %}
                     {% endif %}">
                     
                 </div>
@@ -228,23 +228,23 @@
                         <div class="rank-text">เซสชั่น </div>
                         <div class="h5"><strong>ชื่อเซสชั่น</strong> : {{req_profile.user.profile_credit.session_name}}</div>
                         <div class="h5"><strong>จบวันที่ </strong>:{{req_profile.user.profile_credit.reset_date}}</div>
-                        <div class="number-order-cred">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} Credits</div>
+                        <div class="number-order-cred">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} เครดิต</div>
                         <!-- <div class="streak">4 week streak</div> -->
                         <div>
                             {% if req_profile.user == user %}
                             {% if not profile_credit == None %}
                             <div class="wrapper">
-                                <div class="end-btn">
-                                <a href="{% url 'profiles:end_session' user.profile.slug  %}" >End session</a>
-                                </div>
+                                
+                                <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="end-btn" >สิ้นสุดเซสชั่น</a>
+                                
                                 {%if profile_credit.badges.is_obtained %}
-                                <div class="view-badge-btn">
-                                <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}">View badge</a>
-                                </div>
+                                
+                                <a href="{% url 'badges:badge_detail' user.profile_credit.slug  %}" class="view-badge-btn">ดูเหรียญเกียรติยศ</a>
+                                
                                 {% else %}
-                                <div class="obtain-badge-btn">
-                                <a href="{% url 'badges:obtain_badges' %}" class="session-btn">obtain badges</a>
-                                </div>
+                                
+                                 <a href="{% url 'badges:obtain_badges' %}" class="obtain-badge-btn">ขอเหรียญเกียรติยศ</a>
+                                
                                 {% endif %}
                             </div>
                                 
@@ -268,13 +268,13 @@
                         {%if profile_credit.is_neutral %}
                         <div class="progress-circle">
                             <div class="cp-item">
-                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#41C266" data-cpbg="#96C7A4" data-cpsize="200" data-cptitle="Offset"></div>
+                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#41C266" data-cpbg="#96C7A4" data-cpsize="220" data-cptitle="Offset"></div>
                             </div>
                         </div>
                         {% else %}
                         <div class="progress-circle">
                             <div class="cp-item">
-                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#EC6C03" data-cpsize="200" data-cptitle="Offset"></div>
+                                <div class="circle-progress" data-cpid="id-1" data-cpvalue="{{credit_percentage}}" data-cpcolor="#EC6C03" data-cpsize="220" data-cptitle="Offset"></div>
                             </div>
                         </div>
                         {% endif %}

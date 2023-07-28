@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-	<div class="container">
+	<!-- <div class="container">
 		<div class="h1 text-center my-3">Purchase complete</div>
    
 				{% for item in items_checkout reversed %}
@@ -10,8 +10,68 @@
                     {{item.deal}} {{item.quantity}}
                     <img src="{{item.qrcode.url}}">
 				{% endfor %}
+			</div> -->
+
+			<!-- receipt-mooyong -->
+			<div class="container">
+				<div class="receipt-block">
+					<div class="receipt-block-container">
+						<div class="carbonvise-title">Carbonvise Inc.</div>
+						<div class="order-id">Order #342</div>
+						<div class="date-receipt">{{Time}}</div>
+						<table class="cart-table">
+							<thead>
+								<tr>
+									<th>QTY</th>
+									<th>Description</th>
+									<th>Chestnuts</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for item in items_checkout reversed %}
+								<tr>
+									<td class='adjust-num-cart'>
+										<!-- <img src="{{item.qrcode.url}}"> -->
+										<div class="num-cart">{{item.quantity}}</div>
+									</td>
+									<td class='description-content'>
+										<div class="description-content-main">
+											{{item.deal}}
+										</div>
+										<div class="description-content-category">
+										Solar energy
+										</div>
+									</td>
+									<td class='chestnuts-cart'>
+										{{item.get_total}}
+									</td>
+								</tr>
+								{% endfor %}
+								
+							</tbody>
+						</table>
+						<div class="underline-cart"></div>
+						<div class="vat-receipt">VAT : 7%</div>
+						<div class="chestnuts-total">
+							<div class="chestnuts-total-text">TOTAL (Chestnuts) :</div>
+							<div class="chestnuts-total-amount">15,418</div>
+						</div>
+						<div class="underline-cart"></div>
+						<div class="card-type">
+							<div class="card-type-left">Card Type :</div>
+							<div class="card-type-right">Credit Card</div>
+						</div>
+						<div class="response">
+							<div class="response-left">Response :</div>
+							<div class="response-right">APPROVED</div>
+						</div>
+						<div class="approval-code">
+							<div class="approval-code-left">Approval Code :</div>
+							<div class="approval-code-right">893227</div>
+						</div>
+						<div class="thankYou">thank you for shopping with us</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		
 {% endblock content %}

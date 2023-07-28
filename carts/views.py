@@ -12,7 +12,7 @@ from qrcode import *
 from django.http import JsonResponse
 from profiles.models import Profile, CreditSession
 from profiles.views import start_session
-
+from django.utils import timezone
 
 # Create your views here.
 #i am using a function based.
@@ -88,47 +88,52 @@ def TempCheckout(request):
         return redirect('howto')
 
     if user_session.session_active:
-        cart_items = CartItem.objects.filter(in_cart=request.user.cart)
-        latest_item_list = []
-        cart_item_date = cart_items[0].date_added
-        # print(cart_item_date)
-        for cart_item in cart_items:
-            deal = cart_item.deal
-            if deal.quantity_left >= cart_item.quantity:
-                deal.quantity_left -= cart_item.quantity
-                deal.save()
+        try:
+            cart_items = CartItem.objects.filter(in_cart=request.user.cart)
+            latest_item_list = []
+            cart_item_date = cart_items[0].date_added
+            # print(cart_item_date)
+            for cart_item in cart_items:
+                deal = cart_item.deal
+                if deal.quantity_left >= cart_item.quantity:
+                    deal.quantity_left -= cart_item.quantity
+                    deal.save()
 
-                #update user credits in the session
+                    #update user credits in the session
 
-                credit_to_add = cart_item.quantity
-                user_credit,created = CreditSession.objects.get_or_create(user=request.user)
-                # print(user_credit.user_credit)
-                user_credit.credits += credit_to_add
-                user_credit.checkNeutral
-                # I put save here right after the checkNeutral Property because the django's post_save logic that i had implemented on the `give badges` function.
-                user_credit.save() 
-                
-                # my own function
-                qr_img = qr_generator(cart_item)
-                print(qr_img)
-                # qr_list.append(qr_img)
-                CartItemHistory.objects.create(user=request.user, deal=cart_item.deal,quantity=cart_item.quantity,date_dealed=cart_item.date_added,qrcode=qr_img) # add in_session_name later
-                latest_item = CartItemHistory.objects.latest("date_dealed")
-                latest_item_list.append(latest_item)
-                # print(qr_list)
-                cart_item.delete()
+                    credit_to_add = cart_item.quantity
+                    user_credit,created = CreditSession.objects.get_or_create(user=request.user)
+                    # print(user_credit.user_credit)
+                    user_credit.credits += credit_to_add
+                    user_credit.checkNeutral
+                    # I put save here right after the checkNeutral Property because the django's post_save logic that i had implemented on the `give badges` function.
+                    user_credit.save() 
+                    
+                    # my own function
+                    qr_img = qr_generator(cart_item)
+                    print(qr_img)
+                    # qr_list.append(qr_img)
+                    CartItemHistory.objects.create(user=request.user, deal=cart_item.deal,quantity=cart_item.quantity,date_dealed=cart_item.date_added,qrcode=qr_img) # add in_session_name later
+                    latest_item = CartItemHistory.objects.latest("date_dealed")
+                    latest_item_list.append(latest_item)
+                    # print(qr_list)
+                    cart_item.delete()
+            
+            # print(profile_slug)
+            user_cart = request.user.cart
+            # print(qr_list)
+            # user_cart.delete()
+            # cart_items_checkout = CartItemHistory.objects.filter(user=request.user,date_dealed=cart_item_date)
+            ctx = {
+                'items_checkout':latest_item_list,
+                'time': timezone.now()
+
+            }
+            return render(request, 'carts/purchase_complete.html', ctx)
+        except:
+            return redirect('index')
+
         
-        # print(profile_slug)
-        user_cart = request.user.cart
-        # print(qr_list)
-        # user_cart.delete()
-        # cart_items_checkout = CartItemHistory.objects.filter(user=request.user,date_dealed=cart_item_date)
-        ctx = {
-            'items_checkout':latest_item_list
-
-        }
-
-        return render(request, 'carts/purchase_complete.html', ctx)
 
     else:
         pass

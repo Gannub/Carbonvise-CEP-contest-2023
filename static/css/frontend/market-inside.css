@@ -32,15 +32,17 @@
 
 .second-layer{
     margin: 20px auto;
-    max-width: 1257px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 .left-second-layer{
-    max-width: 600px;
+    width: 40%;
     height: 400px;
 }
 
 .mid-second-layer{
+    width: 35%;
     margin-left: 20px;
 }
 .mid-title{
@@ -72,13 +74,13 @@
 }
 .mid-decription-title{
     margin: 10px 0;
-    font-size: 11px;
+    font-size: 16px;
 }
 .mid-decription-info{
     width: 367px;
     text-align: justify;
     color: #A4A6AF;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .right-second-layer{
@@ -125,15 +127,18 @@
     border-radius: 5px;
     padding: 5px;
     margin-left: 20px;
+    cursor: pointer;
 }
-.buy a{
+.buy div{
     background-color: black;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
+    
 }
 .add-cart a{
     font-size: 16px;
+    font-weight: 900;
     text-decoration: none;
 }
 
@@ -147,6 +152,9 @@
 }
 .userpic{
     margin: 10px 0 0 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 10%;
 }
 .about-userpic{
     width: 90px;
@@ -164,6 +172,7 @@
     border: 1px solid black;
     padding: 5px;
     border-radius: 5px;
+    text-decoration: none;
 }
 .view a{
     text-decoration: none;

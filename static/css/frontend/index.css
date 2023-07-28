@@ -25,26 +25,39 @@ body{
     border-radius: 10px;
     max-width: 1408px;
 }
+.container-sign{
+    margin: 0 auto;
+    font-size: 12px;
+    border-radius: 10px;
+    max-width: 808px;
+}
 .under{
     background-color: black;
     margin: 20px auto;
-    max-width: 1380px;
+    width: 90%;
     height: 2px;
 }
 nav{
     border-radius: 10px;
-    background-color: white;
-    height: 80px;
+    background: white;
+    height: 70px;
     margin-bottom: 10px;
 }
-nav ul{
+.navbar-custom {
+    background-color: lightgreen;
+}
+.nav-link{
+    font-size: 15px;
+    font-weight: 900;
+}
+/* nav ul{
     margin: 10px;
     list-style: none;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+}  */
 .logo{
     margin-top: 30px;
     display: flex;
@@ -52,14 +65,14 @@ nav ul{
 .logo .ham-menu{
     display: none;
 }
-nav ul li{
+/* nav ul li{
     margin-top: 30px;
     margin-right: 18px;
 }
 nav ul li a{
     text-decoration: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
-}
+} */
 .cart-logo{
     display: none;
 }
@@ -108,12 +121,17 @@ nav ul li a{
     display: none;
 }
 
+
+.navbar{
+    width: 100%;
+    margin: 0 auto;
+}
+
 /* responsive */
 @media only screen and (max-width: 600px) {
     /* nav-bar */
     nav{
         margin: 0 auto;
-        width: 400px;
         height: 70px;
     }
     .under{

@@ -1,13 +1,43 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+{% block content %}	
+
+<link rel="stylesheet" href="{% static 'css/mainpage.css' %}"/>
+
+<div class="main-top-section">
+	<div class="blur alt ">
+		<div class="hero-img">
+			<img src="{% static 'img/sakuraback.jpg' %}" alt="">
+		</div>
+		
+		
+		<span class="blurry set-bg" data-setbg="{% static 'img/sakuraback.jpg' %}"></span>
+		<div class="overlay">
+			<div class="hero-text">
+				<h2>Nurture Our Planet</h2>
+				<h3>เราเปลี่ยนการจัดการคาร์บอนที่น่าเบื่อ<br>ให้กลายเป็นตลาดซื้อขายคาร์บอนที่น่าตื่นเต้น</h3>
+				<div class="start-btn">
+					เริ่มต้นตอนนี้
+				</div>
+				<!-- <div class="vehical">
+					<div class="vehical-text">Vehical</div>
+					<div class="vehical-description">A typical passenger vehicle emits about 4.6 metric tons of carbon dioxide per year. This number can vary based on a vehicle’s fuel, fuel economy, and the number of miles driven per year.</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
 	<!-- Hero section -->
-	<section class="hero-section set-bg" data-setbg="{% static 'img/forest2.jpg' %}">
+	<!-- <section class="hero-section set-bg" data-setbg="{% static 'img/forest2.jpg' %}">
 		<div class="container">
 	
 			<div class="hero-text">
 				
-				<h2>เราเปลี่ยนการจัดการคาร์บอนที่น่าเบื่อ<br>ให้กลายเป็นตลาดซื้อขายคาร์บอนที่น่าตื่นเต้น !</h2>
+				
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
@@ -22,7 +52,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Hero section end -->
 	<section class="banner-section spad">
 		<div class="container">
@@ -165,5 +195,7 @@
 		<div id="map-canvas"></div>
 		<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6332.478370682145!2d100.53338985065469!3d13.739896827570131!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f2aae33623f%3A0x421e0643a63c2093!2z4LiI4Li44Lis4Liy4Lil4LiH4LiB4Lij4LiT4LmM4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii!5e0!3m2!1sth!2sth!4v1687720196839!5m2!1sth!2sth" width="600" height="600" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 	</div>
+
+
 	
 {% endblock %} 

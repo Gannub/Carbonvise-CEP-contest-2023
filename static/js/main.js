@@ -7,7 +7,7 @@ $(window).on('load', function() {
 		Preloder
 	--------------------*/
 	$(".loader").fadeOut(); 
-	$("#preloder").delay(400).fadeOut("slow");
+	$("#preloder").delay(400).fadeOut("fast");
 
 
 	/*------------------
@@ -68,7 +68,7 @@ $(window).on('load', function() {
     $('.profile-slider').owlCarousel({
 		// autoplay:true,
 		loop: true,
-		nav:true,
+		// nav:true,
 		// dots: true,
 		startPosition:1,
 		margin: 100,
@@ -76,7 +76,7 @@ $(window).on('load', function() {
 		navText: ['', '<i class="fa fa-angle-right"></i>'],
 		responsive:{
 			0:{
-				items:1
+				items:3
 			},
 			576:{
 				items:4

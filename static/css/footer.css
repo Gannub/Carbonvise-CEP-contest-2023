@@ -1,0 +1,33 @@
+.footer-block{
+    background-color: white;
+    height: max-content;
+    width: 100%;
+}
+.footer-block-container{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin:  0 auto;
+}
+.footer-contact{
+
+}
+.footer-contact ul li{
+    list-style: none;
+}
+.footer-chestnut-team{
+    margin: 0 30px;
+}
+.footer-chestnut-team a{
+    color: black;
+}
+.footer-chestnut-team ul li{
+    list-style: none;
+}
+.footer-report{
+    text-align: center;
+}
+.footer-report form{
+    margin: 10px 0;
+}
+

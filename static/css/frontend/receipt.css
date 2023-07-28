@@ -1,12 +1,12 @@
 .receipt-block{
     margin: 0 auto;
     border-radius: 5px;
-    width: 950px;
+    width: 75%;
     height: 1000px;
     background-color: white;
 }
 .receipt-block-container{
-    width: 798px;
+    width: 75%;
     margin: 0 auto;
 }
 .carbonvise-title{
@@ -45,10 +45,7 @@
     /* Cart */
     .receipt-block{
         margin: 10px auto;
-        width: 400px;
-    }
-    .receipt-block-container{
-        width: 380px;
+        width: 100%;
     }
     .carbonvise-title{
         font-size: 32px;
