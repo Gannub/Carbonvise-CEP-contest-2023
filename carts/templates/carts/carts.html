@@ -189,11 +189,12 @@
 						</td>
 						<td class='adjust-num-cart'>
 							<div class="minus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/bx-plus.svg' %}">
+								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/bx-minus.svg' %}">
 							</div>
 							<div class="num-cart">{{deal.quantity}}</div>
 							<div class="plus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/bx-minus.svg' %}">
+								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/bx-plus.svg' %}">
+								
 							</div>
 						</td>
 						<td class='chestnuts-cart'>

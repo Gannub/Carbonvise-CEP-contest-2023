@@ -91,6 +91,7 @@ def profile_page(request, slug):
 
         try:      
             profile_credits = profile.user.profile_credit
+            achievements = profile_credits.achievements.all()
             percentage = math.ceil(profile_credits.credits/10)
             user_rank = get_user_rank(profile.user)
             user_province_rank = get_user_province_rank(profile.user)
@@ -106,6 +107,7 @@ def profile_page(request, slug):
             user_province_rank = 'ไม่มีอันดับ'
             province_rank =  get_province_rank(profile.user)
             profile_credits = None
+            achievements = None
             percentage = 0
         if profile.user==request.user:
 
@@ -126,7 +128,8 @@ def profile_page(request, slug):
            'session_history':session_history,
            'user_rank':user_rank,
            'user_province_rank': user_province_rank,
-           'province_rank': province_rank
+           'province_rank': province_rank,
+           'achievements':achievements
            
     }
 

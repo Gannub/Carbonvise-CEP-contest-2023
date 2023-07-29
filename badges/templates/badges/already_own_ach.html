@@ -6,19 +6,18 @@
 <div class="container">
 <div class="badge-view-block">
   <div class="badge-view-container">
-      <h1 class="congrat-text">Congratulations</h1>
+      <h1 class="congrat-text">You already own a badge for that achievement</h1>
       <div class="congrat-text-description">
         <h4>Your have made it, You are now neutral to carbon!</h4>
         <h4 class="congrat-text-description-two">Thank you for your reach to our beloved world!</h4>
       </div>
       <div class="">
-        Here's your badge for being neutral to carbon.
+        
         <div class="">
-            <div class="">Session name : {{neutralbadges.session_name}}</div>
-            <div class="">badge Status : {{badge_obj.is_obtained}} </div>
-            <img class="" src="{{neutralbadges.badges.url}}"></img>
+            <a href="{% url 'badges:ach_badge_detail' ach_slug %}" class="site-btn">view your badge</a>
+            <!-- <img class="" src="{{ach_badge.badges.url}}"></img> -->
         </div>
-        <a href="{{neutralbadges.badges.url}}" download="{{neutralbadges.session_name}}.jpg" class="download-btn">Download</a>
+        <!-- <a href="{{ach_badge.badges.url}}" download="{{ach_badge.session_name}}.jpg" class="download-btn">Download</a> -->
       </div>
       <!-- <canvas id="paint" width="750" height="750" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
         <button class='site-btn my-3' id="penciltool" type="button" style="height: 40px; width: 100px;" onclick="pencil()">Pencil</button>
@@ -30,6 +29,5 @@
   </div>
 </div>
 </div>
-
 
 {% endblock %}

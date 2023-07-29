@@ -2,6 +2,7 @@
 /* top-block */
 .subunit{
     font-size: 15px;
+    text-align: right;
 }
 .top-block-market{
     background-color: white;
@@ -168,7 +169,7 @@
 }
 .related-pic-1,.related-pic-2,.related-pic-3,.related-pic-4,.related-pic-5,.related-pic-6{
     display: flex;
-    width: 316px;
+    width: 90%;
     height: 209px;
     border-radius: 5px;
     margin: 10px auto;
@@ -207,7 +208,7 @@
 }
 .about-pic{
     margin: 0 auto;
-    width: 316px;
+    width: 90%;
     height: 20%;
     display: flex;
     justify-content: space-between;
@@ -284,10 +285,10 @@
         margin: 10px auto;
     }
     .related-pic-1,.related-pic-2,.related-pic-3,.related-pic-4,.related-pic-5,.related-pic-6{
-        width: 375px;
+        width: 90%;
         margin-top: 10px;
     }
     .about-pic{
-        width: 375px;
+        width: 90%;
     }
   }

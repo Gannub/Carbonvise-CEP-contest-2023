@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'api',
     'leaderboards',
     'badges',
+    'blogs',
 
 ]
 
@@ -83,7 +84,7 @@ SITE_ID = 1
 AUTH_USER_MODEL = "users.User"
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-LOGIN_REDIRECT_URL = 'howto'
+LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False

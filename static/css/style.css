@@ -28,6 +28,10 @@
 .badge_container{
 	/* max-width: fit-content; */
 }
+
+.navbar-text{
+	font-size: large;
+}
 .cp-item{
 	position: relative;
 	top: 20px;
@@ -167,7 +171,8 @@
 	display: block;
 	margin-top: 5px;
 	transition:.1s;
-	filter: opacity(50%);
+	/* filter: opacity(100%); */
+	filter: brightness(20%)
 }
 
 .chg-quantity:hover{

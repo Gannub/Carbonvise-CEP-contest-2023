@@ -1,4 +1,3 @@
-print('hello james')
 #check slug value
 
 from django.utils.text import slugify
@@ -21,4 +20,3 @@ def check_slug_unique(instance, new_slug=None):
         return check_slug_unique(instance, new_slug=slug)
     # print(slug)
     return slug
-            

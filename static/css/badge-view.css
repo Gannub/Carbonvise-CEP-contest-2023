@@ -1,0 +1,9 @@
+.badge-view-block{
+    width: 100%;
+    background-color: white;
+}
+.badge-view-container{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}

@@ -297,30 +297,37 @@
             </div>
             <div class="project">
                 <div class="project-container">
-                    <div class="project-title">Badges</div>
+                    <div class="project-title">Achievements </div>
                     <div class="project-content">
                     <div class="wrapper-project snaps-inline">
+                {% for ach in achievements %}
                 <div class="product1-profile">
-                    <div class="related-pic-1-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Renewable energy</a>
-                        </div>
+                    <div class="related-pic-1-profile set-bg" data-setbg="{% if ach.image %}
+                    {{ach.image.url}}
+                    {% else %}
+                    {% static 'img/sakuraback.jpg' %}
+                    {% endif %}">
+                        <!-- <div class="subcategory-each">
+                            <a href="/market/renewable energy"></a>
+                        </div> -->
                     </div>
                     <div class="about-pic-profile">
                         <div class="about-pic-left">
-                            <div class="type-profile">EcoPower</div>
+                            <div class="type-profile"> {{ach.name}}</div>
                             <div class="rating">
-                                <img src={leaf} alt="" />
-                                5.0(52 Reviews)
+                                <a href="{% url 'badges:your_ach' ach.name %}" class="obtain-badge-btn">ขอป้ายเท่ๆ</a>
+ 
+                                
                                 </div>
                         </div>
                         <div class="about-pic-right">
-                            <div class="num-profile">324</div>
+                            <div class="num-profile">{{ach.credit_goal}}</div>
                             <div class="subunit">Chestnuts</div>
                         </div>
                     </div>
                 </div>
-                <div class="product2-profile">
+                {% endfor %}
+                <!-- <div class="product2-profile">
                     <div class="related-pic-2-profile">
                         <div class="subcategory-each">
                             <a href="/market/renewable energy">Solar energy</a>
@@ -439,7 +446,7 @@
                             <div class="subunit">Chestnuts</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 </div>
                     </div>
                 </div>

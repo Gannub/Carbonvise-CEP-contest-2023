@@ -88,6 +88,18 @@ PROVINCES=(('1', 'กรุงเทพมหานคร'),
 #seperate calls to avoid circular import.
 # class User(AbstractUser):
 #     pass
+
+
+ACHIEVEMENTS = [
+    {"name": "First 10 Credits", "threshold": 10},
+    {"name": "Silver", "threshold": 50},
+    {"name": "Gold", "threshold": 100},
+    {"name": "diamond", "threshold": 200},
+    {"name": "ruby", "threshold": 500},
+    
+]
+
+
 def upload_path(instance, filename):
     return f'profiles/{instance}/{filename}'
 
@@ -127,13 +139,31 @@ def post_save_profile_create(sender ,instance, created, *arg, **kwargs): # sent 
         Profile.objects.create(user=instance)
 post_save.connect(post_save_profile_create, sender=User)
 
+
+
+
+def upload_path(instance, filename):
+    return f'static_achievements/{filename}'
+
+class Achievement(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    image = models.ImageField(upload_to=upload_path, null=True,blank=True)
+    credit_goal = models.PositiveIntegerField(null=True,blank=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.credit_goal}'
+
+
+
+
 class CreditSession(models.Model):
     user = models.OneToOneField(User,related_name='profile_credit',on_delete=models.CASCADE)
-    session_name = models.CharField(max_length=100, null=True, blank=True)
+    session_name = models.CharField(max_length=20, null=True, blank=True)
     session_des = models.TextField(null=True,blank=True)
     credits = models.IntegerField(default=0)
     is_neutral = models.BooleanField(default=False)
     session_active = models.BooleanField(default=False)
+    achievements = models.ManyToManyField(Achievement, blank=True)
     start_date = models.DateTimeField(null=True,blank=True)
     reset_date = models.DateTimeField(null=True,blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
@@ -150,6 +180,20 @@ class CreditSession(models.Model):
         elif self.credits < credits_goal and self.is_neutral:
             self.is_neutral = False
             self.save()
+
+
+    #apply achievements here
+    @property
+    def assignAch(self):    
+        for achievement in ACHIEVEMENTS:
+            achievement_name = achievement['name']
+            achievement_threshold = achievement['threshold']
+
+            if self.credits >= achievement_threshold and self.achievements.filter(name=achievement_name).count() == 0:
+                achievement_to_add , created = Achievement.objects.get_or_create(name=achievement_name)
+
+                self.achievements.add(achievement_to_add)
+        
 
 def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
     if not instance.slug:

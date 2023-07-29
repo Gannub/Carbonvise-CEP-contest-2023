@@ -222,8 +222,6 @@
     margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 27%;
-    gap: 10px;
     padding: 10px 0;
 
     overflow-x: auto;
@@ -310,6 +308,7 @@
     font-size: 16px;
 }
 .num-profile{
+    text-align: right;
     font-size: 32px;
 }
 
@@ -334,8 +333,6 @@
     margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 27%;
-    gap: 10px;
     padding: 10px 0;
 
     overflow-x: auto;
@@ -362,6 +359,9 @@
 .container-eachblog-profile{
     margin: 20px auto;
     width: 90%;
+}
+.about-pic-right .h5{
+    text-align: right;
 }
 
 /* responsive */
@@ -474,9 +474,6 @@
     .num-profile{
         font-size: 24px;
     }
-    .wrapper-project{
-        grid-auto-columns: 67%;
-    }
 
     /* Blogs */
     .blogs-profile{
@@ -487,9 +484,6 @@
     }
     .secondblog-profile,.thirdblog-profile{
         width: 275px;
-    }
-    .blogs-content{
-        grid-auto-columns: 76%;
     }
 
     /* session history */

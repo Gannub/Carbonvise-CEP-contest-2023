@@ -106,6 +106,7 @@ def TempCheckout(request):
                     # print(user_credit.user_credit)
                     user_credit.credits += credit_to_add
                     user_credit.checkNeutral
+                    user_credit.assignAch
                     # I put save here right after the checkNeutral Property because the django's post_save logic that i had implemented on the `give badges` function.
                     user_credit.save() 
                     
@@ -120,13 +121,19 @@ def TempCheckout(request):
                     cart_item.delete()
             
             # print(profile_slug)
+            total = 0
+            for item in latest_item_list:
+                sum_price = item.deal.price_per_unit * item.quantity
+                total += sum_price
+
             user_cart = request.user.cart
             # print(qr_list)
             # user_cart.delete()
             # cart_items_checkout = CartItemHistory.objects.filter(user=request.user,date_dealed=cart_item_date)
             ctx = {
                 'items_checkout':latest_item_list,
-                'time': timezone.now()
+                'time': timezone.now(),
+                'total':total
 
             }
             return render(request, 'carts/purchase_complete.html', ctx)
