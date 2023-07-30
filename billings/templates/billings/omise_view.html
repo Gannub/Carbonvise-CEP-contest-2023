@@ -1,0 +1,299 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- Stylesheets -->
+	<!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/cart.css' %}"/> -->
+
+	
+	
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+	<![endif]-->
+<script src="https://cdn.omise.co/omise.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<!-- csrf -->
+<script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js "></script>
+
+</head>
+<body>
+	<!-- Page Preloder -->
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+
+         
+		</div>
+	</header>
+	<!-- <div class="container">
+		<div class="h1 text-center my-3">Your Cart</div>
+    <div class="row">
+		<div class="col-lg-12">
+
+			<div class="box-element">
+
+				<a  class="site-btn" href="{% url 'market:market_list' %}">&#x2190; Continue Shopping</a>
+
+				<br>
+				<br>
+				<table class="table">
+					<tr>
+						<th><h5>Total Chestnuts : {{cart.cart_item_total}}</h5></th>
+						<th><h5>Total Price : ฿ {{cart.cart_total|floatformat:2}} </h5></th>
+						<th>
+							<a  style="float:right; margin-bottom:3px;" class="site-btn" href="{% url 'cart:checkout' %}">Checkout</a>
+						</th>
+					</tr>
+				</table>
+
+			</div>
+
+			<br>
+			<div class="box-element">
+				<div class="cart-row">
+					<div style="flex:1"><strong>Time</strong></div>
+					<div style="flex:1"><strong></strong></div>
+					<div style="flex:1"><strong>Deal</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:1"><strong>Quantity</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+				{% for deal in deals reversed %}
+				<div class="cart-row">
+                    <div style="flex:1"><p>{{deal.date_added}}</p></div>
+
+					<div style="flex:1"><img class="row-image" src="{% if deal.deal.image %}
+                        {{deal.deal.image.url}}
+                    {% else %}
+                        {% static 'img/carbonvise.png' %}
+                    {% endif %}" "></div>
+					
+					<div style="flex:1"><p>{{deal.deals}}</p></div>
+					<div style="flex:1"><p>฿{{deal.deal.price_per_unit}}</p></div>
+					<div style="flex:1">
+						<p class="quantity">{{deal.quantity}}</p>
+						<div class="quantity">
+							<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/arrow-up.png' %}">
+					
+							<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/arrow-down.png' %}">
+						</div>
+					</div>
+					<div style="flex:1"><p>฿{{deal.get_total}}</p></div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- cart-mooyong -->
+<div class="container">		
+	<div class="cart-block">
+		<div class="cart-block-container">
+			 
+			<h1 class="cart-title">จัดการวิธีเรียกเก็บเงิน</h1>
+			<form method="POST" id="checkout">
+                {% csrf_token %}
+                <div id="token_errors"></div>
+                <input type="hidden" id="OMISE_PUB_KEY" data="{{pub_key}}">
+              
+                <input type="hidden" name="omise_token">
+              
+                <div>
+                  Name<br>
+                  <input type="text" data-omise="holder_name" id="cardname">
+                </div>
+                <div>
+                  Number<br>
+                  <input type="text" data-omise="number" id="cardnumber">
+                </div>
+                <div>
+                  Date<br>
+                  <input type="text" data-omise="expiration_month" size="4" id="expmonth"> /
+                  <input type="text" data-omise="expiration_year" size="8" id="expyear">
+                </div>
+                <div>
+                  Security Code<br>
+                  <input type="text" data-omise="security_code" size="8" id="seccode">
+                </div>
+              
+                <input type="submit" id="create_token">
+            </form>
+
+			<!-- <div class="payment-title">
+				Payment methods
+			</div>
+			<div class="underline-cart"></div>
+			<div class="wrapper-cart">
+			<div class="payment-cart">
+				<div class="payment-cart-nav">
+					<div class="payment-carts">Mastercard</div>
+					<div class="payment-cart-logo"><img src={mastercardLogo} alt="" /></div>
+				</div>
+				<div class="payment-cart-block">
+					<div class="payment-cart-block-container">
+					<div class="payment-uses">Lucille de Chestnuts</div>
+					<div class="payment-id">**** **** **** 4321</div>
+					<div class="payment-date-default">
+						<div class="payment-date">XX/20XX</div>
+						<div class="payment-default">Default</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="payment-cart">
+				<div class="payment-cart-nav">
+					<div class="payment-carts">Mastercard</div>
+					<div class="payment-cart-logo"><img src={applePay} alt="" /></div>
+				</div>
+				<div class="payment-cart-block">
+					<div class="payment-cart-block-container">
+					<div class="payment-uses">Lucille de Chestnuts</div>
+					<div class="payment-id">**** **** **** 4321</div>
+					<div class="payment-date-default">
+						<div class="payment-date">XX/20XX</div>
+						<div class="payment-default">Default</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="payment-cart-plus">
+				<div class="payment-cart-nav">
+					<div class="payment-carts-add">Add more methods</div>
+					<div class="payment-cart-logo"></div>
+				</div>
+
+				<!-- {/* center!!(not good code) */} -->
+
+				<!-- <div class="payment-cart-block-plus">
+					<div class="payment-cart-block-container-plus">
+						<div class="payment-plus">
+							<a href="">+</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- {/* center!!(not good code) */} -->
+
+			<!-- </div>
+			</div>
+			<div class="vat">VAT : 7%</div>
+					<div class="vat">Credits will be obtain : {{cart.cart_item_total}} </div>
+			<div class="chestnuts-total">
+				<div class="chestnuts-total-text">TOTAL :</div>
+				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} THB</div>
+				
+			</div>
+			<div class="underline-cart"></div>
+			<a href="{% url 'cart:checkout' %}">
+			<button class="checkout-btn">
+				Checkout
+			</button>
+			</a>   -->
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+    omisePubkey = document.querySelector('#OMISE_PUB_KEY').getAttribute('data')
+    Omise.setPublicKey(omisePubkey);
+
+    document.querySelector('#cardname').value = 'john'
+    document.querySelector('#cardnumber').value = '4242424242424242'
+    document.querySelector('#expmonth').value = '12'
+    document.querySelector('#expyear').value = '2024'
+    document.querySelector('#seccode').value = '232'
+
+
+
+
+    $("#checkout").submit(function () {
+
+    var form = $(this);
+
+    // Disable the submit button to avoid repeated click.
+    form.find("input[type=submit]").prop("disabled", true);
+
+    // Serialize the form fields into a valid card object.
+    var card = {
+    "name": form.find("[data-omise=holder_name]").val(),
+    "number": form.find("[data-omise=number]").val(),
+    "expiration_month": form.find("[data-omise=expiration_month]").val(),
+    "expiration_year": form.find("[data-omise=expiration_year]").val(),
+    "security_code": form.find("[data-omise=security_code]").val()
+    };
+
+    // Send a request to create a token then trigger the callback function once
+    // a response is received from Omise.
+    //
+    // Note that the response could be an error and this needs to be handled within
+    // the callback.
+    Omise.createToken("card", card, function (statusCode, response) {
+    if (response.object == "error" || !response.card.security_code_check) {
+        // Display an error message.
+        var message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
+        if(response.object == "error") {
+        message_text = response.message;
+        }
+        $("#token_errors").html(message_text);
+
+        // Re-enable the submit button.
+        form.find("input[type=submit]").prop("disabled", false);
+    } else {
+        // Then fill the omise_token.
+        form.find("[name=omise_token]").val(response.id);
+
+        // Remove card number from form before submiting to server.
+        form.find("[data-omise=number]").val("");
+        form.find("[data-omise=security_code]").val("");
+        
+        console.log(response)
+
+        const csrftoken = Cookies.get('csrftoken');
+        
+        async function omiseProcessor(token){
+            let response = await fetch(`${window.location.origin}/billings/omise_processor`,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken': csrftoken,
+                },   
+                body:JSON.stringify(token), 
+            })
+            let data = await response.json()
+
+            return data
+        }
+        omiseProcessor(response.id)
+        .then(data =>{
+
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        // submit token to server.
+        // form.get(0).submit();
+        };
+    });
+
+    // Prevent the form from being submitted;
+    return false;
+
+    });
+</script>
+  
+
+{% endblock %}

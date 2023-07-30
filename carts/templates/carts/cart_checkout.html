@@ -1,0 +1,294 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- Stylesheets -->
+	<!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/frontend/cart.css' %}"/> -->
+
+	
+	
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+
+         
+		</div>
+	</header>
+	<!-- <div class="container">
+		<div class="h1 text-center my-3">Your Cart</div>
+    <div class="row">
+		<div class="col-lg-12">
+
+			<div class="box-element">
+
+				<a  class="site-btn" href="{% url 'market:market_list' %}">&#x2190; Continue Shopping</a>
+
+				<br>
+				<br>
+				<table class="table">
+					<tr>
+						<th><h5>Total Chestnuts : {{cart.cart_item_total}}</h5></th>
+						<th><h5>Total Price : ฿ {{cart.cart_total|floatformat:2}} </h5></th>
+						<th>
+							<a  style="float:right; margin-bottom:3px;" class="site-btn" href="{% url 'cart:checkout' %}">Checkout</a>
+						</th>
+					</tr>
+				</table>
+
+			</div>
+
+			<br>
+			<div class="box-element">
+				<div class="cart-row">
+					<div style="flex:1"><strong>Time</strong></div>
+					<div style="flex:1"><strong></strong></div>
+					<div style="flex:1"><strong>Deal</strong></div>
+					<div style="flex:1"><strong>Price</strong></div>
+					<div style="flex:1"><strong>Quantity</strong></div>
+					<div style="flex:1"><strong>Total</strong></div>
+				</div>
+				{% for deal in deals reversed %}
+				<div class="cart-row">
+                    <div style="flex:1"><p>{{deal.date_added}}</p></div>
+
+					<div style="flex:1"><img class="row-image" src="{% if deal.deal.image %}
+                        {{deal.deal.image.url}}
+                    {% else %}
+                        {% static 'img/carbonvise.png' %}
+                    {% endif %}" "></div>
+					
+					<div style="flex:1"><p>{{deal.deals}}</p></div>
+					<div style="flex:1"><p>฿{{deal.deal.price_per_unit}}</p></div>
+					<div style="flex:1">
+						<p class="quantity">{{deal.quantity}}</p>
+						<div class="quantity">
+							<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/arrow-up.png' %}">
+					
+							<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/arrow-down.png' %}">
+						</div>
+					</div>
+					<div style="flex:1"><p>฿{{deal.get_total}}</p></div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- cart-mooyong -->
+<div class="container">		
+	<div class="cart-block">
+		<div class="cart-block-container">
+			 <!-- <div class="table-handmade">
+				<div class="nav-table">
+					<div class="table-description">Description</div>
+					<div class="table-qty">QTY</div>
+					<div class="table-chestnuts">Chestnuts</div>
+				</div>
+				<div class="underline-cart"></div>
+				<div class="content-table">
+					<div class='description-content'>
+						<div class="description-content-main">
+							Embrace Solar Power
+						</div>
+						<div class="description-content-category">
+							Solar energy
+						</div>
+					</div>
+					<div class='adjust-num-cart'>
+						<div class="minus-cart">
+							<img src={minusCart} alt="" />
+						</div>
+						<div class="num-cart">4</div>
+						<div class="plus-cart">
+							<img src={plusCart} alt="" />
+						</div>
+					</div>
+					<div class='chestnuts-cart'>
+						11,612
+					</div>
+				</div>
+				<div class="content-table">
+					<div class='description-content'>
+						<div class="description-content-main">
+							Home hydropower
+						</div>
+						<div class="description-content-category">
+							Waste Heat Recovery
+						</div>
+					</div>
+					<div class='adjust-num-cart'>
+						<div class="minus-cart">
+							<img src={minusCart} alt="" />
+						</div>
+						<div class="num-cart">1</div>
+						<div class="plus-cart">
+							<img src={plusCart} alt="" />
+						</div>
+					</div>
+					<div class='chestnuts-cart'>
+						2,903
+					</div>
+				</div>
+				<div class="content-table">
+					<div class='description-content'>
+						<div class="description-content-main">
+							EcoPower
+						</div>
+						<div class="description-content-category">
+							Renewable energy
+						</div>
+					</div>
+					<div class='adjust-num-cart'>
+						<div class="minus-cart">
+							<img src={minusCart} alt="" />
+						</div>
+						<div class="num-cart">1</div>
+						<div class="plus-cart">
+							<img src={plusCart} alt="" />
+						</div>
+					</div>
+					<div class='chestnuts-cart'>
+						903
+					</div>
+				</div>
+			</div>  -->
+			<h1 class="cart-title">ทบทวนรายการอีกครั้ง</h1>
+			<table class="cart-table">
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>QTY</th>
+						<th>Total (THB)</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for deal in deals reversed %}
+					<tr>
+						<td class='description-content'>
+							<div class="description-content-main">
+								{{deal.deal}}
+							</div>
+							<div class="description-content-category">
+								{{deal.date_added}}
+							</div>
+						</td>
+						<td class='adjust-num-cart'>
+							<div class="minus-cart">
+								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/bx-minus.svg' %}">
+							</div>
+							<div class="num-cart">{{deal.quantity}}</div>
+							<div class="plus-cart">
+								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/bx-plus.svg' %}">
+								
+							</div>
+						</td>
+						<td class='chestnuts-cart'>
+							{{deal.get_total}}
+						</td>
+					</tr>
+					{% endfor %}
+				
+					
+				</tbody>
+			</table>
+
+			<div class="payment-title">
+				Payment methods
+			</div>
+			<div class="underline-cart"></div>
+			<div class="wrapper-cart">
+			<div class="payment-cart">
+				<div class="payment-cart-nav">
+					<div class="payment-carts">Mastercard</div>
+					<div class="payment-cart-logo"><img src={mastercardLogo} alt="" /></div>
+				</div>
+				<div class="payment-cart-block">
+					<div class="payment-cart-block-container">
+					<div class="payment-uses">Lucille de Chestnuts</div>
+					<div class="payment-id">**** **** **** 4321</div>
+					<div class="payment-date-default">
+						<div class="payment-date">XX/20XX</div>
+						<div class="payment-default">Default</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="payment-cart">
+				<div class="payment-cart-nav">
+					<div class="payment-carts">Mastercard</div>
+					<div class="payment-cart-logo"><img src={applePay} alt="" /></div>
+				</div>
+				<div class="payment-cart-block">
+					<div class="payment-cart-block-container">
+					<div class="payment-uses">Lucille de Chestnuts</div>
+					<div class="payment-id">**** **** **** 4321</div>
+					<div class="payment-date-default">
+						<div class="payment-date">XX/20XX</div>
+						<div class="payment-default">Default</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="payment-cart-plus">
+				<div class="payment-cart-nav">
+					<div class="payment-carts-add">Add more methods</div>
+					<div class="payment-cart-logo"></div>
+				</div>
+
+				<!-- {/* center!!(not good code) */} -->
+
+				<div class="payment-cart-block-plus">
+					<div class="payment-cart-block-container-plus">
+						<div class="payment-plus">
+							<a href="">+</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- {/* center!!(not good code) */} -->
+
+			</div>
+			</div>
+			<div class="vat">VAT : 7%</div>
+					<div class="vat">Credits will be obtain : {{cart.cart_item_total}} </div>
+			<div class="chestnuts-total">
+				<div class="chestnuts-total-text">TOTAL :</div>
+				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} THB</div>
+				
+			</div>
+			<div class="underline-cart"></div>
+			<a href="{% url 'cart:checkout' %}">
+			<button class="checkout-btn">
+				Checkout
+			</button>
+			</a>
+		</div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<!-- <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script> -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/circle-progress.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/carts.js' %}"></script>
+
+{% endblock %}

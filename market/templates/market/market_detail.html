@@ -123,9 +123,9 @@
 							<div class="mid-text">1.9 ( 70 Reviews)</div>
 						</div>
 						<div class="mid-type">
-							<a href="/market-inside/solar energy">{{market.get_category_name}}</a>
+							<a style="color: black;" href="/market-inside/solar energy">{{market.get_category_name}}</a>
 						</div>
-							<div class="mid-decription-title">Decription</div>
+							<div class="mid-decription-title">รายละเอียด</div>
 							<div class="mid-decription-info">  {{market.short_description}}
 							</div>
 					</div>
@@ -136,22 +136,34 @@
 									<div class="left-total">Total</div>
 									<div class="adjust-num">
 										<div class="minus"><img src={minus} alt="" /></div>
-										<div class="x">01</div>
+										<!-- <div class="x">01</div> -->
 										<div class="plus"><img src={plus} alt="" /></div>
 									</div>
 								</div>
 								<div class="upper-topRight">
 									<div class="num">{{market.quantity_left}}</div>
-									<div class="subunit-inside">left</div>
+									<div class="subunit-inside">คงเหลือ</div>
 								</div>
 							</div>
 							<div class="upper-bottom">
 								<div class="add-cart">
-									<div>${{market.price_per_unit}}</div>
+									<div>{{market.price_per_unit}} บาท</div>
 								</div>
-								<div class="buy">
-									<div data-slug='{{market.slug}}' data-action='add' class="update-cart">add to cart</div>
-								</div>
+								
+									{% if user == market.dealer %}
+									<div class="buy">
+										<a href="{% url 'market:market_update' market.slug %}" class=" price-btn">Update deal</a>	
+									</div>
+									<div class="buy">
+										<a href="{% url 'market:market_delete' market.slug %}" class=" buy-btn">Delete deal</a>	
+									</div>
+									{% else %}
+									<div class="buy">
+										<div data-slug='{{market.slug}}' data-action='add' class="update-cart">เพิ่มลงตะกร้า</div>
+									</div>
+									{% endif %}
+
+								
 							</div>
 						</div>
 						<div class="right-botbox">
@@ -159,18 +171,19 @@
 								{{market.dealer.profile.image.url}}
 							{% else %}
 								{% static 'img/carbonvise.png' %}
-							{% endif %}" alt="" />
+							{% endif %}" alt="">
 							</div>
 							<div class="about-userpic">
 								<div class="name-userpic">{{market.dealer}}</div>
 								<div class="wrapper">
 									<div class="rating-userpic">3.9</div>
 									<div class="view">
-										<a href="{% url 'profiles:profile_page' market.dealer.profile.slug %}">view</a>
+										<a style="color: black;" href="{% url 'profiles:profile_page' market.dealer.profile.slug %}">ดูผู้ขาย</a>
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 
@@ -189,7 +202,7 @@
 						<div class="mid-decription-title">Decription</div>
 						<div class="mid-decription-info">   Lorem ipsum dolor sit amet consectetur adipisicing elit. In, similique! Corrupti iste quia repellendus deserunt officiis facere. Iusto quibusdam aperiam dolores aliquid itaque dolorum quis perferendis asperiores! Quibusdam, atque voluptatem!
 						</div>
-						<div class="underline-insideblogs-res"></div>
+						<div class="underline-insidemarket-res"></div>
 						<div class="user-info-market-inside-res">
 							<div class="userpic-res">
 								<img src="" alt="" />
@@ -198,95 +211,16 @@
 								<div class="name-userpic">{{market.dealer}}</div>
 								<div class="rating-userpic">3.9</div>
 								<div class="view">
-									<a href="{% url 'profiles:profile_page' market.dealer.profile.slug %}">view</a>
+									<a style="color: black;" href="{% url 'profiles:profile_page' market.dealer.profile.slug %}">ดูผู้ขาย</a>
 								</div>
 							</div>
 						</div>
-						<div class="underline-insideblogs-res"></div>
+						<div class="underline-insidemarket-res"></div>
 					</div>
-				</div>
-
-				<!-- {/* responsive */} -->
-			</div>
-
-			<div class="bot-side">
-				<div class="bot-sidenav">
-					<div class="RatingReviews">Our project</div>
-					<div class="sorted">
-						<div class="uppersorted">
-							<div class="sorted-by">sorted by </div>
-							<div class="underline-sorted"></div>
-						</div>
-						<div class="lowersorted">
-							<div class="date">date</div>
-							<div class="reviews">reviews</div>
-						</div>
-					</div>
-				</div>
-				<div class="bot-underline"></div>
-				<div class="comment-section-component">
-					<div class="container">
-						<div class="comment-section">
-							<div class="rating-comment">
-								<div class="num-comment"> </div>
-								<div class="score">
-									<img src={FullblackLeaf} alt="" />
-									<img src={FullblackLeaf} alt="" />
-									<img src={emptyblackLeaf} alt="" />
-									<img src={emptyblackLeaf} alt="" />
-									<img src={emptyblackLeaf} alt="" />
-								</div>
-							</div>
-							<div class="all-comment">
-								<div class="user-comment">
-									<div class="userPic">
-										<img src={userCommentPic1} alt="" />
-									</div>
-									<div class="username-rating">
-										<div class="username-comment">Elementum eleifend</div>
-										<div class="score-small">
-											<img src={FullLeaf} alt="" />
-											<img src={FullLeaf} alt="" />
-											<img src={FullLeaf} alt="" />
-											<img src={FullLeaf} alt="" />
-											<img src={FullLeaf} alt="" />
-											<div class="mid-text">5.0</div>
-										</div>
-									</div>
-									<div class="comment">Aenean mattis mi tellus, sed blandit erat aliquet eget</div>
-									<div class="time">1 days ago</div>
-								</div>
-								<div class="user-comment">
-									<div class="userPic">
-										<img src={userCommentPic2} alt="" />
-									</div>
-									<div class="username-rating">
-										<div class="username-comment">Elementum eleifend</div>
-										<div class="score-small">
-											<img src={FullLeaf} alt="" />
-											<img src={emptyLeaf} alt="" />
-											<img src={emptyLeaf} alt="" />
-											<img src={emptyLeaf} alt="" />
-											<img src={emptyLeaf} alt="" />
-											<div class="mid-text">1.1</div>
-										</div>
-									</div>
-									<div class="comment">Sed vitae elit lobortis, semper est ac, auctor turpis.</div>
-									<div class="time">13 weeks ago</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-
-		<!-- {/* added block-responsive  */} -->
-		<div class="add-market-inside-res">
-			<div class="add-market-inside-res-container">
+					<!-- {/* added block-responsive  */} -->
+			<div class="add-market-inside-res">
+				<div class="add-market-inside-res-container">
 					<div class="left-side-added-block-res">
-						<div class="left-total">Total</div>
 						<div class="num">2903</div>
 						<div class="subunit-inside">Chestnuts</div>
 					</div>
@@ -298,14 +232,44 @@
 						</div>
 						<div class="upper-bottom">
 							<div class="add-cart">
-								<a href="/market-inside/add-cart">add to cart</a>
+								<a style="color: black;" href="/market-inside/add-cart">add to cart</a>
 							</div>
 							<div class="buy">
-								<a href="/market-inside/buy">buy</a>
+								<a style="color: white;" href="/market-inside/buy">buy</a>
 							</div>
 						</div>
 					</div>
+				</div>
 			</div>
+		</div>
+		<div class="bot-side">
+			<div class="bot-sidenav">
+				<div class="RatingReviews">เกี่ยวกับโครงการนี้</div>
+				<div class="sorted">
+					<div class="uppersorted">
+						<div class="sorted-by">sorted by </div>
+						<div class="underline-sorted"></div>
+					</div>
+					<div class="lowersorted">
+						<div class="date">date</div>
+						<div class="reviews">reviews</div>
+					</div>
+				</div>
+			</div>
+			<div class="bot-underline"></div>
+			<div class="all-comment">
+				<div class="all-comment-container">
+					{{market.long_description | safe}}
+				</div>
+			</div>
+		</div>
+
+		</div>
+
+		</div>    
+
+	</div>
+		</div>
 		</div>
 	</div> 
 	</section>

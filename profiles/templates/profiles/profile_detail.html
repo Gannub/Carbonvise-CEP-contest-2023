@@ -168,7 +168,7 @@
         <div class="top-block-profile">
             <div class="top-block-profile-container">
                 <div class="profile-title">
-                    <h1>Hello, {{req_profile.user.username}}</h1>
+                    <h1>สวัสดี, {{req_profile.user.username}}</h1>
                 </div>
             </div>
         </div>
@@ -184,6 +184,11 @@
                     
                 </div>
                 <div class="owner">
+                    <div class="h3">{% if req_profile.user.is_dealer %}
+                        Dealer
+
+                        {% else %}
+                        {% endif %}</div>
                     <div class="name">{{req_profile.user.first_name}} {{req_profile.user.last_name}}</div> 
                             {% if profile_credit.is_neutral %}
                             <div class="neutral_prof_status">Neutral</div> 
@@ -295,14 +300,15 @@
                     </div>
                 </div>
             </div>
+            {% if req_profile.user == user %}
             <div class="project">
                 <div class="project-container">
-                    <div class="project-title">Achievements </div>
+                    <div class="project-title">Achievements ของ {{req_profile.user}} </div>
                     <div class="project-content">
                     <div class="wrapper-project snaps-inline">
                 {% for ach in achievements %}
                 <div class="product1-profile">
-                    <div class="related-pic-1-profile set-bg" data-setbg="{% if ach.image %}
+                    <div class="related-pic-1-ach set-bg" data-setbg="{% if ach.image %}
                     {{ach.image.url}}
                     {% else %}
                     {% static 'img/sakuraback.jpg' %}
@@ -313,9 +319,9 @@
                     </div>
                     <div class="about-pic-profile">
                         <div class="about-pic-left">
-                            <div class="type-profile"> {{ach.name}}</div>
+                            <div class="type-ach"> {{ach.name}}</div>
                             <div class="rating">
-                                <a href="{% url 'badges:your_ach' ach.name %}" class="obtain-badge-btn">ขอป้ายเท่ๆ</a>
+                                <a href="{% url 'badges:your_ach' ach.name %}" class="obtain-badge-btn">ดูรายละเอียด</a>
  
                                 
                                 </div>
@@ -327,130 +333,13 @@
                     </div>
                 </div>
                 {% endfor %}
-                <!-- <div class="product2-profile">
-                    <div class="related-pic-2-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Solar energy</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                4.9(39 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">500</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product3-profile">
-                    <div class="related-pic-3-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Waste Heat Recovery</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                1.9(70 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">2903</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product2-profile">
-                    <div class="related-pic-2-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Solar energy</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                4.9(39 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">500</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product3-profile">
-                    <div class="related-pic-3-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Waste Heat Recovery</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                1.9(70 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">2903</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product2-profile">
-                    <div class="related-pic-2-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Solar energy</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                4.9(39 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">500</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product3-profile">
-                    <div class="related-pic-3-profile">
-                        <div class="subcategory-each">
-                            <a href="/market/renewable energy">Waste Heat Recovery</a>
-                        </div>
-                    </div>
-                    <div class="about-pic-profile">
-                        <div class="about-pic-left">
-                            <div class="type-profile">Embrace Solar Power</div>
-                            <div class="rating">
-                                <img src={leaf} alt="" />
-                                1.9(70 Reviews)
-                                </div>
-                        </div>
-                        <div class="about-pic-right">
-                            <div class="num-profile">2903</div>
-                            <div class="subunit">Chestnuts</div>
-                        </div>
-                    </div>
-                </div> -->
+
                 </div>
                     </div>
                 </div>
-            </div>
+            </div>              
+              {% endif %}
+
             <div class="blogs-profile">
                 <div class="blogs-profile-container">
                     <div class="blogs-text">Blogs</div>
@@ -545,7 +434,10 @@
                 </div>
                     </div>
                 </div>
-            </div> <h2 class="my-3">Session History</h2>
+            </div> 
+            {% if req_profile.user == user %}
+
+            <h2 class="my-3">Session History</h2>
 			<div class="box-element">
                 
                     <div class="cart-row">
@@ -626,6 +518,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 

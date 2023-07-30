@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from profiles.forms import ProfileForm, SessionForm
 from dealer.forms import DealerCreationForm
-from datetime import timedelta
+from datetime import timedelta, datetime
 from django.utils import timezone
 import math
 from django.db.models import Sum, F, Window,Count, Q
@@ -228,13 +228,21 @@ def start_session(request, name , desc):
         
 def end_session(request):
     # try : 
+        print('hello world')
         user_session = CreditSession.objects.get(user=request.user)
 
         if user_session.credits > 0:
             #if user.isneutral we should collect badges in that session of that users
             CreditHistory.objects.create(user=request.user, session_name=user_session.session_name, session_des=user_session.session_des,credits_of_month=user_session.credits,start_date=user_session.start_date,end_date=timezone.now(),is_neutral=user_session.is_neutral,slug=user_session.slug)
         # print('pre _ delete')
+        time_end = user_session.reset_date
+        time_now = timezone.now()
+        delta = time_end - time_now
+        
         user_session.delete()
+        
+        return delta
+        
         
     # except:
         # pass
@@ -243,14 +251,23 @@ def end_session(request):
 def endSessionView(request, slug):
     
     if request.user.is_authenticated:
-        if request.method == 'POST':
+        user_session = CreditSession.objects.get(user=request.user)
 
+        time_end = user_session.reset_date
+        time_now = timezone.now()
+        delta = time_end - time_now
+        print(delta)
+        if request.method == 'POST':
+            
             end_session(request)
             return redirect('index')
     else:
         return redirect('account_login')
+    ctx ={
+        'time_left': delta
+    }
     
-    return render(request, 'profiles/end_session.html')
+    return render(request, 'profiles/end_session.html', ctx)
 
 
 

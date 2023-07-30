@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from profiles.models import Profile, CreditSession
 from profiles.views import start_session
 from django.utils import timezone
+from billings.models import BillingProfile
 
 # Create your views here.
 #i am using a function based.
@@ -92,6 +93,7 @@ def TempCheckout(request):
             cart_items = CartItem.objects.filter(in_cart=request.user.cart)
             latest_item_list = []
             cart_item_date = cart_items[0].date_added
+            billing_profile, created = BillingProfile.objects.get_or_new(request)
             # print(cart_item_date)
             for cart_item in cart_items:
                 deal = cart_item.deal
@@ -138,7 +140,7 @@ def TempCheckout(request):
             }
             return render(request, 'carts/purchase_complete.html', ctx)
         except:
-            return redirect('index')
+            return redirect('error403')
 
         
 
@@ -146,3 +148,7 @@ def TempCheckout(request):
         pass
     # it should redirect to the session educator page (tell users that they have to create a session first )
     # did that using try/except
+
+# @login_required
+# def cart_checkout(request):
+#     cart, created = Cart.objects.

@@ -216,6 +216,7 @@
 }
 
 body {
+	background-color: #F6F6F9;
 	padding-top: 150px;
   	height: 100%;
 	font-family: 'Plus Jakarta Sans', 'sukhum', sans-serif;
@@ -601,7 +602,9 @@ ol {
 
 .categorie-item {
 	margin-bottom: 34px;
-	background: #edf4f6;
+	background: #ffffff;
+	border-radius: 20px;
+	height: 350px;
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	transition: all 0.4s;
@@ -610,6 +613,7 @@ ol {
 .categorie-item .ci-thumb {
 	background-size: cover;
 	height: 148px;
+	border-radius: 20px;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
 	transition: all 0.2s;
@@ -867,11 +871,41 @@ ol {
 /*------------------
   Signup section
 ---------------------*/
-
-.signup-section {
-	background: #0b1800;
-	position: relative;
+.text-flex-us{
+	width: max-content;
+	font-size: 90px;
+	font-weight: 900;
+	color: white;
 }
+
+.text-flex-des{
+	width: max-content;
+	font-size: 40px;
+	font-weight: 900;
+	color: white;
+}
+.allofyou{
+	font-size: 40px;
+	font-weight: 1000;
+	margin-bottom: 20px;
+	color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(0deg,
+    rgb(73, 73, 73) 40%,
+    rgb(129, 129, 129) 48%,
+    rgb(32, 35, 34) 75%);
+    background-size: 100%;
+    
+    animation: animation 4s linear infinite;	
+}
+.signup-section {
+	/* background: #0b1800; */
+	position: relative;
+	height: 1000px;
+}
+
 
 .signup-section .section-title {
 	padding: 0;

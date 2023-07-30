@@ -20,6 +20,9 @@ class NeutralBadges(models.Model):
         badges = models.ImageField(null=True,blank=True, upload_to = upload_path)
         is_obtained = models.BooleanField(default=False)
 
+        def __str__(self) -> str:
+            return f'{self.in_session} {self.is_obtained}'
+        
 class AchievementBadges(models.Model):
         in_session = models.ForeignKey(CreditSession, related_name='ach_badge', on_delete=models.SET_NULL, null=True)
         in_achievement = models.ForeignKey(Achievement, related_name='in_achievement', on_delete=models.SET_NULL, null=True)
@@ -28,6 +31,9 @@ class AchievementBadges(models.Model):
         badges = models.ImageField(null=True,blank=True, upload_to = ach_upload_path)
         is_obtained = models.BooleanField(default=False)
 
+        def __str__(self) -> str:
+            return f'{self.in_session} {self.in_achievement} {self.is_obtained}'
+        
 def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginning of a model’s save() 
         if not instance.slug:
             instance.slug = check_slug_unique(instance)

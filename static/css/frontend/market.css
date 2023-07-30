@@ -116,9 +116,6 @@
     border-radius: 5px;
     display: flex;
 }
-.date-text{
-    padding: 5px;
-}
 .drop-price{
     border: 1px solid black;
     margin-left: 10px;
@@ -246,7 +243,7 @@
         width: 100%;
     }
     .underLine2{
-        width: 80%;
+        width: 81%;
     }
     
     .market-title{

@@ -289,6 +289,13 @@
     border-radius: 5px;
     margin: 10px auto;
 }
+.related-pic-1-ach{
+    display: flex;
+    width: 316px;
+    height: 209px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
 /* .related-pic-1-profile{
     background: url(images/market/product1.jpg);
 }
@@ -306,6 +313,9 @@
 }
 .type-profile{
     font-size: 16px;
+}
+.type-ach{
+    font-size: 20px;
 }
 .num-profile{
     text-align: right;

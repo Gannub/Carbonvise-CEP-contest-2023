@@ -91,8 +91,8 @@ PROVINCES=(('1', 'กรุงเทพมหานคร'),
 
 
 ACHIEVEMENTS = [
-    {"name": "First 10 Credits", "threshold": 10},
-    {"name": "Silver", "threshold": 50},
+    {"name": "สิบเครดิตแรก", "threshold": 10},
+    {"name": "คนขี้ร้อน", "threshold": 50},
     {"name": "Gold", "threshold": 100},
     {"name": "diamond", "threshold": 200},
     {"name": "ruby", "threshold": 500},
@@ -149,6 +149,9 @@ class Achievement(models.Model):
     name = models.CharField(max_length=50, unique=True)
     image = models.ImageField(upload_to=upload_path, null=True,blank=True)
     credit_goal = models.PositiveIntegerField(null=True,blank=True)
+    des1 = models.TextField(null=True,blank=True)
+    des2 = models.TextField(null=True,blank=True) 
+    image_compare = models.ImageField(upload_to=upload_path, null=True,blank=True)
 
     def __str__(self):
         return f'{self.name} - {self.credit_goal}'

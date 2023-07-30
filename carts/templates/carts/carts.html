@@ -167,13 +167,13 @@
 					</div>
 				</div>
 			</div>  -->
-			<h1 class="cart-title">Cart</h1>
+			<h1 class="cart-title">ตะกร้าคาร์บอน</h1>
 			<table class="cart-table">
 				<thead>
 					<tr>
-						<th>Description</th>
-						<th>QTY</th>
-						<th>Total (THB)</th>
+						<th>ชื่อ</th>
+						<th>จำนวน</th>
+						<th>ราคา (THB)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -207,7 +207,7 @@
 				</tbody>
 			</table>
 
-			<div class="payment-title">
+			<!-- <div class="payment-title">
 				Payment methods
 			</div>
 			<div class="underline-cart"></div>
@@ -252,29 +252,29 @@
 
 				<!-- {/* center!!(not good code) */} -->
 
-				<div class="payment-cart-block-plus">
+				<!-- <div class="payment-cart-block-plus">
 					<div class="payment-cart-block-container-plus">
 						<div class="payment-plus">
 							<a href="">+</a>
 						</div>
 					</div>
-				</div>
+				</div>  -->
 
 				<!-- {/* center!!(not good code) */} -->
 
-			</div>
-			</div>
-			<div class="vat">VAT : 7%</div>
-					<div class="vat">Credits will be obtain : {{cart.cart_item_total}} </div>
+			<!-- </div>
+			</div> -->
+			<div class="vat"></div>
+					<div class="vat">เครดิตที่จะได้รับ : {{cart.cart_item_total}} เครดิต </div>
 			<div class="chestnuts-total">
-				<div class="chestnuts-total-text">TOTAL :</div>
-				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} THB</div>
+				<div class="chestnuts-total-text">ราคาสุทธิ :</div>
+				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} บาท</div>
 				
 			</div>
 			<div class="underline-cart"></div>
 			<a href="{% url 'cart:checkout' %}">
 			<button class="checkout-btn">
-				Checkout
+				ไปที่หน้าทบทวนรายการ
 			</button>
 			</a>
 		</div>

@@ -1,14 +1,32 @@
 /* navBlog */
-
+.top-block-blogs{
+    height: 150px;
+    width: 100%;
+    background-color: white;
+}
+.top-block-container-blogs{
+    width: 95%;
+    margin: 0 auto;
+}
 .blog-title{
     font-size: 36px;
     padding-top: 10px;
 }
 
 .filter-search-sorted-wrapper{
+    width: 100%;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+}
+.filert-test{
+    width: 30%;
+}
+.search-test{
+    width: 30%;
+}
+.sorted-test{
+    width: 30%;
 }
 .layerst{
     display: flex;
@@ -18,19 +36,19 @@
 .underLine-filter{
     margin-left: 10px;
     background-color: black;
-    width: 665px;
+    width: 85%;
     height: 0.5px;
 }
 .underLine-search{
     margin-left: 10px;
     background-color: black;
-    width: 300px;
+    width: 70%;
     height: 0.5px;
 }
 .underLine-sorted{
     margin-left: 10px;
     background-color: black;
-    width: 100px;
+    width: 50%;
     height: 0.5px;
 }
 .category-blog{
@@ -38,10 +56,10 @@
     margin-top: 10px;
 }
 .search-box form input{
-    margin: 10px 0 0 0px;
+    margin-top: 10px;
     border-radius: 5px;
-    width: 359px;
-    height: 31px;
+    width: 80%;
+    height: 25px;
     border: 1px solid black;
 }
 .drop-views{
@@ -52,6 +70,11 @@
 }
 .views-text{
     padding: 5px;
+    width: 50px;
+}
+.date-text{
+    padding: 5px;
+    width: 35px;
 }
 .dropdown-btn{
     height: 10px;
@@ -61,35 +84,27 @@
 .wrapper-blogs{
     display: flex;
 }
-.wrapper-blogs a{
-    text-decoration: none;
-}
-.wrapper-blogs-under{
-    display: flex;
-    margin-top: 10px;
-}
 .all-blogs{
-    margin: 20px auto;
+    margin: 0 auto;
 }
 .firstblog{
-    width: 696px;
+    width: 700px;
     height: 300px;
     background-color: white;
     border-radius: 5px;
+    margin-right: 15px;
 }
-.secondblog,.thirdblog,.fourthblog,.fifthblog,.sixthblog,.seventhblog{
+.secondblog{
     display: flex;
     flex-direction: column;
-    width: 341px;
+    width: 340px;
     height: 300px;
     background-color: white;
     border-radius: 5px;
-}
-.secondblog,.thirdblog,.fifthblog,.sixthblog,.seventhblog{
-    margin-left: 15px;
+    margin-right: 15px;
 }
 .nav-blog1{
-    width: 650px;
+    width: 100%;
     margin: 10px auto;
     display: flex;
     align-items: center;
@@ -99,18 +114,11 @@
     font-size: 16px;
     font-weight: 700;
 }
-.underline-navblog{
-    background-color: #AAACB4;
-    opacity: 0.5;
-    margin: auto;
-    width: 100%;
-    height: 1px;
-}
 .below-blog1{
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 650px;
+    width: 100%;
     height: 200px;
 }
 .title-blog{
@@ -133,7 +141,6 @@
     border: 1px solid black;
 }
 .tips a{
-    text-decoration: none;
     color: black;
 }
 .read-more{
@@ -142,14 +149,13 @@
     background-color: black;
 }
 .read-more a{
-    text-decoration: none;
     background-color: black;
     color: white;
 }
 
 .container-eachblog{
     margin: 20px auto;
-    width: 300px;
+    width: 90%;
 }
 .nav-eachblog{
     display: flex;
@@ -168,17 +174,60 @@
     width: 100%;
 }
 
+.allblog-trending{
+    margin: 20px auto;
+    display: flex;
+}
+.trending-block{
+    margin-left: 15px;
+    width: 330px;
+    height: 616px;
+    border-radius: 5px;
+    background: white;
+}
+.trending-block-container{
+    width: 95%;
+    margin: 20px auto;
+}
+.trending-title{
+    font-size: 16px;
+    font-weight: 700;
+}
+.underline-trending{
+    width: 100%;
+    height: 0.5px;
+    background-color: black;
+    margin: 10px auto;
+}
+.trending-list{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.trend-detail{
+    margin-left: 20px;
+}
+.trend-num{
+    font-size: 36px;
+    font-weight: 700;
+}
+.main-detail{
+    font-weight: 500;
+}
+.other-detail{
+    padding-top: 5px;
+    color: #A4A6AF;
+    opacity: 0.5;
+}
   /* responsive */
   @media only screen and (max-width: 600px) {
     /* Blogs */
-    .top-block{
-        margin: 0 auto;
-        width: 400px;
-        height: 270px;
+    .top-block-blogs{
+        height: 300px;
     }
-    .top-block-container{
-        width: 325px;
-        margin: 10px auto;
+    .top-block-container-blogs{
+        width: 95%;
+        margin: 0 auto;
     }
 
     .blog-title{
@@ -203,11 +252,23 @@
     .sorted-test{
         margin-top: 10px;
     }
+    .layerst{
+        width: 100%;
+    }
+    .underLine-search{
+        display: none;
+    }
+    .underLine-filter{
+        width: 265px;
+    }
     .underLine-sorted{
-        width: 235px;
+        width: 257px;
     }
 
     /* mid-section */
+    .allblog-trending{
+        display: block;
+    }
     .wrapper-blogs{
         display: block;
     }
@@ -217,11 +278,11 @@
     .firstblog{
         display: none;
     }
-    .secondblog,.thirdblog,.fourthblog,.fifthblog,.sixthblog,.seventhblog{
+    .secondblog{
         margin: 20px auto;
-        width: 400px;
+        width: 100%;
     }
-    .container-eachblog{
-        width: 350px;
+    .trending-block{
+        width: 100%;
     }
   }

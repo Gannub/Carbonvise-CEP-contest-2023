@@ -7,7 +7,10 @@
 <div class="main-top-section">
 	<div class="blur alt ">
 		<div class="hero-img">
-			<img src="{% static 'img/sakuraback.jpg' %}" alt="">
+			<div class="index-slider owl-carousel">
+				<img src="{% static 'img/sakuraback.jpg' %}" alt="">
+				<img src="{% static 'img/forestback.jpg' %}" alt="">
+			</div>
 		</div>
 		
 		
@@ -54,7 +57,7 @@
 		</div>
 	</section> -->
 	<!-- Hero section end -->
-	<section class="banner-section spad">
+	<!-- <section class="banner-section spad">
 		<div class="container">
 			<div class="section-title mb-0 pb-2">
 				<h4>ครอบครองสถานะ "เป็นกลางทางคาร์บอน" ได้ง่าย ๆ </h4>
@@ -64,7 +67,7 @@
 				<a href="#" class="site-btn neutral">เริ่มต้นตอนนี้เลย</a>
 			</div>
 		</div>
-	</section>	
+	</section>	 -->
 	
 	<!-- categories section -->
 	<section class="categories-section spad">
@@ -77,11 +80,11 @@
 				<!-- categorie -->
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/design3.jpg' %}"></div>
 						<div class="ci-text">
-							<h5>ตลาดทางการ</h5>
-							<p>(Mandatory market / Compliance Market / Regulated Market) </p>
-							<span>120 Chestnuts</span>
+							<h5>ตลาดคาร์บอน</h5>
+							<p> ซื้อคาร์บอนได้อย่างสะดวกสะบาย ช่วยโลกง่าย ๆ เพียงปลายนิ้ว</p>
+							<span></span>
 						</div>
 					</div>
 				</div>
@@ -90,9 +93,20 @@
 					<div class="categorie-item">
 						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
 						<div class="ci-text">
-							<h5>Business</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur</p>
-							<span>70 Chestnuts</span>
+							<h5>สร้างเซสชั่นแล้วเริ่มต้นได้เลย</h5>
+							<p>"เซสชั่น" จะเก็บประวัติการชื้อคาร์บอนและจำนวนคาร์บอนที่ซื้อทั้งหมด เราให้เวลาคุณ 30 วันในแต่ละเซสชั่น</p>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/forestback.jpg' %}"></div>
+						<div class="ci-text">
+							<h5>รับอาชีฟเมนต์ระหว่างทาง</h5>
+							<p>เรามีอาชีฟเมนต์ให้ เมื่อคุณซื้อคาร์บอนได้ถึงเป้าหมาย คุณจะได้รับแผ่นป้ายสุดเท่ที่สลักชื่อของคุณเอง แน่นอนว่าสามารถนำไปอวดคนอื่นได้อย่างภาคภูมิใจ</p>
+							<span></span>
 						</div>
 					</div>
 				</div>
@@ -101,19 +115,8 @@
 					<div class="categorie-item">
 						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
 						<div class="ci-text">
-							<h5>Illustration & Drawing</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur</p>
-							<span>55 Chestnuts</span>
-						</div>
-					</div>
-				</div>
-				<!-- categorie -->
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
-						<div class="ci-text">
-							<h5>Social Media</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<h5>แข่งขันระดับจังหวัด</h5>
+							<p>แข่งขันระดับจังหวัด</p>
 							<span>40 Chestnuts</span>
 						</div>
 					</div>
@@ -123,7 +126,7 @@
 					<div class="categorie-item">
 						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
 						<div class="ci-text">
-							<h5>Photoshop</h5>
+							<h5>แชร์ประสบการณ์ให้คนอื่นฟัง</h5>
 							<p>Lorem ipsum dolor sit amet, consectetur</p>
 							<span>220 Chestnuts</span>
 						</div>
@@ -134,8 +137,8 @@
 					<div class="categorie-item">
 						<div class="ci-thumb set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div>
 						<div class="ci-text">
-							<h5>Cryptocurrencies</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur</p>
+							<h5>ลงขายคาร์บอน</h5>
+							<p>เราเปิดให้ทุกคนลงข้ายคาร์บอนได้อย่างอิสระขอแค่มีหลักฐานยืนยันจาก อบก.</p>
 							<span>25 Chestnuts</span>
 						</div>
 					</div>
@@ -147,7 +150,7 @@
 
 
 	<!-- search section -->
-	<section class="search-section">
+	<!-- <section class="search-section">
 		<div class="container">
 			<div class="search-warp">
 				<div class="section-title text-white">
@@ -156,7 +159,7 @@
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<!-- search form -->
-						<form class="carbon-search-form">
+						<!-- <form class="carbon-search-form">
 							<input type="text" placeholder="Carbon">
 							<input type="text" class="last-m" placeholder="Category">
 							<button class="site-btn">Search for a dealer</button>
@@ -165,21 +168,21 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>  -->
 	<!-- search section end -->
 
 
 
 	<!-- signup section -->
-	<section class="signup-section spad my-5">
+	<section class="signup-section spad set-bg" data-setbg="{% static 'img/carbonback.jpg' %}">
 		<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="signup-warp">
-						<div class="section-title text-white text-left">
-							<h2>Become a Carbon Credit Dealer</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+						<div class="section-title">
+							<div class="text-flex-us">เราไม่ได้ทำเล่น ๆ</div>
+							<div class="text-flex-des my-5">เรามีภารกิจใหญ่ และเราต้องการความร่วมมือจาก<span class="allofyou">พวกคุณทุกคน</span> </div>
 						</div>
 						<!-- signup form -->
 						

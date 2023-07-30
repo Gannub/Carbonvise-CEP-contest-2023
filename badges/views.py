@@ -44,20 +44,16 @@ def obtainAchi(request, name):
                     print(ach_badges)
                     if not ach_badges:
                         raise IndexError
-                    
-                    
-
                     else:
                         slug = ach_badges[0].slug   
                         print(slug)
+                        # print(ach)
                         ctx = {
-                            'ach_slug':slug
+                            'ach_slug':slug,
+                            'ach':ach_
                         } 
                         return render(request ,'badges/already_own_ach.html', ctx)
-                
-                    
-                    
-                    
+     
                 except:
                     ach_badges = AchievementBadges.objects.create(in_session=profile_credit,in_achievement=ach_)
 
@@ -73,7 +69,10 @@ def obtainAchi(request, name):
             
                     
                 ctx = {
-                        'ach_badge':ach_badges
+                        'ach_badge':ach_badges,
+                        
+                        'ach':ach_
+
                     }
                 
                 

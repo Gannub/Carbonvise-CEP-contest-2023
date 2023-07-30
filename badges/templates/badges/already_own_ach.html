@@ -6,16 +6,25 @@
 <div class="container">
 <div class="badge-view-block">
   <div class="badge-view-container">
-      <h1 class="congrat-text">You already own a badge for that achievement</h1>
+      <h1 class="congrat-text ">{{ach.name}}</h1>
       <div class="congrat-text-description">
-        <h4>Your have made it, You are now neutral to carbon!</h4>
-        <h4 class="congrat-text-description-two">Thank you for your reach to our beloved world!</h4>
+        
+        <h4 class="congrat-text-description-two my-5">{{ach.des1}}</h4>
+        <h4 class="congrat-text-description-two my-3">{{ach.des2}}</h4>
+        
       </div>
       <div class="">
         
         <div class="">
-            <a href="{% url 'badges:ach_badge_detail' ach_slug %}" class="site-btn">view your badge</a>
-            <!-- <img class="" src="{{ach_badge.badges.url}}"></img> -->
+
+            <img class="" src="{% if ach.image %}
+            {{ach.image.url}}
+            {% else %}
+            {% static 'img/sakuraback.jpg' %}
+            {% endif %}"></img>
+        </div>
+        <div>
+          <a href="{% url 'badges:ach_badge_detail' ach_slug %}" class="site-btn">ดูหลักฐานที่เรามอบให้</a>
         </div>
         <!-- <a href="{{ach_badge.badges.url}}" download="{{ach_badge.session_name}}.jpg" class="download-btn">Download</a> -->
       </div>

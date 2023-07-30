@@ -89,6 +89,32 @@ $(window).on('load', function() {
 			}
 		}
 	});
+	$('.index-slider').owlCarousel({
+		autoplay:true,
+		loop: true,
+		// nav:true,
+		// dots: true,
+		// slideSpeed: 10000,
+		smartSpeed: 2000,
+		// startPosition:1,
+		margin: 0,
+		autowidth:true,
+		navText: ['', '<i class="fa fa-angle-right"></i>'],
+		responsive:{
+			0:{
+				items:1
+			},
+			576:{
+				items:1
+			},
+			990:{
+				items:1
+			},
+			1200:{
+				items:1	
+			}
+		}
+	});
 
     /*------------------
 		Accordions

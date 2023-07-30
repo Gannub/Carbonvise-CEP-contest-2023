@@ -84,7 +84,7 @@
 							<a class="nav-link" href="{% url 'market:market_list' %}">ตลาดคาร์บอน</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">บล็อก</a>
+							<a class="nav-link" href="{% url 'blogs:post_list' %}">บล็อก</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'leaderboards:leaderboards' %}">อันดับรายจังหวัด</a>
@@ -107,7 +107,7 @@
 						{% else %}
 						
 						<!-- {% url 'account_logout' %} -->
-							<a href="{% url 'account_login' %}" class="nav-item me-3" style="text-decoration:none"> Login</a>
+							<a href="{% url 'account_login' %}?next={{request.build_absolute_uri}}" class="nav-item me-3" style="text-decoration:none"> Login</a>
 							<a href="{% url 'account_signup' %}" class="nav-item" style="text-decoration:none"> Sign up</a> 
 						
 						{% endif %} 

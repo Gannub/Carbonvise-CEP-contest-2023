@@ -7,11 +7,12 @@
 <section class="">
   <div class="container alley">
     <div class="my-3">
-      <h1 class="my-5">End Session</h1>
+      <h1 class="my-5">แน่ใจหรือไม่ว่าต้องการสิ้นสุดเซสชั่น</h1>
+      <h2>คุณยังเหลือเวลาในเซสชั่นนี้อีก {{time_left}}</h2>
       <form method="post">
         
         {% csrf_token %}	
-        <button type="submit" class="site-btn my-5">Confirm end session</button>
+        <button type="submit" class="site-btn my-5">ยืนยันการสิ้นสุดเซสชั่น</button>
       </form>
       
       

@@ -13,7 +13,7 @@
 .underline-filter-leaderboard{
     margin-left: 10px;
     background-color: black;
-    width: 1125px;
+    width: 100%;
     height: 0.5px;
 }
 .filter-test{
@@ -31,6 +31,7 @@
 .Last-update-date{
     margin-top: 15px;
     font-weight: 700;
+    width: 150px;
 }
 
 /* Table-block */
@@ -81,12 +82,18 @@ td a{
 /* responsive */
 @media only screen and (max-width: 600px) {
     /* Leaderboard */
+    .filter-test{
+        width: 100%;
+    }
     .sorted-test{
         margin-top: 20px;
         width: 100%;
     }
+    .underline-filter-leaderboard{
+        width: 100%;
+    }
     .underLine-last-update{
-        width: 70%;
+        width: 78%;
     }
     .top-block-leaderboard{
         height: 250px;

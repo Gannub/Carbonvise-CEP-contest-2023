@@ -70,12 +70,12 @@
     <div class="top-block-market">
     <div class="top-block-container-market">
         <div class="market-title">
-            <h1>Market</h1>
+            <h1>ตลาดคาร์บอน</h1>
         </div>
         <div class="filter-sorted-wrapper">
             <div class="filter-section">
                 <div class="layerst">
-                    <div class="filter">filter </div>
+                    <div class="filter">ประเภท </div>
                     <div class="underLine"></div>
                 </div><div class="carbon-warp"></div>
                 <div class="category carbon-filter controls">
@@ -83,22 +83,22 @@
                     <div class="wrapper-responsive-market">
                     <!-- <a href="/market/all"> -->
                     <div class="subcategory-first control active" data-filter="all" onClick={changeCategory}>
-                        All
+                        ทั้งหมด
                     </div>
                     </a>
                     <!-- <a href="/market/biomass"> -->
                     <div class="subcategory control" data-filter=".Biof" onClick={changeCategory}>
-                        Biofuel
+                        พลังงานชีวภาพ
                     </div>
                     </a>
                     <!-- <a href="/market/biological"> -->
                     <div class="subcategory control" data-filter=".solar" onClick={changeCategory}>
-                        Solar Energy
+                        พลังงานแสงอาทิตย์
                     </div>
                     </a>
                     <!-- <a href="/market/renewable energy"> -->
                     <div class="subcategory control" data-filter=".water" onClick={changeCategory}>
-                        Water Sources 
+                        แหล่งน้ำ
                     </div>
                     </a>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="wrapper-responsive-market-under">
                     
                     <div class="subcategory-res control" data-filter=".forest"onClick={changeCategory}>
-                        Forest    
+                        ป่าไม้
                     </div>
                     
                    
@@ -116,23 +116,28 @@
             </div>
             <div class="sorted-section">
                 <div class="layerst">
-                    <div class="sorted">sorted by</div>
+                    <div class="sorted">ยินดีต้อนรับ</div>
                     <div class="underLine2"></div>
-                </div>
+                </div>{% if request.user.is_dealer %}
                 <div class="Tdropdown">
                     <div class="drop-date">
-                        <div class="date-text">date</div>
+                        
+                        <div class="date-text"></div>
                         <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
-                    </div>
-                    <div class="drop-price">
+                        <a href="{% url 'market:market_create' %}" class="date-text me-3">Create deal</a>
+                        
+                    </div>                                                   
+                     
+                    <!-- <div class="drop-price">
                         <div class="price-text">price</div>
                         <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
                     </div>
                     <div class="drop-review">
                         <div class="review-text">review</div>
                         <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
-                    </div>
+                    </div> -->
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -1,0 +1,225 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{%block content %}
+
+<div class="container">
+  <div class="top-block-blogs">
+  <div class="top-block-container-blogs">
+      <div class="blog-title">
+          <h1>บล็อก</h1>
+      </div>
+      <div class="filter-search-sorted-wrapper">
+          <div class="filter-test">
+              <div class="layerst">
+                  <div class="filter-blogs">ประเภท </div>
+                  <div class="underLine-filter"></div>
+              </div>
+              <div class="category-blog">
+                  <div class="subcategory-selected">
+                      <a href="/blogs/foryou">สำหรับคุณ</a>
+                  </div>
+                  <div class="subcategory">
+                      <a href="/blogs/tips">อิอิ</a>
+                  </div>
+                  <div class="subcategory">
+                      <a href="/blogs/news">ข่าวสาร</a>
+                  </div>
+                  <div class="subcategory">
+                      <a href="/blogs/events">อีเว้นท์</a>
+                  </div>
+              </div>
+          </div>
+          <div class="search-test">
+              <div class="layerst">
+                  <div class="search">ค้นหา</div>
+                  <div class="underLine-search"></div>
+              </div>
+              <div class="search-box">
+                  <form action="/action_page.php">
+                  <input type="text" placeholder="ค้นหา.." name="search"/>
+                  <!-- <buthrefn type="submit"><i class="fa fa-search"></i></buthrefn> -->
+                  </form>
+              </div>
+          </div>
+          <div class="sorted-test">
+              <div class="layerst">
+                  <div class="sorted-blog">เรียงตาม</div>
+                  <div class="underLine-sorted"></div>
+              </div>
+              <div class="Tdropdown">
+                  <div class="drop-date">
+                      <div class="date-text">วันที่</div>
+                      <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
+                  </div>
+                  <div class="drop-views">
+                      <div class="views-text">ผู้เข้าชม</div>
+                      <div class="dropdown-btn"><img src={dropdown} alt="" /></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <div class="allblog-trending">
+  <div class="all-blogs">
+      <div class="wrapper-blogs">
+          <div class="firstblog">
+            <div class="container-eachblog">
+              <div class="nav-blog1">
+                  <div class="userBlog">
+                      <img src={userBlog1} alt="" />
+                  </div>
+                  <div class="username-blogs">Elementum eleifend</div>
+                  <div class="time">1 hour ago</div>
+              </div>
+              <div class="underline-eachblog"></div>
+              <div class="below-blog1">
+                  <div class="title-blog">
+                      The Art of Productivity: Effective Strategies for Getting Things Done
+                  </div>
+                  <div class="text-blog">Discover the ultimate guilt-free pleasure with these mouthwatering vegan 
+                  chocolate chip cookies. They are soft, chewy, and loaded with chocolatey goodness. Get ready href 
+                  impress your friends and family with this delightful recipe that proves vegan desserts can be 
+                  just as satisfying.</div>
+                  <div class="tips-readmore">
+                      <div class="tips"> 
+                          <a href="/blogs/tips">Tips</a>
+                      </div>
+                      <div class="read-more">
+                          <a href="/blogs/read-more">Read more</a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="secondblog">
+              <div class="container-eachblog">
+              <div class="nav-eachblog">
+                  <div class="userBlog">
+                      <img src={userBlog2} alt="" />
+                  </div>
+                  <div class="username-blogs">Sollicitudin</div>
+                  <div class="time">16 hour ago</div>
+              </div>
+              <div class="underline-eachblog"></div>
+              <div class="below-eachblog">
+                  <div class="title-blog">Revitalize Your Morning Routine...</div>
+                  <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+                  smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+                  <div class="tips-readmore">
+                      <div class="tips"> 
+                          <a href="/blogs/tips">Tips</a>
+                      </div>
+                      <div class="read-more">
+                          <a href="/blogs/read-more">Read more</a>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="wrapper-blogs" style="margin-top: 10px;">
+        <div class="secondblog">
+          <div class="container-eachblog">
+          <div class="nav-eachblog">
+              <div class="userBlog">
+                  <img src={userBlog2} alt="" />
+              </div>
+              <div class="username-blogs">Sollicitudin</div>
+              <div class="time">16 hour ago</div>
+          </div>
+          <div class="underline-eachblog"></div>
+          <div class="below-eachblog">
+              <div class="title-blog">Revitalize Your Morning Routine...</div>
+              <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+              smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+              <div class="tips-readmore">
+                  <div class="tips"> 
+                      <a href="/blogs/tips">Tips</a>
+                  </div>
+                  <div class="read-more">
+                      <a href="/blogs/read-more">Read more</a>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="secondblog">
+        <div class="container-eachblog">
+        <div class="nav-eachblog">
+            <div class="userBlog">
+                <img src={userBlog2} alt="" />
+            </div>
+            <div class="username-blogs">Sollicitudin</div>
+            <div class="time">16 hour ago</div>
+        </div>
+        <div class="underline-eachblog"></div>
+        <div class="below-eachblog">
+            <div class="title-blog">Revitalize Your Morning Routine...</div>
+            <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+            smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+            <div class="tips-readmore">
+                <div class="tips"> 
+                    <a href="/blogs/tips">Tips</a>
+                </div>
+                <div class="read-more">
+                    <a href="/blogs/read-more">Read more</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+        <div class="secondblog">
+            <div class="container-eachblog">
+            <div class="nav-eachblog">
+                <div class="userBlog">
+                    <img src={userBlog2} alt="" />
+                </div>
+                <div class="username-blogs">Sollicitudin</div>
+                <div class="time">16 hour ago</div>
+            </div>
+            <div class="underline-eachblog"></div>
+            <div class="below-eachblog">
+                <div class="title-blog">Revitalize Your Morning Routine...</div>
+                <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
+                smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+                <div class="tips-readmore">
+                    <div class="tips"> 
+                        <a href="/blogs/tips">Tips</a>
+                    </div>
+                    <div class="read-more">
+                        <a href="/blogs/read-more">Read more</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="trending-block">
+      <div class="trending-block-container">
+        <div class="trending-title">Trending Now</div>
+          <div class="underline-trending"></div>
+          <div class="trending-list">
+            <div class="trend-num">1</div>
+            <div class="trend-detail">
+              <div class="main-detail">Revitalize Your Morning Routine...</div>    
+              <div class="other-detail">Start your day off right with these refreshing</div>
+            </div>
+          </div>
+          <div class="trending-list">
+            <div class="trend-num">2</div>
+            <div class="trend-detail">
+              <div class="main-detail">The Power of Positive Thinking</div>    
+              <div class="other-detail">Start your day off right with these refreshing</div>
+            </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+{% endblock %}

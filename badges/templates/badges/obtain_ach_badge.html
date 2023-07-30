@@ -4,33 +4,38 @@
 {%block content %}
 
 <div class="container">
-<div class="badge-view-block">
-  <div class="badge-view-container">
-      <h1 class="congrat-text">Congratulations</h1>
-      <div class="congrat-text-description">
-        <h4>You have got a new achievement!</h4>
-        <h4 class="congrat-text-description-two">Thank you for your reach to our beloved world!</h4>
-      </div>
-      <div class="">
-        
-        <div class="">
-            <div class="">Session name : {{ach_badge.session_name}}</div>
-            <div class="">Achievement : {{ach_badge.in_achievement.name}} </div>
-            <!-- <img class="" src="{{ach_badge.badges.url}}"></img> -->
-            <a href="{% url 'badges:ach_badge_detail' ach_badge.slug %}" class="site-btn">view your badge</a>
-
+  <div class="badge-view-block">
+    <div class="badge-view-container">
+        <h1 class="congrat-text ">{{ach.name}}</h1>
+        <div class="congrat-text-description">
+          
+          <h4 class="congrat-text-description-two my-5">{{ach.des1}}</h4>
+          <h4 class="congrat-text-description-two my-3">{{ach.des2}}</h4>
+          
         </div>
-        <!-- <a href="{{ach_badge.badges.url}}" download="{{ach_badge.session_name}}.jpg" class="download-btn">Download</a> -->
-      </div>
-      <!-- <canvas id="paint" width="750" height="750" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
-        <button class='site-btn my-3' id="penciltool" type="button" style="height: 40px; width: 100px;" onclick="pencil()">Pencil</button>
-        <button class='site-btn my-3' id="linetool" type="button" style="height: 40px; width: 100px;" onclick="line()">Line</button>
-        <button class='site-btn my-3' id="rectangletool" type="button" style="height: 40px; width: 100px;" onclick="rectangle()">Rectangle</button> 
-        <button class='site-btn my-3' id="circletool" type="button" style="height: 40px; width: 100px;" onclick="circle()">Circle</button> 
-        <button class='site-btn my-3' id="erasertool" type="button" style="height: 40px; width: 100px;" onclick="eraser()">Eraser</button> 
-        <button class='site-btn my-3' id="resettool" type="button" style="height: 40px; width: 100px;" onclick="reset()">Reset</button> -->
+        <div class="">
+          
+          <div class="">
+  
+              <img class="" src="{% if ach.image %}
+              {{ach.image.url}}
+              {% else %}
+              {% static 'img/sakuraback.jpg' %}
+              {% endif %}"></img>
+          </div>
+          <div>
+            <a href="{% url 'badges:ach_badge_detail' ach_badge.slug %}" class="site-btn">ดูหลักฐานที่เรามอบให้</a>
+          </div>
+          <!-- <a href="{{ach_badge.badges.url}}" download="{{ach_badge.session_name}}.jpg" class="download-btn">Download</a> -->
+        </div>
+        <!-- <canvas id="paint" width="750" height="750" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
+          <button class='site-btn my-3' id="penciltool" type="button" style="height: 40px; width: 100px;" onclick="pencil()">Pencil</button>
+          <button class='site-btn my-3' id="linetool" type="button" style="height: 40px; width: 100px;" onclick="line()">Line</button>
+          <button class='site-btn my-3' id="rectangletool" type="button" style="height: 40px; width: 100px;" onclick="rectangle()">Rectangle</button> 
+          <button class='site-btn my-3' id="circletool" type="button" style="height: 40px; width: 100px;" onclick="circle()">Circle</button> 
+          <button class='site-btn my-3' id="erasertool" type="button" style="height: 40px; width: 100px;" onclick="eraser()">Eraser</button> 
+          <button class='site-btn my-3' id="resettool" type="button" style="height: 40px; width: 100px;" onclick="reset()">Reset</button> -->
+    </div>
   </div>
-</div>
-</div>
-
+  </div>
 {% endblock %}
