@@ -1,0 +1,109 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{%block content %}
+
+<div class="container">
+    <div class="blogs-inside">
+        <div class="blogs-insideContainer">
+            <div class="first-layer">
+                <div class="undo"><Link to="/blogs"><img src={undo} alt="" /></Link></div>
+                <div class="threedots"><img src={dots} alt="" /></div>
+            </div>
+            <div class="other-layer">
+            <div class="blogs-insideTitle">
+                The Art of Productivity: Effective Strategies for Getting Things Done
+            </div>
+            <div class="content-blogs">
+                <div class="firstlayer-blogs-inside">
+                    <div class="userface-blogs"><img src={userBlog1} alt="" /></div>
+                    <div class="username-blogs-inside">Elementum eleifend</div>
+                    <div class="date-blogs">XX/XX/20XX</div>
+                </div>
+                <div class="secondlayer-blogs-inside">
+                In today's fast-paced world, where demands and distractions abound, mastering the art of productivity has become essential for achieving success and maintaining a sense of balance in our lives. Productivity is not merely about completing tasks; it's about accomplishing meaningful goals while optimizing our time, energy, and resources. Fortunately, there are several effective strategies that can help us enhance our productivity and make the most of our potential.
+
+First and foremost, setting clear goals is crucial for productivity. By defining specific, measurable, achievable, relevant, and time-bound (SMART) goals, we provide ourselves with a roadmap to follow and a sense of direction. These goals act as our guiding stars, keeping us focused and motivated throughout our journey. Additionally, breaking down larger goals into smaller, manageable tasks enables us to approach them systematically, making progress more tangible and achievable.
+Another key aspect of productivity is effective time management. Time is a finite resource, and how we allocate and utilize it greatly impacts our productivity. One powerful technique is prioritization. By identifying and prioritizing tasks based on their urgency and importance, we can ensure that we dedicate our time and energy to the most critical activities. Time blocking is another valuable strategy, involving the allocation of specific time slots for different tasks or activities. This practice helps eliminate multitasking and encourages deep focus and concentration, leading to increased efficiency.
+                </div>
+            </div>
+            <div class="comments-title">
+                Comments
+                <div class="underline-insideblogs"></div>
+            </div>
+
+                <!-- responsive-comment -->
+                
+                <div class="firstlayer-blogs-inside-res">
+                    <div class="userface-blogs"><img src={userBlog1} alt="" /></div>
+                    <div class="username-blogs-inside">Elementum eleifend</div>
+                    <div class="date-blogs">XX/XX/20XX</div>
+                </div>
+            <div class="underline-insideblogs-res"></div>
+            <div class="comment-blogs-inside-res">
+                <div class="comment-title-res">Comments</div>
+                <div class="underline-comment-insideblogs-res"></div>
+            </div>
+            <div class="user-comment-res">
+                <div class="userPic">
+                    <img src={userCommentPic1} alt="" />
+                </div>
+                <div class="otherthan-userpic">
+                    <div class="username-date">
+                        <div class="username-rating-res">
+                            <div class="username-comment-res">Elementum eleifend</div>
+                        </div>
+                        <div class="time">1 days ago</div>
+                    </div>
+                    <div class="comment-res">Aenean mattis mi tellus, sed blandit erat aliquet eget</div>
+                </div>
+            </div>
+            <div class="user-comment-res">
+                <div class="userPic">
+                    <img src={userCommentPic2} alt="" />
+                </div>
+                <div class="otherthan-userpic">
+                    <div class="username-date">
+                        <div class="username-rating-res">
+                            <div class="username-comment-res">Sollicitudin nec sollicitudin</div>
+                        </div>
+                        <div class="time">13 weeks ago</div>
+                    </div>
+                    <div class="comment-res">Sed vitae elit lobortis, semper est ac, auctor turpis.</div>
+                </div>
+            </div>
+             <!-- responsive-comment  -->
+
+            <div class="comment-section-blogs">
+                <div class="all-comment-blogs">
+                    <div class="user-comment">
+                        <div class="userPic">
+                            <img src={userCommentPic1} alt="" />
+                        </div>
+                        <div class="username-rating">
+                            <div class="username-comment">Elementum eleifend</div>
+                        </div>
+                        <div class="comment">Aenean mattis mi tellus, sed blandit erat aliquet eget</div>
+                        <div class="time">1 days ago</div>
+                    </div>
+                    <div class="user-comment">
+                        <div class="userPic">
+                            <img src={userCommentPic2} alt="" />
+                        </div>
+                        <div class="username-rating">
+                            <div class="username-comment">Sollicitudin nec sollicitudin</div>
+                        </div>
+                        <div class="comment">Sed vitae elit lobortis, semper est ac, auctor turpis.</div>
+                        <div class="time">13 weeks ago</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

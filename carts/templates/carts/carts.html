@@ -272,11 +272,17 @@
 				
 			</div>
 			<div class="underline-cart"></div>
+			{% if deals %}
 			<a href="{% url 'cart:checkout' %}">
 			<button class="checkout-btn">
 				ไปที่หน้าทบทวนรายการ
 			</button>
 			</a>
+			{% else %}
+			<button class="checkout-btn">
+				ไม่มีสินค้าในตะกร้า
+			</button>	
+			{% endif %}
 		</div>
 	</div>
 </div>

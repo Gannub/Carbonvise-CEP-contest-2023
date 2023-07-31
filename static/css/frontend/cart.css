@@ -41,10 +41,10 @@
     font-weight: 700;
 }
 .description-content-category{
-    color: #A4A6AF;
+    color: #8e9098;
     font-size: 12px;
     padding-top: 10px;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .minus-cart{
@@ -96,6 +96,13 @@
 }
 .payment-cart-block{
     border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
+    height: 124px;
+    margin-top: 5px;
+}
+.payment-cart-block-active{
+    border: 3px solid rgb(44, 44, 44);
     border-radius: 5px;
     width: 150px;
     height: 124px;

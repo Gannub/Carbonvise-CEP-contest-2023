@@ -1,11 +1,11 @@
 .blogs-inside{
-    max-width: 1408px;
+    width: 100%;
     height: 1237px;
     background-color: white;
     border-radius: 10px;
 }
 .blogs-insideContainer{
-    max-width: 1300px;
+    width: 95%;
     margin: 10px auto;
 }
 .blogs-insideTitle{
@@ -15,10 +15,10 @@
 }
 .content-blogs{
     margin: 0 auto;
-    width: 1000px;
+    width: 75%;
 }
 .other-layer{
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
 }
 .firstlayer-blogs-inside{
@@ -29,7 +29,11 @@
 }
 .secondlayer-blogs-inside{
     margin-top: 30px;
-    width: 1000px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    height: max-content;
     text-align: justify;
 }
 .username-blogs-inside{
@@ -38,32 +42,35 @@
 .date-blogs{
     margin-left: 20px;
     color: #AAACB4;
+    opacity: 0.5;
 }
 
 /* Comment-Blogs */
 
 .comments-title{
-    margin: 30px 0 30px 30px;
+    margin: 30px 0;
     font-size: 36px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
 }
 .underline-insideblogs{
-    margin: 0px auto;
-    max-width: 1256.002px;
+    margin-left: 15px;
+    width: 100%;
     height: 0.5px;
     background-color: black;
 }
 .comment-section-blogs{
     margin: 0 auto;
-    width: 1068px;
+    width: 100%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 .all-comment-blogs{
     margin: 0 auto;
-    width: 1060px;
-    height: 441px;
+    width: 100%;
+    height: max-content;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -98,32 +105,25 @@
     }
     .blogs-inside{
         margin: 0 auto;
-        width: 400px;
         height: 1237px;
     }
     .blogs-insideContainer{
-        width: 350px;
         margin: 10px auto;
     }
     .blogs-insideTitle{
         font-size: 24px;
     }
     .content-blogs{
-        width: 300px;
-    }
-    .other-layer{
-        width: 300px;
+        width: 100%;
     }
     .firstlayer-blogs-inside{
         display: none;
     }
     .secondlayer-blogs-inside{
-        margin: 20px 0 0 0;
-        width: 300px;
+        margin: 0;
     }
     .underline-insideblogs{
         margin: 10px auto;
-        width: 300px;
     }
     .comments-title{
         display: none;
@@ -132,6 +132,7 @@
         display: none;
     }
     .firstlayer-blogs-inside-res{
+        margin-top: 10px;
         display: flex;
         align-items: center;
     }

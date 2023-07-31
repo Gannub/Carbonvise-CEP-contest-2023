@@ -172,9 +172,9 @@
 			<table class="cart-table">
 				<thead>
 					<tr>
-						<th>Description</th>
-						<th>QTY</th>
-						<th>Total (THB)</th>
+						<th>รายการ</th>
+						<th>จำนวน</th>
+						<th>ราคา (บาท)</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -189,14 +189,9 @@
 							</div>
 						</td>
 						<td class='adjust-num-cart'>
-							<div class="minus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/bx-minus.svg' %}">
-							</div>
+							
 							<div class="num-cart">{{deal.quantity}}</div>
-							<div class="plus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/bx-plus.svg' %}">
-								
-							</div>
+							
 						</td>
 						<td class='chestnuts-cart'>
 							{{deal.get_total}}
@@ -209,27 +204,33 @@
 			</table>
 
 			<div class="payment-title">
-				Payment methods
+				ช่องทางการชำระเงิน
 			</div>
 			<div class="underline-cart"></div>
 			<div class="wrapper-cart">
+
 			<div class="payment-cart">
 				<div class="payment-cart-nav">
-					<div class="payment-carts">Mastercard</div>
+					<div class="payment-carts">Your card</div>
 					<div class="payment-cart-logo"><img src={mastercardLogo} alt="" /></div>
 				</div>
-				<div class="payment-cart-block">
+				<div class="payment-cart-block-active">
 					<div class="payment-cart-block-container">
-					<div class="payment-uses">Lucille de Chestnuts</div>
-					<div class="payment-id">**** **** **** 4321</div>
+					<div class="payment-uses">{{cards.brand}}</div>
+					<div class="payment-id">**** **** **** {{cards.last_digits}}</div>
 					<div class="payment-date-default">
-						<div class="payment-date">XX/20XX</div>
-						<div class="payment-default">Default</div>
+						<div class="payment-date">Exp : {{cards.exp_month}}/{{cards.exp_year}}</div>
+						<div class="payment-default">
+							{% if cards.default %}
+							Current
+							{% else %}
+							{% endif %}
+						</div>
 					</div>
 					</div>
 				</div>
 			</div>
-			<div class="payment-cart">
+			<!-- <div class="payment-cart">
 				<div class="payment-cart-nav">
 					<div class="payment-carts">Mastercard</div>
 					<div class="payment-cart-logo"><img src={applePay} alt="" /></div>
@@ -244,7 +245,7 @@
 					</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="payment-cart-plus">
 				<div class="payment-cart-nav">
 					<div class="payment-carts-add">Add more methods</div>
@@ -254,9 +255,10 @@
 				<!-- {/* center!!(not good code) */} -->
 
 				<div class="payment-cart-block-plus">
+					
 					<div class="payment-cart-block-container-plus">
 						<div class="payment-plus">
-							<a href="">+</a>
+							<a href="{% url 'billings:omise' %}">+</a>
 						</div>
 					</div>
 				</div>
@@ -265,17 +267,17 @@
 
 			</div>
 			</div>
-			<div class="vat">VAT : 7%</div>
-					<div class="vat">Credits will be obtain : {{cart.cart_item_total}} </div>
+			<div class="vat"></div>
+					<div class="vat">เครดิตที่จะได้รับ : {{cart.cart_item_total}} </div>
 			<div class="chestnuts-total">
-				<div class="chestnuts-total-text">TOTAL :</div>
-				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} THB</div>
+				<div class="chestnuts-total-text">ราคาสุทธิ :</div>
+				<div class="chestnuts-total-amount">{{cart.cart_total|floatformat:2}} บาท</div>
 				
 			</div>
 			<div class="underline-cart"></div>
 			<a href="{% url 'cart:checkout' %}">
 			<button class="checkout-btn">
-				Checkout
+				ยืนยันการซื้อ
 			</button>
 			</a>
 		</div>

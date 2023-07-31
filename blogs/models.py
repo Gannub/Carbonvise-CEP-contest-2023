@@ -32,6 +32,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
+    profile_picture = models.ImageField(null=True,blank=True)
     overview = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True,null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
@@ -46,5 +47,9 @@ def pre_save_slug_field(sender, instance, *arg ,**kwargs):  # sent at the beginn
         if not instance.slug:
             instance.slug = check_slug_unique(instance)
 
+pre_save.connect(pre_save_slug_field, sender=Post)
+
 def get_absolute_url(self):
-    return reverse()
+    return reverse('post_detail', kwargs={
+        'slug': self.slug
+    })

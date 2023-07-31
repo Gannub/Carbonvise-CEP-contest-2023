@@ -14,6 +14,7 @@ from profiles.models import Profile, CreditSession
 from profiles.views import start_session
 from django.utils import timezone
 from billings.models import BillingProfile
+from cards.models import Card
 
 # Create your views here.
 #i am using a function based.
@@ -82,7 +83,7 @@ def qr_generator(cart_item):
 
 # i may separate this fuctions
 @login_required
-def TempCheckout(request):
+def Checkout(request):
     try:
         user_session = CreditSession.objects.get(user = request.user)
     except CreditSession.DoesNotExist:
@@ -149,6 +150,25 @@ def TempCheckout(request):
     # it should redirect to the session educator page (tell users that they have to create a session first )
     # did that using try/except
 
-# @login_required
-# def cart_checkout(request):
-#     cart, created = Cart.objects.
+@login_required
+def cart_checkout(request):
+    # cart, created = Cart.objects.
+
+
+        
+    customer = request.user
+    # print(customer.cart.)
+    cart,created = Cart.objects.get_or_create(customer=customer, deal_complete=False)
+    billing_profile, created = BillingProfile.objects.get_or_new(request=request)
+    card, created = Card.objects.get_or_new(request, billing_profile=billing_profile)
+
+    ## child object (lowercase)_set
+    deals = cart.cartitem_set.all()
+
+    print(card)
+    ctx = { 'deals':deals,
+            'cart':cart,
+            'cards': card
+           
+    }
+    return render (request,'carts/cart_checkout.html',ctx)

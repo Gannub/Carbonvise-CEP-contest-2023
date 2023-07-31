@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'badges',
     'blogs',
     'billings',
+    'cards',
 
 ]
 

@@ -3,13 +3,13 @@ body{
     padding: 0;
 }
 .main-top-section{
-    
     width: 100%;
     height: max-content;
     border-radius: 10px;
 }
 .blur img{
     height: calc(45vw + 220px);
+	width: 100%;
 }
 .blur {
     height: inherit;
@@ -32,16 +32,10 @@ body{
 	right: 0;
 	top: 0;
 	width: 50%;
-  
 	.alt & {
 		background-position: left top;
 		left: 0;
 		right: auto;
-	}
-	
-	.middle & {
-		background-position: center top;
-		transform: translateX(-50%);
 	}
 }
 
@@ -54,32 +48,29 @@ img {
 .overlay {
 	align-items: center;
 	background-color: rgba(129, 125, 125, 0.4);
-	box-sizing: border-box;
-	color: white;
 	display: flex;
 	font-size: 20px;
-	height: 100%;
-	padding: 20px 120px;
 	position: absolute;
 	top: 0;
 	right: 0;
+	height: 100%;
 	width: 50%;
 	z-index: 1;
-    text-align: left;
 
 	.alt & {
 		left: 0;
 		right: auto;
 	}
-	
-	.middle & {
-		transform: translateX(-50%);
-	}
 }
-.hero-text h2 {
+.overlay-container{
+	width: 70%;
+	margin: 0 auto;
+}
+.overlay-text h2 {
 	font-size: 80px;
 	font-weight: 1000;
 	margin-bottom: 20px;
+	width: 100%;
 	color: transparent;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -93,26 +84,16 @@ img {
     
     animation: animation 13s linear infinite;
 }
-.hero-text h3{
+.overlay-text h3{
+	width: 100%;
     text-align: left;
+	color: white;
 }
-
-
-/* .start-btn{
-    margin-left: 0px;
-    width: 50%;
-    height: 63px;
-    border-radius: 10px;
-    background: #fffcfc;
-    color: #2A2F2E;
-    font-size: 20px;
-    font-weight: 900;
-    text-align: center;
-} */
 
 .start-btn {
 	margin-top: 50px;
 	width: 40%;
+	min-width: fit-content;
 	text-align: center;
 	border: none;
     border-radius: 10px;
@@ -130,22 +111,14 @@ img {
     
 }
 
-.vehical{
-    margin-top: 20px;
-}
-.vehical-text{
-    font-weight: 700;
-    text-align: right;
-    color: white;
-    font-size: 36px;
-}
-.vehical-description{
-    color: white;
-    text-align: right;
-    font-size: 24px;
-}
-
 @media only screen and (max-width: 600px) {
-
-    
+	.overlay-text h2 {
+		font-size: 24px;
+	}
+	.overlay-text h3{
+		font-size: 16px;
+	}
+    .overlay{
+		padding: 10px;
+	}
 }

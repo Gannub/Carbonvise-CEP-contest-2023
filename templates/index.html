@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}	
-
 <link rel="stylesheet" href="{% static 'css/mainpage.css' %}"/>
 
 <div class="main-top-section">
@@ -16,20 +15,17 @@
 		
 		<span class="blurry set-bg" data-setbg="{% static 'img/sakuraback.jpg' %}"></span>
 		<div class="overlay">
-			<div class="hero-text">
+			<div class="overlay-container">
+			<div class="overlay-text">
 				<h2>Nurture Our Planet</h2>
 				<h3>เราเปลี่ยนการจัดการคาร์บอนที่น่าเบื่อ<br>ให้กลายเป็นตลาดซื้อขายคาร์บอนที่น่าตื่นเต้น</h3>
 				<div class="start-btn">
 					เริ่มต้นตอนนี้
 				</div>
-				<!-- <div class="vehical">
-					<div class="vehical-text">Vehical</div>
-					<div class="vehical-description">A typical passenger vehicle emits about 4.6 metric tons of carbon dioxide per year. This number can vary based on a vehicle’s fuel, fuel economy, and the number of miles driven per year.</div>
-				</div> -->
+			</div>
 			</div>
 		</div>
 	</div>
-	
 </div>
 
 
@@ -146,6 +142,116 @@
 			</div>
 		</div>
 	</section>
+	<section>
+		<!-- <div class="col-lg-4 mb-4 mb-lg-0"> -->
+
+		<div id="accordion" class="accordion-area">
+			<div class="panel">
+				<div class="panel-header" id="headingOne">
+					<button class="panel-link" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">Praesent neque metus, accumsan in sagittis eu, mattis vitae</button>
+				</div>
+				<div id="collapse1" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+					<div class="panel-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+					</div>
+				</div>
+			</div>
+			<div class="panel">
+				<div class="panel-header" id="headingTwo">
+					<button class="panel-link" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Neque metus, accumsan in sagittis eu, mattis</button>
+				</div>
+				<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+					<div class="panel-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+					</div>
+				</div>
+			</div>
+			<div class="panel">
+				<div class="panel-header active" id="headingThree">
+					<button class="panel-link" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">Vivamus sollicitudin nisi sit amet dolor varius, et porta</button>
+				</div>
+				<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+					<div class="panel-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+	<!-- <div class="col-lg-6"> -->
+						<!-- Tabs -->
+						<div class="tab-element">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="1-tab" data-bs-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">ดูภารกิจของเรา</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="2-tab" data-bs-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">ดูทีมของเรา</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="3-tab" data-bs-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">เป็นส่วนหนึ่งของภารกิจนี้</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+								<!-- single tab content -->
+								<div class="tab-pane show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+									<section class="signup-section spad set-bg" data-setbg="{% static 'img/carbonback.jpg' %}">
+										<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-lg-6">
+													<div class="signup-warp">
+														<div class="section-title">
+															<div class="text-flex-us">เราไม่ได้ทำเล่น ๆ</div>
+															<div class="text-flex-des my-5">เรามีภารกิจใหญ่ และเราต้องการความร่วมมือจาก<span class="allofyou">พวกคุณทุกคน</span> </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+								<div class="tab-pane" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+									<section class="signup-section spad set-bg" data-setbg="{% static 'img/sakuraback.jpg' %}">
+										<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-lg-6">
+													<div class="signup-warp">
+														<div class="section-title">
+															<div class="text-flex-us">เราไม่ได้ทำเล่น ๆ</div>
+															<div class="text-flex-des my-5">เรามีภารกิจใหญ่ และเราต้องการความร่วมมือจาก<span class="allofyou">พวกคุณทุกคน</span> </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+								<div class="tab-pane" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+									<section class="signup-section spad set-bg" data-setbg="{% static 'img/forestback.jpg' %}">
+										<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-lg-6">
+													<div class="signup-warp">
+														<div class="section-title">
+															<div class="text-flex-us">เราไม่ได้ทำเล่น ๆ</div>
+															<div class="text-flex-des my-5">เรามีภารกิจใหญ่ และเราต้องการความร่วมมือจาก<span class="allofyou">พวกคุณทุกคน</span> </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+						
+						</div>
+					
+
+			<!-- </div> -->
+	</section>
 	<!-- categories section end -->
 
 
@@ -174,25 +280,25 @@
 
 
 	<!-- signup section -->
-	<section class="signup-section spad set-bg" data-setbg="{% static 'img/carbonback.jpg' %}">
+	<!-- <section class="signup-section spad set-bg" data-setbg="{% static 'img/carbonback.jpg' %}"> -->
 		<!-- <div class="signup-bg set-bg" data-setbg="{% static 'img/carbonvise.png' %}"></div> -->
-		<div class="container-fluid">
+		<!-- <div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="signup-warp">
 						<div class="section-title">
 							<div class="text-flex-us">เราไม่ได้ทำเล่น ๆ</div>
 							<div class="text-flex-des my-5">เรามีภารกิจใหญ่ และเราต้องการความร่วมมือจาก<span class="allofyou">พวกคุณทุกคน</span> </div>
-						</div>
+						</div> -->
 						<!-- signup form -->
 						
 
 						
-					</div>
+					<!-- </div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- signup section end -->
 	<div class="container">
 		<div id="map-canvas"></div>
@@ -200,5 +306,5 @@
 	</div>
 
 
-	
+<script src="{% static 'js/bootstrap.min.js' %}"></script>	
 {% endblock %} 

@@ -17,6 +17,8 @@
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
 	<![endif]-->
+<!-- <link rel="stylesheet" href="{% static 'css/frontend/signin.css' %}"/>  -->
+<link rel="stylesheet" href="{% static 'css/frontend/signup.css' %}"/>
 <script src="https://cdn.omise.co/omise.js"></script>
 <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
 <!-- csrf -->
@@ -100,14 +102,14 @@
 	<div class="cart-block">
 		<div class="cart-block-container">
 			 
-			<h1 class="cart-title">จัดการวิธีเรียกเก็บเงิน</h1>
+			<h1 class="cart-title">เพิ่มช่องทางการชำระเงิน
+            </h1>
 			<form method="POST" id="checkout">
                 {% csrf_token %}
-                <div id="token_errors"></div>
                 <input type="hidden" id="OMISE_PUB_KEY" data="{{pub_key}}">
               
                 <input type="hidden" name="omise_token">
-              
+                
                 <div>
                   Name<br>
                   <input type="text" data-omise="holder_name" id="cardname">
@@ -117,18 +119,18 @@
                   <input type="text" data-omise="number" id="cardnumber">
                 </div>
                 <div>
-                  Date<br>
-                  <input type="text" data-omise="expiration_month" size="4" id="expmonth"> /
+                  Exp Month<br>
+                  <input type="text" data-omise="expiration_month" size="4" id="expmonth">Exp Year
                   <input type="text" data-omise="expiration_year" size="8" id="expyear">
                 </div>
                 <div>
                   Security Code<br>
                   <input type="text" data-omise="security_code" size="8" id="seccode">
                 </div>
-              
-                <input type="submit" id="create_token">
+                <div id="token_errors"></div> 
+                <input class="sign_in" type="submit" id="create_token">
             </form>
-
+           
 			<!-- <div class="payment-title">
 				Payment methods
 			</div>
@@ -261,7 +263,7 @@
         console.log(response)
 
         const csrftoken = Cookies.get('csrftoken');
-        
+
         async function omiseProcessor(token){
             let response = await fetch(`${window.location.origin}/billings/omise_processor`,{
                 method:'POST',
