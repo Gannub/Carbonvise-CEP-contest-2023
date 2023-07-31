@@ -22,15 +22,16 @@
 						<table class="cart-table">
 							<thead>
 								<tr>
-									<th>QTY</th>
-									<th>Description</th>
-									<th>Chestnuts</th>
+									<th>จำนวน</th>
+									<th>ชื่อ</th>
+									<th>ราคา </th>
+									<th>QRcode </th>
 								</tr>
 							</thead>
 							<tbody>
 								{% for item in items_checkout reversed %}
 								<tr>
-									<td class='adjust-num-cart'>
+									<td>
 										<!-- <img src="{{item.qrcode.url}}"> -->
 										<div class="num-cart">{{item.quantity}}</div>
 									</td>
@@ -44,6 +45,9 @@
 									</td>
 									<td class='chestnuts-cart'>
 										{{item.get_total}}
+									</td>
+									<td class='chestnuts-cart' style="display: flex; align-items: center;">
+										<div class="qr-code set-bg" data-setbg="{{item.qrcode.url}}"></div>
 									</td>
 								</tr>
 								{% endfor %}
@@ -70,6 +74,8 @@
 							<div class="approval-code-right">893227</div>
 						</div>
 						<div class="thankYou">thank you for shopping with us</div>
+						
+						
 					</div>
 				</div>
 			</div>

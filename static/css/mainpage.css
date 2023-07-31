@@ -39,12 +39,6 @@ body{
 	}
 }
 
-img {
-	display: block;
-    height: 100%;
-	width: 100%;
-}
-
 .overlay {
 	align-items: center;
 	background-color: rgba(129, 125, 125, 0.4);
@@ -111,14 +105,56 @@ img {
     
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1170px) {
 	.overlay-text h2 {
-		font-size: 24px;
+		font-size: 50px;
+	}
+	.overlay-text h3{
+		font-size: 18.75px;
+	}
+    .overlay{
+		padding: 10px;
+	}
+}
+@media only screen and (max-width: 870px) {
+	.overlay{
+		width: 100%;
+		background-color: transparent;
+		padding: 0;
+	}	
+}
+
+@media only screen and (max-width: 680px) {
+	.overlay-text h2 {
+		margin-top: 2rem;
+		font-size: 42px;
 	}
 	.overlay-text h3{
 		font-size: 16px;
 	}
-    .overlay{
-		padding: 10px;
+	.start-btn {
+		padding: 20px 5px;
+		font-size: 16px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.overlay-text h2 {
+		margin-top: 2rem;
+		font-size: 36px;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.overlay-text h2 {
+		margin-top: 5rem;
+		font-size: 20px;
+	}
+	.overlay-text h3{
+		font-size: 12px;
+	}
+	.start-btn {
+		font-size: 12px;
+		padding: 10px 5px;
 	}
 }

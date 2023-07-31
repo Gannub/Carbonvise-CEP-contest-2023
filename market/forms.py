@@ -5,7 +5,7 @@ from market.models import Market
 class MarketForm(forms.ModelForm):
     class Meta:
         model = Market
-        fields = ['name','short_description','long_description','price_per_unit','category','image',]
+        fields = ['name','short_description','long_description','price_per_unit','category','quantity_left','image',]
         
 # class MarketUpdateForm(forms.ModelForm):
 #     class Meta:

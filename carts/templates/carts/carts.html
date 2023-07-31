@@ -189,11 +189,11 @@
 						</td>
 						<td class='adjust-num-cart'>
 							<div class="minus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'img/bx-minus.svg' %}">
+								<img data-slug="{{deal.deal.slug}}" data-action="remove" class="chg-quantity update-cart" id="update-q"  src="{% static  'img/bx-minus.svg' %}">
 							</div>
 							<div class="num-cart">{{deal.quantity}}</div>
 							<div class="plus-cart">
-								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" src="{% static  'img/bx-plus.svg' %}">
+								<img data-slug="{{deal.deal.slug}}" data-action="add" class="chg-quantity update-cart" id="update-q" src="{% static  'img/bx-plus.svg' %}">
 								
 							</div>
 						</td>
@@ -295,5 +295,29 @@
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/carts.js' %}"></script>
-
+<script>
+	// Function to handle cart update button click
+	function handleCartUpdate() {
+	  // Disable the cart update button to prevent multiple clicks
+	  const cartUpdateButton = document.getElementById('update-q');
+	  cartUpdateButton.disabled = true;
+  
+	  // Perform the AJAX request to update the cart
+	  // Replace 'your-ajax-update-function' with your actual AJAX function
+	  yourAjaxUpdateFunction()
+		.then(response => {
+		  // Handle the server response here (e.g., update the cart on the client-side)
+  
+		  // Re-enable the cart update button after the server response is received
+		  cartUpdateButton.disabled = false;
+		})
+		.catch(error => {
+		  // Handle any errors that might occur during the AJAX request
+  
+		  // Re-enable the cart update button in case of errors
+		  cartUpdateButton.disabled = false;
+		});
+	}
+  </script>
+  
 {% endblock %}

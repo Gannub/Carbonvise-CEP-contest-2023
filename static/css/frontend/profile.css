@@ -11,7 +11,7 @@
     font-size: 18px;
     text-align: left;
 }
-.session-btn{
+/* .session-btn{
     display: inline-block;
     border: 1px solid black;
     background-color: black;
@@ -24,7 +24,7 @@
     background-color: black;
     color: white;
     text-decoration: none;
-}
+} */
 
 
 /* top-block */
@@ -138,11 +138,14 @@
 .rank-text,.reduced-text,.carbon-text{
     font-size: 36px;
 }
-.end-btn,.view-badge-btn,.obtain-badge-btn{
-    padding: 15px;
+.wrapper-btn{
+    display: flex;
+}
+.end-btn,.view-badge-btn,.obtain-badge-btn,.session-profile-btn{
+    margin-top: 20px;
+    padding: 10px 5px;
     background-color: black;
     border-radius: 5px;
-    margin-top: 25px;
     cursor: pointer;
     color: white;
 }
@@ -220,12 +223,11 @@
 .wrapper-project{
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
     padding: 10px 0;
 
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    overflow-x: scroll;
+
 }
 .project-container{
     width: 95%;
@@ -341,12 +343,10 @@
 .blogs-content{
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
     padding: 10px 0;
 
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    overflow-x: scroll;
 }
 .nav-eachblog-profile{
     display: flex;

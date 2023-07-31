@@ -39,6 +39,10 @@
     text-align: center;
     margin-top: 50px;
 }
+.qr-code{
+    width: 100px;
+    height: 100px;
+}
 
 /* responsive */
 @media only screen and (max-width: 600px) {

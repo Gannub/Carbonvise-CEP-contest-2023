@@ -52,7 +52,7 @@ def UpdateCart(request):
     if action == 'add':
         cart_item.quantity+=1
     elif action == 'remove':
-       cart_item.quantity-=1 
+       cart_item.quantity-=1
 
     cart_item.save()
 
@@ -141,7 +141,7 @@ def Checkout(request):
             }
             return render(request, 'carts/purchase_complete.html', ctx)
         except:
-            return redirect('error403')
+            return redirect('success')
 
         
 

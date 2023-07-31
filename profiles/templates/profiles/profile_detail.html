@@ -235,10 +235,9 @@
                         <div class="h5"><strong>จบวันที่ </strong>:{{req_profile.user.profile_credit.reset_date}}</div>
                         <div class="number-order-cred">จำนวนเครดิต : {{req_profile.user.profile_credit.credits}} เครดิต</div>
                         <!-- <div class="streak">4 week streak</div> -->
-                        <div>
                             {% if req_profile.user == user %}
                             {% if not profile_credit == None %}
-                            <div class="wrapper">
+                            <div class="wrapper-btn">
                                 
                                 <a href="{% url 'profiles:end_session' user.profile.slug  %}" class="end-btn" >สิ้นสุดเซสชั่น</a>
                                 
@@ -251,22 +250,14 @@
                                  <a href="{% url 'badges:obtain_badges' %}" class="obtain-badge-btn">ขอเหรียญเกียรติยศ</a>
                                 
                                 {% endif %}
-                            </div>
-                                
-                            
+                            </div>       
                             {% else %}
-                           
-                                <a href="{% url 'profiles:start_session' user.profile.slug %}" class="session-btn">Start Session</a>
-                          
+                            <div class="wrapper-btn">
+                                <a href="{% url 'profiles:start_session' user.profile.slug %}" class="session-profile-btn">Start Session</a>
+                            </div>  
                             {% endif %}
-
-                                
-                                
-                            
                             {% else %} 
                             {% endif %}
-                          
-                        </div>
                     </div>
                     </div>
                     <div class="andmore-block">

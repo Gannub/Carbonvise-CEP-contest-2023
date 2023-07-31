@@ -1,0 +1,18 @@
+.dealer-bg{
+    background-color: white;
+    width: 70%;
+    padding: 10px;
+    margin: 10px auto;
+}
+.dealer-container{
+    width: 90%;
+    margin: 0 auto;
+}
+.dealer-submit-btn{
+    padding: 10px 5px;
+    background-color: black;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    margin: 10px auto;
+}

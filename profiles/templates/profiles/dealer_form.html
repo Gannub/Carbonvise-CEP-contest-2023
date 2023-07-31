@@ -4,10 +4,16 @@
 {% load crispy_forms_tags %}
 {% block content %}
 	
-	<section class="">
-		<div class="container alley">
-			<div class="">
-                    <h1>สมัครเป็นดีลเลอร์</h1> 
+	            <div class="container">
+                    <div class="top-block-profile">
+                        <div class="top-block-profile-container">
+                            <div class="profile-title">
+                                <h1>สมัครเป็นดีลเลอร์</h1>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="dealer-bg">
+                        <div class="dealer-container">
 					<form action="" method="POST" enctype="multipart/form-data">
                         <div class="my-3">
                             <!-- <img src="{% if user.profile.image %}
@@ -21,16 +27,16 @@
                         {{form|crispy}}
                         <div class="input_center">
                             <div class= "button_wrapper">
-                                <button class="site-btn my-5" type="submit" value="submit">
+                                <button class="dealer-submit-btn" type="submit" value="submit">
                                     submit
                                 </button>
                                 <span></span>
                             </div>
                         </div> 
                     </form>
-			</div>
-		</div>
-	</section>
+                </div>
+                </div>
+                </div>
 	
 
 

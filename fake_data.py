@@ -87,26 +87,38 @@ PROVINCES=(('1', 'กรุงเทพมหานคร'),
  ('77', 'นราธิวาส'))
 
 #fake 10 dealers test
+first_names = ["John", "Jane", "Michael", "Emily", "William", "Olivia", "James", "Sophia", "Robert", "Emma", "David", "Ava", "Richard", "Mia", "Joseph", "Isabella", "Charles", "Abigail", "Daniel", "Ella"]
+last_names = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin"]
 
-dealers = [{
-    'username':f'userset{num}',
-    'first_name':f'set{num}',
-    'last_name':f'theory{num}',
-    'email':f'set{num}@dev.com',
-    'province':random.randint(1,78),
+# Number of users to generate
+
+
+# Function to generate random names
+def generate_random_name():
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+    return first_name , last_name
+# dealers = [{
+#     'username':f'userset{num}',
+#     'first_name':generate_random_name()[0],
+#     'last_name':generate_random_name()[1],
+#     'email':f'set{num}@dev.com',
+#     'province':random.randint(1,77),
     
-} for num in range (0,1000)] 
+# } for num in range (0,3000)] 
 
-for dealer in dealers:
-    User.objects.create_user(password='111111', **dealer)
+# for dealer in dealers:
+#     User.objects.create_user(password='111111', **dealer)
 
-# users = User.objects.all()
+users = User.objects.all()
 # session = CreditSession.objects.all()
 
-# for user in session:
-#     credits = random.randint(500,4000)
-#     user.credits = credits
-#     user.save()
+for user in users:
+    credits = random.randint(30,500)
+    # user.credits = credits
+    CreditSession.objects.create(user=user, credits=credits, is_neutral=True)
+
+    
 
 
 

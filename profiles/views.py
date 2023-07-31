@@ -237,11 +237,21 @@ def end_session(request):
         # print('pre _ delete')
         time_end = user_session.reset_date
         time_now = timezone.now()
-        delta = time_end - time_now
+    
+        try:
+
+            delta = time_end - time_now
+            user_session.delete()
+            return delta
+        except:
+            
+            user_session.delete()
+            
+            return 'none'
         
-        user_session.delete()
         
-        return delta
+        
+        
         
         
     # except:
@@ -252,11 +262,13 @@ def endSessionView(request, slug):
     
     if request.user.is_authenticated:
         user_session = CreditSession.objects.get(user=request.user)
-
-        time_end = user_session.reset_date
-        time_now = timezone.now()
-        delta = time_end - time_now
-        print(delta)
+        try:
+            time_end = user_session.reset_date
+            time_now = timezone.now()
+            delta = time_end - time_now
+        except:
+            delta = 'นะ'
+        # print(delta)
         if request.method == 'POST':
             
             end_session(request)

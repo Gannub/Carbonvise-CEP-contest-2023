@@ -175,7 +175,7 @@ class CreditSession(models.Model):
         return f"{self.user} | {self.credits}"
     @property
     def checkNeutral(self):
-        credits_goal = 1000
+        credits_goal = 300
 
         if self.credits >= credits_goal and not self.is_neutral:
             self.is_neutral = True

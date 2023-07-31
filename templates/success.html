@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	
+	<section class="hero-section set-bg" data-setbg="{% static 'img/forest.jpg' %}">
+		<div class="container">
+			<div class="hero-text text-black">
+                    <h1 class="my-5">คุณได้ทำการรีเฟรชหน้าโดยไม่่จำเป็น</h1> 
+                    <h1>แต่ไม่ต้องห่วง<br></h1>
+                    <h1>เว็บไซต์ของเราได้รับมือกับปัญหาเหล่านี้ไว้แล้ว </h1>
+                    <a href="{% url 'index' %}" class="checkout-btn">กดเพื่อกลับไปยังหน้าหลัก</a>
+			</div>
+		</div>
+	</section>
+	
+
+
+
+{% endblock %} 
