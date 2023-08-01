@@ -7,49 +7,51 @@ from django.db.models.signals import pre_save, post_save
 User = get_user_model()
 # Create your models here.
 
-Blog_Category = (('1','For you'),
-                 ('2','Top Posts'),
-                 ('3','Tips'),
-                 ('4','News'),
-                 ('5','Events')
+Blog_Category = (
+                 ('1','Top Posts'),
+                 ('2','Tips'),
+                 ('3','News'),
+                 ('4','Events')
 )
 
 def upload_path(instance, filename):
     return f'profiles/{instance}/{filename}'
 
-class Author(models.Model):
-    name = models.OneToOneField(User, on_delete=models.CASCADE)
-    slug = models.SlugField(unique=True,null=True,blank=True)
-    profile_picture = models.ImageField(null=True,blank=True)
+# class Author(models.Model):
+#     name = models.OneToOneField(User, on_delete=models.CASCADE)
+#     slug = models.SlugField(unique=True,null=True,blank=True)
+#     profile_picture = models.ImageField(null=True,blank=True)
 
-    def __str__(self) :
-        return self.user.username
+#     def __str__(self) :
+#         return self.user.username
     
-class Category(models.Model):
-    title = models.CharField(max_length=100, choices=Blog_Category)
-    def __str__(self):
-        return self.title
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
     overview = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True,null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    categories = models.ManyToManyField(Category)
-    featured = models.BooleanField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    categories = models.CharField(max_length=100, choices=Blog_Category, null=True, blank=True)
+    featured = models.BooleanField(default=False)
 
     def __str__(self) :
         return self.title
     
     def get_absolute_url(self):
-        return reverse('post_detail', kwargs={
+        return reverse('blogs:post_detail', kwargs={
             'slug': self.slug
     })
     
     @property
     def get_comments(self):
         return self.comments.all()
+    
+    @property
+    def get_province_name(self):
+        for cat in Blog_Category:
+            if self.categories == cat[0]:
+                return cat[1]
     
 
     

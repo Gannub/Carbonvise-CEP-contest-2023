@@ -4,6 +4,11 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.urls import reverse
 from .forms import CommentForm , PostForm
 from .models import Post
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+
+User = get_user_model()
 
 # Create your views here.
 
@@ -36,6 +41,7 @@ def blog(request):
     paginator = Paginator(post_list, 8)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
+
     
     try:
         paginated_queryset = paginator.page(page)
@@ -48,12 +54,12 @@ def blog(request):
 
     
     context = {
-        'queryset': paginated_queryset,
+        'pag_queryset': paginated_queryset,
         'most_recent': most_recent,
         'page_request_var': page_request_var,
         'queryset': queryset,
-        'featured': featured
-
+        'featured': featured,
+        'post_list':post_list
     }
 
     return render(request , 'blogs/blogs.html', context)
@@ -77,24 +83,35 @@ def post(request, slug):
 
     return render(request, 'blogs/blogs_detail.html', context)
 
-def post_create(request):
-    #form = PostForm(request.POST or None)
-    #if request.method == 'POST':
-        #if form.is_valid:
-            #form.save()
-            #return redirect(reverse('post_detail', kwargs={
-            #'id': form.instance.id
-    #}))
+# def post_create(request):
+#     form = PostForm(request.POST or None)
+#     if request.method == 'POST':
+#         if form.is_valid:
+#             post_form = form.save(commit=False)
+#             post_form.author = request.user
+#             post_form.save()
+            
+            
+#             return redirect(reverse('post_detail', kwargs={
+#             'slug': form.instance.slug
+#     }))
 
-    #context = {
-        #'form': form
-    #}
-    pass
+#     context = {
+#         'form': form
+#     }
+    
 
-    #return render(request, 'post_create.html', context)
+#     return render(request, 'blogs/post_create.html', context)
+# @login_required
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'blogs/post_create.html'
 
-def post_delete(request):
-    pass
+    def form_valid(self, form ,*args, **kwargs):
+        post_form = form.save(commit=False)
 
-def post_update(request):
-    pass
+        author = User.objects.get(username = self.request.user)
+        post_form.author = author
+        post_form.save()
+        return super().form_valid(form, *args,**kwargs)

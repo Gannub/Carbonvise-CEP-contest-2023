@@ -87,37 +87,39 @@
                           <a href="/blogs/tips">Tips</a>
                       </div>
                       <div class="read-more">
-                          <a href="{% url 'blogs:post_detail' %}">Read more</a>
+                          <a href="{{ post.get_absolute_url }}">Read more</a>
                       </div>
                   </div>
               </div>
             </div>
           </div>
+          
+          {% for post in post_list %}
           <div class="secondblog">
               <div class="container-eachblog">
               <div class="nav-eachblog">
                   <div class="userBlog">
-                      <img src={userBlog2} alt="" />
+                      <img src={{post.author.profile.image}} alt="" />
                   </div>
-                  <div class="username-blogs">Sollicitudin</div>
-                  <div class="time">16 hour ago</div>
+                  <div class="username-blogs">{{post.author.user}}</div>
+                  <div class="time">{{post.timestamp|timesince}} ago</div>
               </div>
               <div class="underline-eachblog"></div>
               <div class="below-eachblog">
-                  <div class="title-blog">Revitalize Your Morning Routine...</div>
-                  <div class="text-blog">Start your day off right with these refreshing and nutritious vegan 
-                  smoothie recipes. Packed with vitamins, minerals, and plant-based protein</div>
+                  <div class="title-blog">{{post.title}}</div>
+                  <div class="text-blog">{{post.overview}}</div>
                   <div class="tips-readmore">
                       <div class="tips"> 
-                          <a href="/blogs/tips">Tips</a>
+                          <a href="/blogs/tips">{{post.categories}}</a>
                       </div>
                       <div class="read-more">
-                          <a href="/blogs/read-more">Read more</a>
+                          <a href="{{ post.get_absolute_url }}">Read more</a>
                       </div>
                   </div>
               </div>
               </div>
           </div>
+          {% endfor %}
       </div>
       
       <div class="wrapper-blogs" style="margin-top: 10px;">
@@ -299,6 +301,8 @@
   </div>
   </div>
 </div>
+      
+      
 
 
 {% endblock %}
