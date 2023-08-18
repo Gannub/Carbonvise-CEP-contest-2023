@@ -1,9 +1,10 @@
 # CARBONVISE
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-## Chestnut team #3rd Prize Winner
+## [Chestnut team #3rd Prize Winner](https://cep.or.th/carbonapp-01)
 
 ![CEP Carbon credit Contest 2023](https://github.com/Gannub/Carbonvise-CEP-contest-2023/assets/134199034/ece659f9-29d1-42df-9b22-a74c01c17118)
-<p style="text-align: center;"> <a href="https://cep.or.th/carbonapp-01" style="text-decoration: none;color:#1B1B1B">CEP Carbon credit Contest 2023</a>
 
 ```mermaid
 timeline
