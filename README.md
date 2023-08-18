@@ -4,7 +4,7 @@
 
 ## [Chestnut team #3rd Prize Winner](https://cep.or.th/carbonapp-01)
 
-![CEP Carbon credit Contest 2023](https://github.com/Gannub/Carbonvise-CEP-contest-2023/assets/134199034/ece659f9-29d1-42df-9b22-a74c01c17118)
+![CEP Carbon credit Contest 2023](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200,h_674/https://re-fti.org/wp-content/uploads/2023/08/IMG_8902.webp)
 
 ```mermaid
 timeline
