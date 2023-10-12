@@ -14,6 +14,7 @@ timeline
         : Define the Problem
         : Brainstorm
         : Prototype
+        : reflect
     02 August 2023 : Debug
         : Sent the web
     10 August 2023 : Pitching
